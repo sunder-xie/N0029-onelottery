@@ -1,0 +1,82 @@
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/paging.css">
+<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/js/query.js"></script>
+<script type="text/javascript" src="/js/paging.js"></script>
+
+
+<div class="shaixuan_con">
+    <ul class="shaixuan_ul" >
+        <li class="shxu_tit">
+            <div class="shxu_tit_col6" style="width: 20%">名称</div>
+            <div class="shxu_tit_col2" style="width: 10%">类型</div>
+            <div class="shxu_tit_col2" style="width: 20%">创建者</div>
+            <div class="shxu_tit_col3" style="width: 10%">状态</div>
+            <div class="shxu_tit_col3" style="width: 15%">规则</div>
+            <div class="shxu_tit_col6 no-margin" style="width: 20%">创建时间</div>
+        </li>
+        <li class="shan_content" style="height: auto;">
+            <%for(var i = 0; i < data.length ; i ++){%>
+            <a href="/activity/list?lotteryID=<%=data[i].lotteryID%>" target="_blank">
+                <%if(data[i].name.length > 15){%>
+                    <div class="shxu_tit_col7" style="width: 20%">
+                        <%=data[i].name.substring(0,10)%>
+                        <br/>
+                        <%=data[i].name.substring(10,data[i].name.length)%>
+                    </div>
+                <%}else{%>
+                    <div class="shxu_tit_col7" style="width: 20%"><%=data[i].name%></div>
+                <%}%>
+                <div class="shxu_tit_col2" style="width: 10%"><%=data[i].type%></div>
+                <div class="shxu_tit_col3" style="width: 20%"><%=data[i].publisherName%></div>
+               <%if(data[i].statu =='失败'){%>
+                   <%if(data[i].state ==4){%>
+                    <div class="shxu_tit_col3" style="width: 10%"><%=data[i].statu%>(已退款)</div>
+                    <%}else if(data[i].curBetAmount > 0){%>
+                    <div class="shxu_tit_col3" style="width: 10%"><%=data[i].statu%>(未退款)</div>
+                    <%}else{%>
+                    <div class="shxu_tit_col3" style="width: 10%"><%=data[i].statu%>(未投注)</div>
+                    <%}%>
+               <%}else{%>
+               <div class="shxu_tit_col3" style="width: 10%"><%=data[i].statu%></div>
+               <%}%>
+               
+                <div class="shxu_tit_col3" style="width: 15%">获奖者<%=data[i].percentage%>%</div>
+                <div class="shxu_tit_col6 no-margin" style="width: 20%"><%=data[i].createTime.Format('yyyy-MM-dd hh:mm:ss')%></div>
+            </a>
+            <%}%>
+        </li>
+    </ul>
+</div>
+<%if(pageCount!=0){%>
+<div class="page page_spe"  style="margin-bottom: 0px;">
+    <div id="pageTool"style="padding-top: 40px;" ></div>
+</div>
+<%}%>
+<script>
+    var url = window.location.href;
+    $('#pageTool').Paging({pagesize:<%=eachPage%>,current:<%=currentPage%>,count:<%=pageCount%>,callback:function(page,size,count){
+        console.log(arguments)
+        console.log('当前第 ' +page +'页,每页 '+size+'条,总页数：'+count+'页');
+        loadData(page,true)
+    }});
+    function loadData(cur){
+
+        if(window.location.search ==''){
+            url += '?currentPage='+cur
+        }else{
+            if(window.location.search.indexOf('currentPage')!=-1){
+                var search = window.location.search.split('=');
+                var length = search[search.length-1].length;
+                url = url.substr(0,url.length - length) + cur;
+            }else{
+                url += '&currentPage=' + cur;
+            }
+        };
+        console.log('url',url);
+
+        window.location.href = url ;
+
+    }
+</script>

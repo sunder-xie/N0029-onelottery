@@ -1,0 +1,14 @@
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0;}
+body{font-size:14px;background:#fff;-webkit-text-size-adjust:100%; color: #666;}
+a{color:#333;text-decoration:none}
+a:hover{color:#333;text-decoration:none;}
+em{font-style:normal}
+li{list-style:none}
+img{border:0;vertical-align:middle}
+table{border-collapse:collapse;border-spacing:0}
+p{word-wrap:break-word;}
+.container{padding: 0;}
+.word{padding: 4rem 3rem 0 3rem; font-size: 1.5rem; line-height: 3rem;text-indent: 3rem;}
+.footer{margin-top: 2rem;}
+.footer span{float: right; padding-right: 3rem; font-size: 1.2rem; margin-top: 5rem; color: #999;}
+.footer i{width: 180px; height: 60px; background: url('../images/foo.png'); float: left; margin-top: 2rem;}

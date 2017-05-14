@@ -1,0 +1,152 @@
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+<link rel="stylesheet" href="/css/style.css">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="all" href="/css/daterangepicker-bs3.css" />
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/js.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/moment.js"></script>
+<script type="text/javascript" src="/js/daterangepicker.js"></script>
+<style>
+	.table-condensed{font-size: 14px;}
+	.table-condensed thead > tr > th, .table-condensed tbody > tr > th, .table-condensed tfoot > tr > th, .table-condensed thead > tr > td, .table-condensed tbody > tr > td, .table-condensed tfoot > tr > td {
+		padding: 3px;
+	}
+</style>
+<script type="text/javascript">
+	$(function () {
+		$(".succ-btn").removeAttr("disabled");
+		$("#img1").attr("checked",true);
+	});
+	function computerCost(node){
+		if($("#number").val().search(/^[0-9]+$/)||parseInt($("#number").val())<1||parseInt($("#number").val())>10000){
+				$('#number').addClass("inputerr");
+				$("#number").val("");
+				return false;
+		}
+		$('#number').removeClass("inputerr");
+		var cost = parseInt($("#price").val());
+		var num = parseInt($("#number").val());
+		var total = cost * num;
+		if(isNaN(total)){
+			total = '';
+		}
+		$("#total").val(total);
+        
+	}
+	function chtitle(obj) {
+		$(obj).css({'border':'1px solid #ccc'});
+		var value = $(obj).val();
+		if(!/^([\w]|[\u4e00-\u9fa5]|[ 。，、”“’‘"'？￥！：【】《》（）——+-,.?:!<>;\/\\\[\]\{\}\|\*\^\(\)`~@#$%&])+$/.test(value)||value.trim()==""){
+			$(obj).css({'border':'1px solid red'});
+			$(obj).val("");
+		}
+	}
+	function aa() {
+		$(this).css({'border':'1px solid #ccc'})
+	    var frm = $("#createActivity");
+		var required =[];
+		$(".required").each(function(i) {
+			if($(this).val()==""){
+				required.push($(this));
+				$(this).css({'border':'1px solid red'})
+			}
+		});
+
+		if(required.length==0){
+			$(".succ-btn").attr({"disabled":"disabled"}).css({"background-color":"#D2D2D2"});
+			$.ajax({
+				type: frm.attr('method'),
+				url: frm.attr('action'),
+				data: frm.serialize(),
+				success: function(data) {
+					alert(data);
+					location.reload();
+				}
+			});
+		}else{
+			required[0].focus();
+		}
+	}
+</script>
+<body >
+
+
+<div class="publi_act">
+  <form action="/activity" method="post" id="createActivity">
+		<div class="inpu">
+			<span>活动规则</span>
+			<select class="sec_seo" name="ruleId">
+			    <% for(var i in rules){%>
+			    <%if(rules[i].status == 1){%>
+				<option value="<%=rules[i].id%>">获奖者得<%=rules[i].percentage%>%</option>
+				<% }} %>
+			</select>
+		</div>
+		<div class="inpu">
+			<span>活动标题</span>
+			<input type="text" class="huo_tit required title" onblur="chtitle(this)" placeholder="20个字以内" maxlength="20" name="name">
+		</div>
+		<div class="inpu">
+			<span class="descript">活动描述</span>
+			<textarea   name="description" placeholder="30个字以内" class="title" onblur="chtitle(this)" maxlength="30" ></textarea>
+		</div>
+		<div class="inpu">
+			<span>总注数</span>
+			<input type="text" class="huo_tit required" onblur="computerCost()" maxlength="5" id="number" placeholder="1~10000以内的有效数字！" name="maxAttendeeCnt">
+		</div>
+		<div class="inpu">
+			<span>每注花费</span>
+			<select class="sec_seo" name="cost" onblur="computerCost()" id="price">
+				<option value="1">1</option>
+				<option value="5">5</option>
+				<option value="10">10</option>
+				<option value="20">20</option>
+				<option value="50">50</option>
+				<option value="100">100</option>
+			</select>
+			<!-- <input type="text" class="huo_tit" name="cost" onblur="computerCost()" id="price"> -->
+		</div>
+		<div class="inpu">
+			<span>募集金额</span>
+			<input type="text" class="huo_tit" name="total" id="total" readonly="true">
+		</div>
+		<div class="inpu" id="inpu_pic">
+			<span>活动图片</span>
+			<div>
+				<%for(var i=1;i<10;i++){%>
+				<span><input type="radio" name="pictureIndex" id="img<%=i%>" value="<%=i%>"><label for="img<%=i%>"><img src="/images/activity/<%=i%>.jpg"></label></span>
+				<%}%>
+			</div>
+		</div>
+		<div class="inpu">
+			<span>开始时间</span>
+			<input  id="reservation" class="huo_tit" readonly style="width:200px" name="startTime">
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$('#reservation').val(moment().format('YYYY-MM-DD HH:mm'));
+					$('#reservation').daterangepicker({ minDate: moment().format('YYYY-MM-DD HH:mm'), maxDate: moment().add('days', 29),timePicker12Hour:false, singleDatePicker: true ,timePicker: true, timePickerIncrement:1, format: 'YYYY-MM-DD HH:mm'});
+				});
+			</script>
+		</div>
+		<div class="inpu">
+			<span>活动时长</span>
+			<select class="sec_seo" name="last">
+				<option value="1">一天</option>
+				<option value="3">三天</option>
+				<option value="5">五天</option>
+				<option value="7">七天</option>
+				<option value="10">十天</option>
+				<option value="15">十五天</option>
+				<option value="25">二十天</option>
+				<option value="30">三十天</option>
+
+			</select>
+		</div>
+  </form>
+</div>
+<div class="pulish_btn" style="margin-top: 80px;">
+	<input class="succ-btn" type="button" onclick="aa()" value="确认创建" />
+</div>
+</body>

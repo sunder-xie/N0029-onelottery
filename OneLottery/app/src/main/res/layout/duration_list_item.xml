@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rule_item_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_duration_name"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y88"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x34"
+        android:text="1天"
+        android:textColor="@color/lottery_item_text_color"
+        android:textSize="@dimen/y28" />
+
+    <include
+        android:id="@+id/divider"
+        layout="@layout/create_lottery_divider_line" />
+</LinearLayout>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#36686564">
+
+    <LinearLayout
+        android:id="@+id/umeng_update_frame"
+        android:layout_width="@dimen/x550"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/shape_alert_dialog_bg"
+        android:orientation="vertical">
+
+        <!-- Title -->
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/y88">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/fir_update_title"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/common_text_color"
+
+                android:textSize="@dimen/y32" />
+
+            <ImageButton
+                android:id="@+id/fir_update_id_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/x20"
+                android:focusable="true"
+                android:src="@drawable/fir_update_button_close_bg_selector"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="@dimen/x510"
+            android:layout_height="@dimen/y2"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/alert_dialog_line_bg" />
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/x30">
+
+                <TextView
+                    android:id="@+id/fir_update_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:lineSpacingMultiplier="1.0"
+                    android:lines="1"
+                    android:textColor="@color/common_text_color"
+                    android:textSize="@dimen/y28" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/y30"
+                    android:textColor="@color/common_text_color"
+                    android:text="@string/fir_update_content"
+                    android:textSize="@dimen/y30"/>
+
+                <TextView
+                    android:id="@+id/fir_update_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/y30"
+                    android:focusable="true"
+                    android:textColor="@color/common_text_color"
+                    android:textSize="@dimen/y28" />
+            </LinearLayout>
+        </ScrollView>
+
+
+        <View
+            android:layout_width="@dimen/x510"
+            android:layout_height="@dimen/y2"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/alert_dialog_line_bg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y88"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/fir_update_id_cancel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/fir_not_now"
+                android:textColor="@color/lottery_item_text_color"
+                android:textSize="@dimen/y28" />
+
+            <View
+                android:layout_width="@dimen/x2"
+                android:layout_height="@dimen/y64"
+                android:layout_gravity="center_vertical"
+                android:background="@color/dark_gray" />
+
+            <Button
+                android:id="@+id/fir_update_id_ok"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/fir_update_now"
+                android:textColor="@color/app_primary_color"
+                android:textSize="@dimen/y28" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

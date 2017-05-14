@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>活动管理</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+	<link href="" rel="stylesheet">
+	<link rel="stylesheet" href="../css/style.css">
+	<script src="../js/jquery-1.11.1.min.js"></script>
+	<script src="../js/js.js"></script>
+</head>
+<div class="siteWrap">
+	<div class="site">
+		<div class="site_left">
+			<img src="../images/logo.png" height="30" width="147" alt="">
+		</div>
+		<div class="site_right">
+			<ul class="site_ul">
+				<li class="site_people"></li>
+				<li class="site_li1">adma</li>
+				<li class="site_peo"></li>
+				<li class="site_word"><a href="javascript:void(0);">设置</a>
+					<ul class="site_dropUp">
+						<li class="site_Bord"><a href="/account">个人账户</a></li>
+						<li><a href="/logout">退出</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="navWrap">
+	<div class="nav hardnav">
+		<ul class="nav_ul">
+			<li id="asset"><a href="../asset">资产统计</a></li>
+			<li  class="current" id="activity"><a href="../activity">活动管理</a></li>
+			<li id="user"><a href="../user">用户管理</a></li>
+			<li id="transfer"><a href="../transfer">充值</a></li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		loadData();
+	});
+	function loadData(){
+		var lotteryID = $('#lotteryID').html();
+		var src="/activity/list_z?lotteryID=<%=lottery.lotteryID%>";
+		console.log(src)
+		$('#iframe').attr('src',src);
+	}
+	function loadDatas(obj){
+		var url = $(obj).val();
+		$(obj).attr("disabled",true).css({"background":"#ccc"});
+		$.ajax({
+			type:'get',
+			url:url,
+			success: function(data) {
+				if(data=="删除成功"||data=="退款成功"){
+					alert(data);
+					window.close();
+
+				}else if(data=="删除失败"||data=="退款失败"){
+					alert(data);
+		 			location.reload()
+				}
+			}
+		});
+	}
+</script>
+<div class="activity-find">
+	<div class="activity-find-tit">
+		<p class="act-find-tit-lef"><%=lottery.name%></p>
+		<p class="act-find-tit-rig" >活动ID&nbsp &nbsp<span id="lotteryID"><%=lottery.lotteryID%></span></p>
+	</div>
+	<div class="activity-find-form">
+		<ul class="activity-find-mess-ul1">
+			<li>
+				<div class="act-fin-lef">创建者 &nbsp <span><%=lottery.publisherName%></span></div>
+				<div class="act-fin-rig">创建者hash &nbsp <span><%=lottery.publisherHash%></span></div>
+			</li>
+			<li>
+				<div class="act-fin-lef">共需注数 &nbsp <span><%=lottery.total/lottery.cost%></span></div>
+				<div class="act-fin-rig">每注价格 &nbsp <span><%=lottery.cost/10000%></span></div>
+			</li>
+			<li>
+				<div class="act-fin-lef">已募集 &nbsp <span><%=lottery.curBetAmount/lottery.cost%></span></div>
+				<div class="act-fin-rig">活动规则 &nbsp <span>获奖者得<%=rules.percentage%>%</span></div>
+			</li>
+			<li>
+				<div class="act-fin-lef">开始时间 &nbsp <span><%=lottery.startTime.Format('yyyy-MM-dd hh:mm:ss')%> </span></div>
+				<div class="act-fin-rig">结束时间 &nbsp <span>
+				<%if(lottery.lastCloseTime){%>
+				<%=lottery.lastCloseTime.Format('yyyy-MM-dd hh:mm:ss')%> 
+				<%}else{%>
+				<%=lottery.closeTime.Format('yyyy-MM-dd hh:mm:ss')%> 
+				<%}%>
+
+				</span></div>
+			</li>
+			<li>
+				<div class="act-fin-lef">活动进度 &nbsp <span><%=lottery.curBetAmount/lottery.total*100%>%</span></div>
+				<div class="act-fin-rig">活动描述 &nbsp <span><%=lottery.description%></span></div>
+			</li>
+		</ul>
+		<div class="activity-find-mess_pic">
+			<div class="act-fid-pic-lef">活动图片
+				<img src="/images/activity/<%=lottery.pictureIndex%>.jpg"  alt="">
+			</div>
+				<% if(lottery.lastCloseTime){%>
+				<div class="act-fid-text ">
+					<span>幸运号码:</span><span style="color: red;padding-right: 50px"> <%=rewarduser.rewardNumbers%></span>
+					<span>获奖者:</span><span style="color: #4288fb;padding-right: 50px"> <%=rewarduser.name%></span>
+					<span>本期参与:</span><span style="color: red;padding-right: 50px"> <%=rewarduser.count%>注</span>
+					<span>参与本次活动金额:</span><span style="color: red;"> <%=rewarduser.allcost%>众享币</span>
+				</div>
+				<%}%>
+
+				<% if(lottery.startTime > new Date()&&lottery.publisherName=="one_chain_admin"){%>
+
+					<button value="/activity/delete?id=<%=lottery.lotteryID%>" type="button" onclick="loadDatas(this)" class="act-fid-pic-rig actbut">删除</button>
+
+					<div class="act-fid-pic-rig actbut">
+						<a href="/activity/edit?id=<%=lottery.lotteryID%>" target="_top">修改活动</a>
+					</div>
+
+				<%}%>
+				<% if(lottery.closeTime < new Date()&&lottery.total != lottery.curBetAmount&&lottery.curBetAmount > 0&& lottery.state != 3&&lottery.state != 4 ){%>
+
+					<button value="/activity/tuikuan?id=<%=lottery.lotteryID%>" type="button" onclick="loadDatas(this)" class="act-fid-pic-rig actbut">退款</button>
+				<%}%>
+			</div>
+		</div>
+		<iframe id="iframe" src="/activity/list_z" width="100%" height="400" onload="this.height=$(this).contents().height()" scrolling="no" frameborder="0" ></iframe>
+	</div>
+</div>
+
+
+
+
+
+
+<div class="footer1">
+	Copyright © 2015.Company PeerSafe All rights reserved.
+</div>
+</html>

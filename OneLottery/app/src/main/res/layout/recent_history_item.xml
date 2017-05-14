@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="@dimen/x355"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/x5"
+        android:layout_marginRight="@dimen/x5"
+        android:foreground="?android:attr/selectableItemBackground"
+        card_view:cardBackgroundColor="@android:color/white"
+        card_view:cardCornerRadius="@dimen/x6"
+        card_view:cardElevation="@dimen/x1"
+        card_view:cardUseCompatPadding="true">
+
+        <ImageView
+            android:id="@+id/img_history_top_img"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y242"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/tv_history_label_text"
+            android:layout_width="@dimen/x70"
+            android:layout_height="@dimen/y70"
+            android:background="@drawable/lottery_official"
+            android:paddingLeft="@dimen/x6"
+            android:text="@string/lottery_offical_flag"
+            android:textColor="@color/white"
+            android:textSize="@dimen/y24"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x16"
+            android:layout_marginRight="@dimen/x16"
+            android:layout_marginTop="@dimen/y250"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/y20">
+
+            <TextView
+                android:id="@+id/tv_history_lottery_describe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y15"
+                android:gravity="center_vertical"
+                android:lines="2"
+                android:text="你说覅胡奥大师傅我饿的大火案大幅度是的发生代发"
+                android:textColor="@color/lottery_item_text_color"
+                android:textSize="@dimen/y27"/>
+
+            <TextView
+                android:id="@+id/tv_history_award"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y20"
+                android:text="获奖者 : apasdf"
+                android:textColor="@color/lottery_detaile_text_color"
+                android:textSize="@dimen/y25"/>
+
+            <TextView
+                android:id="@+id/tv_history_end_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y10"
+                android:text="结束时间 ：2016_11_25 14:22"
+                android:textColor="@color/lottery_detaile_text_color"
+                android:textSize="@dimen/y22"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/ll_main_content"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        style="@style/marginleft_and_marginright"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y30"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lottery_creater_text"
+            style="@style/wrap_wrap"
+            android:text="@string/lottery_creater"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/y28"/>
+
+        <TextView
+            android:id="@+id/tv_lottery_creater"
+            style="@style/wrap_wrap"
+            android:layout_marginLeft="@dimen/x25"
+            android:layout_toRightOf="@+id/lottery_creater_text"
+            android:textColor="@color/lottery_prize_text_color"
+            android:textSize="@dimen/y28"/>
+
+        <Button
+            android:id="@+id/btn_add_concern"
+            android:layout_width="@dimen/x95"
+            android:layout_height="@dimen/y42"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/shape_lottery_common_bg_btn"
+            android:drawableLeft="@drawable/lottery_detail_add_concern"
+            android:drawablePadding="@dimen/x5"
+            android:gravity="center_vertical|left"
+            android:paddingLeft="@dimen/x15"
+            android:text="@string/lottery_detail_add_concern"
+            android:outlineProvider="none"
+            android:textColor="@color/app_primary_color"
+            android:textSize="@dimen/y22"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/marginleft_and_marginright"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x33"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/pro_lottery_percent"
+            style="@style/StyleProgressBarMini"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y14"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x70"
+            android:max="100"/>
+
+        <TextView
+            android:id="@+id/tv_lottery_percent"
+            style="@style/wrap_wrap"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/app_primary_color"
+            android:textSize="@dimen/y24"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/marginleft_and_marginright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y23">
+
+        <TextView
+            android:id="@+id/lottery_detail_bet_total_count"
+            style="@style/wrap_wrap"
+            android:layout_marginTop="@dimen/y10"
+            android:text="@string/lottery_detail_bet_total_count"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/y26"/>
+
+        <TextView
+            android:id="@+id/tv_bet_total_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/lottery_detail_bet_total_count"
+            android:text="100"
+            android:textColor="@color/app_primary_color"
+            android:textSize="@dimen/y38"/>
+
+        <TextView
+            android:id="@+id/tv_rest_bet_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="100"
+            android:textColor="@color/app_primary_color"
+            android:textSize="@dimen/y38"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y10"
+            android:layout_toLeftOf="@+id/tv_rest_bet_count"
+            android:text="@string/lottery_detail_rest_bet_count"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/y26"/>
+    </RelativeLayout>
+
+    <TextView
+        style="@style/create_lottery_division_line"
+        android:layout_marginTop="@dimen/x20"
+        />
+</LinearLayout>

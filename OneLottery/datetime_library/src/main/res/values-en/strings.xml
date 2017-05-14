@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">dialog-picker</string>
+
+    <string name="timepicker_year">Y</string>
+    <string name="timepicker_month">M</string>
+    <string name="timepicker_day">D</string>
+    <string name="timepicker_hour">H</string>
+    <string name="timepicker_min">MIN</string>
+    <string name="timepicker_title">Choose Time</string>
+    <string name="timepicker_cancel">Cancel</string>
+    <string name="timepicker_finish">OK</string>
+    <string name="timepicker_title_default">Setting</string>
+    <string name="timepicker_today">Today</string>
+</resources>

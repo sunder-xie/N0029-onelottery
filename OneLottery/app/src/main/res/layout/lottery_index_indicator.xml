@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/advise_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y58"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x40"
+            android:src="@drawable/advise_icon"/>
+
+        <com.peersafe.chainbet.widget.NoticeView
+            android:id="@+id/tv_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x20"
+            android:layout_marginRight="@dimen/x40"
+            android:layout_toRightOf="@id/iv_icon">
+
+        </com.peersafe.chainbet.widget.NoticeView>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_lottery_division_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y20"
+        android:background="@color/lottery_division_line"/>
+
+    <LinearLayout
+        android:id="@+id/lottery_index_lyout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y75"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_lottery_newest"
+            android:layout_width="@dimen/x180"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/lottery_index_newest"
+            android:textAllCaps="false"
+            android:textColor="@color/lottery_index_text_color"
+            android:textSize="@dimen/y27"/>
+
+        <Button
+            android:id="@+id/btn_lottery_fastest"
+            android:layout_width="@dimen/x180"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/lottery_index_fastest"
+            android:textAllCaps="false"
+            android:textColor="@color/lottery_index_text_color"
+            android:textSize="@dimen/y27"/>
+
+        <Button
+            android:id="@+id/btn_lottery_friend"
+            android:layout_width="@dimen/x180"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textAllCaps="false"
+            android:text="@string/lottery_index_friend"
+            android:textColor="@color/lottery_index_text_color"
+            android:textSize="@dimen/y27"/>
+
+        <Button
+            android:id="@+id/btn_lottery_me"
+            android:layout_width="@dimen/x180"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/lottery_index_me"
+            android:textAllCaps="false"
+            android:textColor="@color/lottery_index_text_color"
+            android:textSize="@dimen/y27"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/layout_indicator"
+        android:layout_width="@dimen/x116"
+        android:layout_height="@dimen/y5"
+        android:background="@color/app_primary_color"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y1"
+        android:background="@color/lottery_index_divider_line"/>
+
+
+    <LinearLayout
+        android:id="@+id/ly_empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y100"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/no_data"/>
+
+        <TextView
+            android:id="@+id/tv_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y20"
+            android:gravity="center"
+            android:text="@string/no_lottery"
+            android:textColor="@color/no_data"
+            android:textSize="@dimen/y28"/>
+    </LinearLayout>
+
+</LinearLayout>

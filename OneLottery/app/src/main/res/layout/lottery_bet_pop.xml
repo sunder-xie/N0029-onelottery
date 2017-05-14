@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y538"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y170">
+
+        <TextView
+            android:id="@+id/tv_bet_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x54"
+            android:text="@string/lottery_bet_count"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/y24"/>
+
+        <com.peersafe.chainbet.widget.KeyBackCancelEditText
+            android:id="@+id/et_bet_num"
+            android:layout_width="@dimen/x460"
+            android:layout_height="@dimen/y67"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x44"
+            android:layout_toRightOf="@id/tv_bet_num"
+            android:background="@drawable/shape_bet_edit_bg"
+            android:inputType="number"
+            android:maxLength="5"
+            android:paddingLeft="@dimen/x24"
+            android:textSize="@dimen/y24"/>
+
+        <TextView
+            android:id="@+id/tv_one_bet_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/y26"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y212"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_num_five"
+            android:layout_width="@dimen/x112"
+            android:layout_height="@dimen/y53"
+            android:layout_marginLeft="@dimen/x63"
+            android:background="@drawable/selector_bet_num_btn"
+            android:stateListAnimator="@null"
+            android:text="@string/lottery_bet_num_five"
+            android:textColor="@color/app_primary_color"
+            android:textSize="@dimen/y26"/>
+
+        <Button
+            android:id="@+id/btn_num_twenty"
+            android:layout_width="@dimen/x112"
+            android:layout_height="@dimen/y53"
+            android:layout_marginLeft="@dimen/x48"
+            android:background="@drawable/selector_bet_num_btn"
+            android:stateListAnimator="@null"
+            android:text="@string/lottery_bet_num_twenty"
+            android:textColor="@color/app_primary_color"
+            android:textSize="@dimen/y26"/>
+
+        <Button
+            android:id="@+id/btn_num_fifty"
+            android:layout_width="@dimen/x112"
+            android:layout_height="@dimen/y53"
+            android:layout_marginLeft="@dimen/x48"
+            android:stateListAnimator="@null"
+            android:background="@drawable/selector_bet_num_btn"
+            android:text="@string/lottery_bet_num_fifty"
+            android:textColor="@color/app_primary_color"
+            android:textSize="@dimen/y26"/>
+
+        <Button
+            android:id="@+id/btn_num_all"
+            android:layout_width="@dimen/x112"
+            android:layout_height="@dimen/y53"
+            android:layout_marginLeft="@dimen/x48"
+            android:stateListAnimator="@null"
+            android:background="@drawable/selector_bet_num_btn"
+            android:text="@string/lottery_bet_num_all"
+            android:textColor="@color/app_primary_color"
+            android:textSize="@dimen/y26"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_divide_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y1"
+        android:layout_marginLeft="@dimen/x28"
+        android:layout_marginRight="@dimen/x28"
+        android:layout_marginTop="@dimen/y330"
+        android:background="@color/setting_division_line"/>
+
+    <TextView
+        android:id="@+id/tv_bet_total"
+        android:layout_width="@dimen/x286"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_divide_line"
+        android:layout_marginLeft="@dimen/x72"
+        android:layout_marginTop="@dimen/y38"
+        android:text="@string/lottery_bet_total"
+        android:textColor="@color/common_text_color"
+        android:textSize="@dimen/y24"/>
+
+    <TextView
+        android:id="@+id/tv_bet_balance"
+        android:layout_width="@dimen/x286"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tv_divide_line"
+        android:layout_marginRight="@dimen/x72"
+        android:layout_marginTop="@dimen/y38"
+        android:gravity="right"
+        android:text="@string/lottery_bet_balance"
+        android:textColor="@color/common_text_color"
+        android:textSize="@dimen/y24"/>
+
+    <Button
+        android:id="@+id/btn_bet_immidiately"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y96"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/selector_bet_btn"
+        android:text="@string/lottery_bet_immediately"
+        android:textColor="@color/white"
+        android:textSize="@dimen/y30"/>
+
+</RelativeLayout>

@@ -1,0 +1,159 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/app_primary_color</item>
+        <item name="colorPrimaryDark">@color/app_primary_color</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AnimBottom" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+
+    <style name="Theme.AppStartLoad" parent="NoTitleFullscreen">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <!--设置-全屏-->
+    <style name="NoTitleFullscreen" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+
+    <!-- 自定义dialoag的样式 -->
+    <style name="MyDialogStyle" parent="Theme.AppCompat.Light">
+        <!-- 支持toolbar -->
+        <item name="windowActionBar">false</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <!-- 自定义进度条的样式 -->
+    <style name="StyleProgressBarMini" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:maxHeight">40dp</item>
+        <item name="android:minHeight">10dp</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:indeterminateDrawable">
+            @android:drawable/progress_indeterminate_horizontal
+        </item>
+        <item name="android:progressDrawable">@drawable/shape_progressbar_mini</item>
+        <item name="android:background">@drawable/shape_progressbar_bg</item>
+    </style>
+
+    <!-- 投注弹出框样式 -->
+    <style name="StyleLotteryBetDialog" parent="android:Theme.Dialog">
+
+        <!-- 背景颜色及透明程度 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 是否半透明 -->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- 是否没有标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 点击外部取消 -->
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <!-- 是否背景模糊 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 设置背景模糊的透明度-->
+        <item name="android:backgroundDimAmount">0.5</item>
+        <!-- Dialog进入及退出动画 -->
+        <item name="android:windowAnimationStyle">@style/AnimBottom</item>
+
+    </style>
+
+    <style name="create_lottery_spinner">
+        <item name="android:layout_width">@dimen/x401</item>
+        <item name="android:layout_height">@dimen/y70</item>
+        <item name="android:layout_marginLeft">@dimen/dp_22</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:background">@drawable/create_lottery_gray_recentage</item>
+    </style>
+
+    <style name="wrap_wrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="create_lottery_spinner_down_arrow">
+        <item name="android:layout_width">@dimen/x17</item>
+        <item name="android:layout_height">@dimen/y30</item>
+        <item name="android:src">@drawable/setting_goto</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_marginRight">@dimen/y34</item>
+    </style>
+
+    <style name="create_lottery_mid_title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/y111</item>
+        <item name="android:paddingLeft">@dimen/x34</item>
+        <item name="android:paddingRight">@dimen/x34</item>
+        <item name="android:background">@drawable/rule_item_bg</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="create_lottery_division_line" parent="marginleft_and_marginright">
+        <item name="android:background">@color/setting_division_line</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/y1</item>
+    </style>
+
+    <style name="marginleft_and_marginright">
+        <item name="android:layout_marginLeft">@dimen/x28</item>
+        <item name="android:layout_marginRight">@dimen/x28</item>
+    </style>
+
+    <style name="tv_lottery_holder" parent="wrap_wrap">
+        <item name="android:layout_marginTop">@dimen/y20</item>
+        <item name="android:textColor">@color/lottery_item_text_color</item>
+        <item name="android:textSize">@dimen/y25</item>
+        <item name="android:visibility">visible</item>
+    </style>
+
+    <style name="guide_point">
+        <item name="android:layout_width">@dimen/y20</item>
+        <item name="android:layout_height">@dimen/y20</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_margin">@dimen/y8</item>
+        <item name="android:src">@drawable/point</item>
+    </style>
+
+    <style name="setting_withdraw_detail_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/common_text_color</item>
+        <item name="android:textSize">@dimen/y28</item>
+
+    </style>
+
+    <style name="recharge_btn">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginRight">@dimen/x10</item>
+        <item name="android:background">@drawable/shape_rechange_block_bg</item>
+        <item name="android:textColor">@color/common_text_color</item>
+        <item name="android:textSize">@dimen/y32</item>
+    </style>
+
+    <style name="TablayoutTextStyle" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+    </style>
+
+</resources>

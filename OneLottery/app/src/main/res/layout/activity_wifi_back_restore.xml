@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg">
+
+    <RelativeLayout
+        android:id="@+id/rl_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@color/app_primary_color"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:drawableLeft="@drawable/back_icon"
+            android:drawablePadding="@dimen/top_bar_back_drawable_padding"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="@dimen/top_bar_back_left_padding"
+            android:stateListAnimator="@null"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/top_bar_back_text_size" />
+
+        <TextView
+            android:id="@+id/message_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/setting_back_restore_wifi"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/y38" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_gesture_devide_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y1"
+        android:layout_below="@id/rl_top_bar"
+        android:background="@color/setting_division_line" />
+
+    <LinearLayout
+        android:id="@+id/rl_wifi_connected"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_gesture_devide_line"
+        android:background="@android:color/transparent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ly_wifi_logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x106"
+                android:src="@drawable/wifi_backrestore_sign" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x60"
+                android:text="@string/setting_wifi_mode_open"
+                android:textColor="@color/setting_text_color"
+                android:textSize="@dimen/y33" />
+
+            <TextView
+                android:id="@+id/tv_wifi_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="fwefsdfsdfsdfsdfsdf"
+                android:textColor="@color/setting_wifi_name_color"
+                android:textSize="@dimen/y25" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setting_pc_phone_same_wifi_tip"
+                android:textColor="@color/setting_wifi_name_color"
+                android:textSize="@dimen/y25" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_wifi_backrestore_tip1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/y160"
+            android:text="@string/setting_wifi_backrestore_enter_address"
+            android:textColor="@color/setting_text_color"
+            android:textSize="@dimen/y24" />
+
+        <TextView
+            android:id="@+id/tv_wifi_backrestore_tip2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setting_wifi_backrestore_not_leave"
+            android:textColor="@color/app_primary_color"
+            android:textSize="@dimen/y24" />
+
+        <Button
+            android:id="@+id/btn_wifibackup_address"
+            android:layout_width="@dimen/x500"
+            android:layout_height="@dimen/y70"
+            android:layout_marginTop="@dimen/x60"
+            android:background="@drawable/selector_wifiback_address_button"
+            android:gravity="center"
+            android:stateListAnimator="@null"
+            android:text=""
+            android:textColor="@color/blue_light_cornor" />
+    </LinearLayout>
+
+    <include layout="@layout/empty"
+        android:visibility="gone" />
+
+</RelativeLayout>

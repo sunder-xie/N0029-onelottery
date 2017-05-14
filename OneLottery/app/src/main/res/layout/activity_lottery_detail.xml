@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/activity_lottery_detail"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <include
+        layout="@layout/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.github.jdsjlzx.recyclerview.LRecyclerView
+        android:id="@+id/partake_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/white"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    <LinearLayout
+        android:id="@+id/ll_lottery_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y100"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_lottery_bet"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_my_lottery_bet_btn_bg"
+            android:drawableLeft="@drawable/lottery_detail_bet"
+            android:drawablePadding="@dimen/x20"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="@dimen/x110"
+            android:text="@string/bet"
+            android:textSize="@dimen/y32"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/btn_lottery_share"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_lottery_detaile_share_btn_bg"
+            android:drawableLeft="@drawable/lottery_detail_share"
+            android:drawablePadding="@dimen/x20"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="@dimen/x110"
+            android:text="@string/setting_share"
+            android:textSize="@dimen/y32"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+</LinearLayout>
+

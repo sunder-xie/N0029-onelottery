@@ -1,0 +1,101 @@
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+<link rel="stylesheet" href="/css/style.css">
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="all" href="/css/daterangepicker-bs3.css" />
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/css/page.css">
+<style type="text/css">
+	.faceShow{
+		width:100%;
+		margin:0 auto;
+		position:relative;
+	}
+	.faceShow span{
+		line-height:10px;
+		padding:5px;
+		width:10%;
+		text-align:center;
+		border:1px #000000 solid;
+
+	}
+	#faceContent{
+		width:800px;
+		border:1px #CCCCCC solid;
+		display:none;
+		border-radius:5px;
+	}
+	#clipDIV ul{
+		width:600px;
+		margin:0 auto;
+	}
+</style>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/js.js"></script>
+<script src="/js/page.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/moment.js"></script>
+<script type="text/javascript" src="/js/daterangepicker.js"></script>
+<style>
+	.sec_num1{margin-right: 15px}
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#reservation').val(moment().subtract('days', 29).format('YYYY/MM/DD') + ' - ' + moment().format('YYYY/MM/DD'));
+		$('#reservation').daterangepicker({
+			timePicker: false,
+			timePickerIncrement: 30,
+			format: 'YYYY/MM/DD'
+		}, function(start, end, label) {
+			console.log(start.toISOString(), end.toISOString(), label);
+		});
+		loadData();
+	});
+	function loadData(){
+		var date = $('#reservation').val();
+		var type = $('#type').val();
+		var statu = $('#statu').val();
+		var ruleId = $('#ruleId').val();
+		var userId = $('#userId').val();
+		console.log(date,type);
+		var src="/activity/scandetail?date="+date+"&type="+type+"&statu="+statu+"&ruleId="+ruleId+"&userId="+userId;
+		console.log(src)
+		$('#iframe').attr('src',src);
+	}
+</script>
+<div class="shaXuan" style="height: 150px">
+	<div class="search" style="height: 60px; margin-bottom: 0px; margin-top: 20px;">
+		<div class="search_con" style="margin-top: 0px; margin-left:27%;">
+			<input type="text" id='userId' placeholder="用户姓名或hash">
+		</div>
+	</div>
+	<div class="sha_center" style="margin-top: 20px;">
+		<span>时间筛选</span>
+		<input type="text" id="reservation" class="sec_seo sec_num2" readonly >
+		
+		<span>类型筛选</span>
+		<select class="sec_seo sec_num1"  id="type">
+					<option value="all">全部</option>
+					<option value="官方">官方</option>
+					<option value="个人">个人</option>
+		</select>
+		<span>状态筛选</span>
+		<select class="sec_seo sec_num1"  id="statu">
+					<option value="all">全部</option>
+					<option value="未开始">未开始</option>
+					<option value="进行中">进行中</option>
+					<option value="成功">成功</option>
+					<option value="失败">失败</option>
+		</select>
+		<span>规则筛选</span>
+		<select class="sec_seo sec_num1"  id="ruleId">
+					<option value="all">全部</option>
+					<% for(var i in rules){%>
+					<option value="<%=rules[i].id%>">获奖者得<%=rules[i].percentage%>%</option>
+					<% } %>
+		</select>
+
+		<input class="op_se_btnxx" type="submit" value="查询" onclick="loadData()">
+	</div>
+
+</div>
+<iframe id="iframe" src="" width="1098" height="400" onload="this.height=$(this).contents().height()" scrolling="no" frameborder="0" ></iframe>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ly_tra_detail"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transfer_background_color"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/y20"
+        android:paddingLeft="@dimen/x30"
+        android:paddingRight="@dimen/x30"
+        android:paddingTop="@dimen/y20">
+
+        <LinearLayout
+            android:id="@+id/ly_tra_detail_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_tra_detail_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="转账"
+                android:textColor="@color/register_btn_login_color"
+                android:textSize="@dimen/y32"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_tra_detail_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y5"
+                android:text="zhangsan01已收钱"
+                android:textColor="@color/lottery_detaile_text_color"
+                android:textSize="@dimen/y26" />
+
+            <TextView
+                android:id="@+id/tv_tra_detail_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y5"
+                android:text="2016/11/25 17:55:24"
+                android:textColor="@color/lottery_detaile_text_color"
+                android:textSize="@dimen/y26" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_tra_detail_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="-100.01"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/y36"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y1"
+        android:background="@color/divide_line" />
+
+</LinearLayout>

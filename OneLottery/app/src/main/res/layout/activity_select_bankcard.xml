@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_select_bankcard"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/reward_layout_bg"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/withdraw_toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:background="@color/reward_layout_bg"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x40"
+        android:text="@string/withdraw_to_bank_card"
+        android:textColor="@color/add_concern_btn_color"
+        android:textSize="@dimen/y28"
+        android:id="@+id/textView2" />
+
+    <com.github.jdsjlzx.recyclerview.LRecyclerView
+        android:id="@+id/list"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:id="@+id/tv_new_card"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y100"
+        android:background="@drawable/selector_settingitem_bg"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x40"
+            android:text="@string/withdraw_user_new_bank_card"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/y32"/>
+
+        <ImageView
+            android:layout_width="@dimen/x25"
+            android:layout_height="@dimen/y40"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x40"
+            android:src="@drawable/setting_goto"/>
+    </RelativeLayout>
+</LinearLayout>

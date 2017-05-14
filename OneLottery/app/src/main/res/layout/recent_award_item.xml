@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:card_view="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="@dimen/x355"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/x5"
+        android:layout_marginRight="@dimen/x5"
+        android:foreground="?android:attr/selectableItemBackground"
+        card_view:cardBackgroundColor="@android:color/white"
+        card_view:cardCornerRadius="@dimen/x6"
+        card_view:cardElevation="@dimen/x1"
+        card_view:cardUseCompatPadding="true">
+
+        <ImageView
+            android:id="@+id/img_reward_top_img"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y242"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/tv_reward_label_text"
+            android:layout_width="@dimen/x70"
+            android:layout_height="@dimen/y70"
+            android:background="@drawable/lottery_official"
+            android:paddingLeft="@dimen/x6"
+            android:text="@string/lottery_offical_flag"
+            android:textColor="@color/white"
+            android:textSize="@dimen/y24"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x16"
+            android:layout_marginRight="@dimen/x16"
+            android:layout_marginTop="@dimen/y250"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_reward_lottery_describe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y15"
+                android:gravity="center_vertical"
+                android:lines="2"
+                android:text="我们的货按哦第三方士大夫his的方式对方水电费是谁的方法"
+                android:textColor="@color/lottery_item_text_color"
+                android:textSize="@dimen/y27"/>
+
+            <TextView
+                android:id="@+id/tv_reward_lottery_holder"
+                style="@style/tv_lottery_holder"/>
+
+            <Button
+                android:id="@+id/btn_counter"
+                android:layout_width="@dimen/x310"
+                android:layout_height="@dimen/y55"
+                android:layout_marginBottom="@dimen/y20"
+                android:layout_marginTop="@dimen/y20"
+                android:background="@drawable/selector_register_btn"
+                android:drawableLeft="@drawable/prize_count"
+                android:drawablePadding="@dimen/x10"
+                android:gravity="center_vertical|left"
+                android:text=""
+                android:singleLine="true"
+                android:ellipsize="middle"
+                android:paddingLeft="@dimen/x110"
+                android:textColor="@color/white"
+                android:textSize="@dimen/y28"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/btn_reward"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y55"
+                android:layout_marginBottom="@dimen/y20"
+                android:layout_marginTop="@dimen/y20"
+                android:background="@drawable/selector_register_btn"
+                android:text="@string/recent_time_to_reward"
+                android:textColor="@color/white"
+                android:textSize="@dimen/y28"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>

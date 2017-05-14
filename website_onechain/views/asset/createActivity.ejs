@@ -1,0 +1,82 @@
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/css/page.css">
+<style type="text/css">
+	.faceShow{
+		width:100%;
+		margin:0 auto;
+		position:relative;
+	}
+	.faceShow span{
+		line-height:10px;
+		padding:5px;
+		width:10%;
+		text-align:center;
+		border:1px #000000 solid;
+
+	}
+	#faceContent{
+		width:800px;
+		border:1px #CCCCCC solid;
+		display:none;
+		border-radius:5px;
+	}
+	#clipDIV ul{
+		width:600px;
+		margin:0 auto;
+	}
+</style>
+<script src="/js/page.js"></script>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/js.js"></script>
+<script >
+
+	$(document).ready(function(){
+		clipInit(20,10,true)
+	});
+	function loadData(){
+		console.log('i am data')
+	}
+</script>
+<ul class="money_ul">
+	<li class="money_li shxu_tit money_tit">
+			<div class="shxu_tit_col1 money_head_col1">类型</div>
+			<div class="shxu_tit_col2 money_head_col2">金额</div>
+			<div class="shxu_tit_col2 money_head_col3">操作者</div>
+			<div class="shxu_tit_col6 no-margin money_head_col4">日期</div>
+	</li>
+	<li class="money_li greay">
+		<div class="money_col1 shxu_tit_col1 money_tit_col1">超级大奖等你来拿拼人品拼手气超级大奖等你来</div>
+		<div class="shxu_tit_col2 money_tit_col2 money_tit_num">
+			<div class="money_tit_num1">-100.00</div>
+			<div class="money_tit_num1">-0.01</div>
+		</div>
+		<div class="shxu_tit_col3 money_tit_col3">admin</div>
+		<div class="shxu_tit_col4 money_tit_col4">2016/12/21 14:27:58</div>
+	</li>
+	<li class="money_li">
+		<div class="money_col1 shxu_tit_col1 money_tit_col1">超级大奖等你来拿拼人品拼手气超级大奖等你来</div>
+		<div class="shxu_tit_col2 money_tit_col2 money_tit_num">
+			<div class="money_tit_num1">-100.00</div>
+			<div class="money_tit_num1">-0.01</div>
+		</div>
+		<div class="shxu_tit_col3 money_tit_col3">admin</div>
+		<div class="shxu_tit_col4 money_tit_col4">2016/12/21 14:27:58</div>
+	</li>
+	<li class="money_li greay">
+		<div class="money_col1 shxu_tit_col1 money_tit_col1">超级大奖等你来拿拼人品拼手气超级大奖等你来</div>
+		<div class="shxu_tit_col2 money_tit_col2 money_tit_num">
+			<div class="money_tit_num1">-100.00</div>
+			<div class="money_tit_num1">-0.01</div>
+		</div>
+		<div class="shxu_tit_col3 money_tit_col3">admin</div>
+		<div class="shxu_tit_col4 money_tit_col4">2016/12/21 14:27:58</div>
+	</li>
+</ul>
+<div class="page page_spe">
+	<div class="page_con" id="clipDIV">
+
+	</div>
+</div>
+

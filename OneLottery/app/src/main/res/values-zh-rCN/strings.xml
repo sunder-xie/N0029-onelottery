@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 公共 -->
+    <string name="common_copy">复制</string>
+    <string name="common_copy_success">复制成功</string>
+    <string name="common_see_other">逛逛其他</string>
+    <string name="common_input_pwd_title">请输入登录密码</string>
+    <string name="success">成功</string>
+    <string name="fail">失败</string>
+    <string name="share_success">分享成功</string>
+    <string name="exit_chain_bet_again">再按一次退出众想钱</string>
+    <string name="loading">加载中</string>
+    <string name="btn_withdraw">提 现</string>
+    <string name="btn_confirm">确 定</string>
+    <string name="btn_confirm_already">已确认</string>
+    <string name="modify">修改</string>
+
+    <!-- tab bar -->
+    <string name="tab_bar_lottery">活动</string>
+    <string name="tab_bar_recent">最新揭晓</string>
+    <string name="tab_bar_friend">好友</string>
+    <string name="tab_bar_me">我</string>
+    <string name="tab_bar_create_lottery">创建\n活动</string>
+
+
+    <string name="app_name">众想钱</string>
+    <string name="app_copyright">©2017.Company PeerSafe All rights reserved</string>
+    <string name="common_enter_user_name">请输入用户名</string>
+    <string name="common_enter_password">请输入密码</string>
+    <string name="common_enter_correct_format_user_name">数字和字母的组合</string>
+
+    <string name="app_agree_now">立即体验</string>
+    <string name="app_agree"><![CDATA[点击<立即体验>按钮，即表示你同意]]></string>
+    <string name="app_agreement">《众享钱用户许可协议》</string>
+    <!-- 注册 -->
+    <string name="register">注 册</string>
+    <string name="register_confirm_password">确认密码</string>
+    <string name="register_fail">注册失败</string>
+    <string name="register_success">注册成功</string>
+    <string name="register_new_user">注册</string>
+    <string name="register_password_not_the_same">两次密码不一致,请重新输入</string>
+    <string name="register_account_already_exists">用户名已被注册,请重新输入</string>
+    <string name="register_password_length_not_correct">密码太短</string>
+    <string name="register_enter_confirm_password">请输入确认密码</string>
+    <string name="register_enter_correct_format_user_name">请输入2到16位数字或字母</string>
+    <string name="register_enter_correct_format_password">请设置8到16位安全密码</string>
+    <string name="register_waiting">注册中</string>
+    <string name="register_name_length_too_short">用户名太短</string>
+
+    <!-- 登录 -->
+    <string name="login">登 录</string>
+    <string name="login_waiting">登录中</string>
+    <string name="login_see_first">先逛逛</string>
+    <string name="login_fail">密码错误，请重新输入</string>
+
+    <!-- 导入导出提示语 -->
+    <string name="export_wifi">WIFI</string>
+    <string name="emport_file_alert_message">为了安全，请完成最后一步钱包备份，
+        也可稍后进入\"个人中心—钱包导出\" 进行备份。请妥善保管您的钱包备份，我们没有找回功能。</string>
+    <string name="improt">导入</string>
+    <string name="not_login">您还未登录</string>
+
+    <!-- AlertDialog提示语 -->
+    <string name="cancel">取消</string>
+    <string name="confirm">确认</string>
+    <string name="delete">删除</string>
+    <string name="skip">跳过</string>
+    <string name="emport">导出</string>
+
+    <!-- 活动 -->
+    <string name="lottery_create">创建活动</string>
+    <string name="lottery_index_newest">最新</string>
+    <string name="lottery_index_fastest">最快</string>
+    <string name="lottery_index_friend">好友活动</string>
+    <string name="lottery_index_me">我的活动</string>
+    <string name="lottery_compete_treasure">众想钱抽奖平台</string>
+    <string name="bet">投 注</string>
+    <string name="lottery_offical_flag">官方活动</string>
+    <string name="lottery_personal_flag">个人活动</string>
+    <string name="lottery_per_bet">每注</string>
+    <string name="lottery_creater">创建者 : </string>
+    <string name="date_fromat">MM月dd日 EE</string>
+
+    <!-- 设置 -->
+    <string name="setting_change_account">切换账户</string>
+    <string name="setting_balance">余额：</string>
+    <string name="setting_wallet_address">钱包卡号</string>
+    <string name="setting_bet_query">投注查询</string>
+    <string name="setting_detail_query">明细查询</string>
+    <string name="setting_msg_center">消息中心</string>
+    <string name="setting_with_draw">提现</string>
+    <string name="setting_version_update">版本更新</string>
+    <string name="setting_wallet_export">钱包导出</string>
+    <string name="setting_guide_page">引导页</string>
+    <string name="setting_personal_title">个人中心</string>
+    <string name="setting_transfer">转账</string>
+    <string name="setting_recharge">充值</string>
+    <string name="setting_share">分 享</string>
+    <string name="setting_feedback">意见反馈</string>
+    <string name="setting_cur_version">当前版本V%s</string>
+    <string name="setting_deault_user_account">游客</string>
+    <string name="setting_login_first">请先登录</string>
+    <string name="setting_cur_account">当前账号</string>
+    <string name="setting_account_change">账号切换</string>
+    <string name="setting_add_new_account">添加新账号</string>
+    <string name="setting_delete_account_tip_title">确定要删除吗</string>
+    <string name="setting_delete_account_tip_message">删除前请先进入“个人中心-钱包导出”备份您的钱包，否则资金丢失</string>
+    <string name="setting_exit">退出登录</string>
+    <string name="setting_bet_query_all">全部</string>
+    <string name="setting_bet_query_dur">进行中</string>
+    <string name="setting_bet_query_lucky">幸运查询</string>
+    <string name="setting_my_bet">我的投注</string>
+    <string name="setting_bet_add">追加</string>
+    <string name="setting_bet_query_bet">投注: %d&#160;注</string>
+    <string name="setting_bet_query_status">状态: %s</string>
+    <string name="setting_bet_query_luckey_number">幸运号码: %s</string>
+    <string name="setting_bet_query_reward_already">已开奖</string>
+    <string name="setting_exit_tip_message">确定要退出当前账号吗</string>
+
+    <!-- 活动详情页面 -->
+    <string name="lottery_detail_add_concern">关注</string>
+    <string name="lottery_details">活动详情</string>
+    <string name="lottery_detail_attend_list">参与列表</string>
+    <string name="lottery_detail_calculation">计算详情</string>
+    <string name="lottery_detail_check">查看</string>
+    <string name="lottery_detail_start_countdown">开始倒计时</string>
+    <string name="lottery_detail_start_date">开始日期</string>
+    <string name="lottery_detail_lottery_describtion">活动描述</string>
+    <string name="lottery_detail_lottery_start">活动即将开始</string>
+    <string name="lottery_detail_rule_type">规则</string>
+    <string name="lottery_detail_prize_winner">获得者: </string>
+    <string name="lottery_detail_rule_percent" formatted="false">中奖者获得%s的投注金额，投满即可开奖</string>
+    <string name="lottery_detail_deadline">截止时间 : %s</string>
+    <string name="lottery_detail_end_time">结束时间 : %s</string>
+    <string name="lottery_detail_fail_time">失败时间 : %s</string>
+    <string name="lottery_detail_reward_on_going">活动开奖中，请稍候</string>
+    <string name="lottery_detail_bet_total_count">总需注数 :&#160;&#160;</string>
+    <string name="lottery_detail_rest_bet_count">剩余注数 : &#160;&#160;</string>
+    <string name="lottery_detail_lottery_fail" formatted="false">活动失败 : %s</string>
+    <string name="lottery_detail_lottery_can_refund" formatted="false">活动失败 : %s&#160;&#160;(退款中)</string>
+    <string name="lottery_detail_lottery_refund_already" formatted="false">活动失败 : %s&#160;&#160;(已退款)</string>
+    <string name="lottery_detail_bet_count">本期参与 : %d注</string>
+    <string name="lottery_detail_my_add_bet">我参与的投注数 : %d&#160;注</string>
+    <string name="lottery_detail_not_add_lottery">您沒有参与此活动</string>
+    <string name="lottery_detail_revise">修 改</string>
+    <string name="lottery_detail_add_concern_already">已关注</string>
+    <string name="lottery_detail_luckey_number">幸运号码 :</string>
+    <string name="lottery_detail_bet_total_cost">本次活动总募集金额 : %d众享币</string>
+    <string name="lottery_detail_award">获奖者 : %s</string>
+    <string name="lottery_detail_per_bet"> %d 注</string>
+
+
+    <!-- 投注页面 -->
+    <string name="lottery_bet_count">投入注数</string>
+    <string name="lottery_bet_immediately">立即投注</string>
+    <string name="lottery_bet_num_five">5注</string>
+    <string name="lottery_bet_num_twenty">20注</string>
+    <string name="lottery_bet_num_fifty">50注</string>
+    <string name="lottery_bet_num_all">包尾</string>
+    <string name="lottery_bet_total" formatted="false">应付：%d 众享币</string>
+    <string name="lottery_bet_balance" formatted="false">余额：%s 众享币</string>
+    <string name="lottery_bet_per_cost" formatted="false">%d众享币/注</string>
+    <string name="lottery_bet_not_start">活动还没开始!</string>
+    <string name="lottery_bet_num_empty">请输入投注数!</string>
+    <string name="lottery_bet_num_exceed">超过剩余可投注数目!</string>
+    <string name="lottery_bet_balance_not_enough">余额不足,请充值!</string>
+    <string name="lottery_bet_waiting">投注中，请稍候...</string>
+    <string name="lottery_has_start_notify">活动已经开始,不可修改</string>
+
+    <!-- 最新揭晓 -->
+    <string name="recent_announcement">最新揭晓</string>
+    <string name="recent_reward">马上开奖</string>
+    <string name="recent_history">开奖历史</string>
+    <string name="recent_fail">活动失败</string>
+    <string name="recent_time_to_reward">时机已到,点击开奖</string>
+    <string name="recent_reward_lottery_waiting">感谢你的开奖，请稍后！</string>
+    <string name="recent_reward_waiting_text">开奖进行中,详情请移步 \" 开奖历史 \"</string>
+    <string name="recent_reward_ing">开奖中</string>
+    <string name="recent_lottery_creater_holder">房主 : %s</string>
+    <string name="recent_lottery_creater_holders">房主 : </string>
+
+
+    <!-- 创建活动 -->
+    <string name="create_lottery_rule">规则</string>
+    <string name="create_lottery_setting">活动设置</string>
+    <string name="create_lottery_title">活动标题</string>
+    <string name="create_lottery_describe">活动描述 ( 可选 )</string>
+    <string name="create_lottery_label">活动标签</string>
+    <string name="create_lottery_select_label">选择标签</string>
+    <string name="create_lottery_create">创 建</string>
+    <string name="create_lottery_describe_content">描述 三十字以内</string>
+    <string name="create_lottery_title_content">标题 二十字以内</string>
+    <string name="create_lottery_bet_word">注</string>
+    <string name="create_lottery_peersafe_coin">%d 众享币</string>
+    <string name="create_lottery_start_time_text">开始时间</string>
+    <string name="create_lottery_duration_time_text">活动时长</string>
+    <string name="create_lottery_total_bet_text">总注数</string>
+    <string name="create_lottery_bet_cost_text">每注花费</string>
+    <string name="create_lottery_raise_amount">募集金额</string>
+    <string name="create_lottery_success">发布成功</string>
+    <string name="create_lottery_success_notice">请在首页 \"我的活动\" 中查看</string>
+    <string name="create_lottery_enter_lottery">进入活动</string>
+    <string name="create_lottery_change_lottery">修改活动</string>
+    <string name="create_lottery_bet">直接投注</string>
+    <string name="create_lottery_waiting">创建中，请稍后...</string>
+    <string name="create_lottery_modify_waiting">修改中, 请稍后...</string>
+    <string name="create_lottery_delete_waiting">删除中, 请稍后...</string>
+    <string name="create_lottery_bet_count_empty">总注数不可为空</string>
+    <string name="create_lottery_title_empty">活动标题不可为空</string>
+    <string name="create_lottery_rule_empty">请选择规则</string>
+    <string name="create_lottery_chose_lottery_label">请选择活动标签</string>
+    <string name="create_lottery_chose_onebetcost">请选择每注花费</string>
+    <string name="create_lottery_chose_duration">请选择活动时长</string>
+    <string name="create_lottery_balance_insufficient">余额不足，请充值！</string>
+    <string name="create_lottery_cost_text">注 : 创建活动将耗费1众享币</string>
+    <string name="modify_lottery_cost_text">注 : 修改活动将耗费0.01众享币</string>
+    <string name="create_lottery_winner_percentage">获胜者获得金额占比 ：%d%%</string>
+    <string name="create_lottery_creator_percentage">创建者获得金额占比 ：%d%%</string>
+    <string name="create_lottery_can_not_lottery">您有未结束活动</string>
+    <string name="create_lottery_lottery_creating">您有个活动正在创建中</string>
+    <string name="create_lottery_delete">删 除</string>
+
+    <!-- 关注好友 -->
+    <string name="friend_all_my_friend">好友</string>
+    <string name="friend_duration_lottery">进行中的活动 : %d</string>
+    <string name="friend_lottery_total_bet">共需 : %d&#160;注</string>
+    <string name="friend_lottery_current_bet">剩余 : %d&#160;注</string>
+
+    <!--计算详情-->
+    <string name="calculation_detail">计算详情</string>
+    <string name="calculation_formula">计算公式</string>
+    <string name="calculation_formula_desc">[(数值A+数值B)÷该活动总需注数)]取余数+10000000</string>
+    <string name="calculation_formula_a">数值A</string>
+    <string name="calculation_formula_close_time">=全网共识活动关闭时间</string>
+    <string name="calculation_formula_close_time_desc" formatted="false">全网共识活动关闭时间每个验证节点都记录自己收到最后一笔交易的时间，然后抛到全网共识达成一个一致的close_time. 共识过程分三轮进行，每一轮的的超时时间为3秒。第一轮和第二轮集票时间到后，各节点从所有收到的close_time（排序去重后）里选择一个中间值，再抛出新的close_time；第三轮集票时间到后，选择得票最多的close_time，如果得票最多的close_time占全天投票的80%，则记录并使用此close_time，否则再抛出此close_time进行第四轮投票，直到某个close_time得到80%以上的投票为止。</string>
+
+    <!-- 消息类型消息-->
+    <string name="message_create_success">创建成功</string>
+    <string name="message_create_fail">创建失败</string>
+    <string name="message_delete_fail">删除失败</string>
+    <string name="message_delete_success">删除成功</string>
+    <string name="message_modify_success">修改成功</string>
+    <string name="message_modify_fail">修改失败</string>
+    <string name="message_can_refund_success">退款成功</string>
+    <string name="message_lottery_refund_ale">活动已退款</string>
+    <string name="message_lottery_prize">恭喜您，中奖了</string>
+    <string name="message_lottery_percentage">恭喜您，开奖了</string>
+    <string name="message_see_content">点击查看详情</string>
+    <string name="message_my_create_lottery_prize">您发起的活动开奖了,点击查看详情</string>
+
+    <!--消息中心-->
+    <string name="message_select_all">全选</string>
+    <string name="message_select_none">全不选</string>
+    <string name="message_create_lottery_fail">活动创建失败</string>
+    <string name="message_delete_lottery_success">活动删除成功</string>
+    <string name="message_delete_lottery_fail">活动删除失败</string>
+    <string name="message_modify_lottery_success">活动修改成功</string>
+    <string name="message_modify_lottery_fail">活动修改失败</string>
+    <string name="message_create_lottery_success">活动创建成功</string>
+    <string name="message_bet_success">投注成功</string>
+    <string name="message_lottery_bet_success">活动投注成功</string>
+    <string name="message_bet_fail">投注失败</string>
+    <string name="message_lottery_bet_fail">活动投注失败</string>
+    <string name="message_delete_msg">删除消息</string>
+    <string name="message_transfer_in_message">%1$s向您转账%2$s众享币</string>
+    <string name="message_transfer_message">向%1$s转账%2$s众享币</string>
+    <string name="message_transfer_fail">%s未收钱,已退还</string>
+    <string name="message_save_wallet">%d众享币已存入钱包</string>
+    <string name="message_transfer_admin">%d众享币充值成功</string>
+    <string name="message_withdraw_send_sucess_title">提现已发送</string>
+    <string name="message_withdraw_send_sucess_content">众享币提现已发送，申请中</string>
+    <string name="message_withdraw_send_sucess_horn">众享币提现已发送</string>
+    <string name="message_withdraw_send_fail_title">提现未发送</string>
+    <string name="message_withdraw_send_fail_content">众享币提现未发送,请重新操作</string>
+    <string name="message_appeal_send_success_title">申诉已发送</string>
+    <string name="message_appeal_send_success_content">众享币申诉已发送，请等待</string>
+    <string name="message_appeal_send_success_horn">众享币申诉已发送</string>
+    <string name="message_appeal_send_fail_title">申诉未发送</string>
+    <string name="message_appeal_send_fail_content">众享币申诉发送失败，请重新申诉</string>
+    <string name="message_appeal_send_fail_horn">众享币申诉发送失败</string>
+    <string name="message_withdraw_success_title">提现成功</string>
+    <string name="message_withdraw_success_content">众享币提现成功，已打款</string>
+    <string name="message_withdraw_fail_title">提现失败</string>
+    <string name="message_withdraw_fail_content">原因:</string>
+    <string name="message_withdraw_fail_horn">众享币提现失败</string>
+
+    <!--空页面-->
+    <string name="no_network">这个世界上最遥远的距离就是:\n没网,稍后再试一次吧!</string>
+    <string name="check_network">无网络连接 请检查网络!</string>
+    <string name="no_lottery">暂时没有活动</string>
+    <string name="no_bet">暂时没有投注</string>
+    <string name="no_friend">暂时没有好友</string>
+    <string name="no_data">暂无记录</string>
+    <string name="no_record">没有记录</string>
+    <string name="no_search_lottery">没有搜索到活动</string>
+    <string name="no_service">服务器飞不动啦 \n请稍后重试下吧</string>
+    <string name="check_service">服务器正在开小差,请稍后重试</string>
+
+    <!--搜索中心-->
+    <string name="search_ing">查询中</string>
+    <string name="search_hint">请输入搜索关键词或好友ID</string>
+
+    <!--转账-->
+    <string name="transfer_zxc">众享币</string>
+    <string name="transfer_account_invalid">无效的账号</string>
+    <string name="transfer_account_me_invalid">不能给自己转账</string>
+    <string name="transfer_searching_account">查找中</string>
+    <string name="transfer_opposite_account">对方账户</string>
+    <string name="transfer_opposite_account_addr">对方卡号：</string>
+    <string name="transfer_opposite_nick_or_account">用户昵称/钱包卡号</string>
+    <string name="transfer_next_step">下一步</string>
+    <string name="transfer_my_balance">余额：%s众享币</string>
+    <string name="transfer_num_enter">请输入转账数字</string>
+    <string name="transfer_num_enter_invalid">转账数字最多两位小数哦</string>
+    <string name="transfer_num_enter_too_max">余额不足，请充值！</string>
+    <string name="transfer_num_enter_is_zero">转账金额不能为0</string>
+    <string name="transfer_num">转账金额</string>
+    <string name="transfer_account_inactivated">未激活用户，请输入钱包卡号转账</string>
+    <string name="transfer_account_inactivated2">未激活用户，请核对卡号再确认</string>
+    <string name="transfer_network_error">网络错误，请稍候重试!</string>
+    <string name="transfer_transfering">转账中, 请稍后...</string>
+    <string name="transfer_success">转账成功</string>
+    <string name="transfer_fail">转账失败</string>
+    <string name="transfer_confirm">确认转账</string>
+    <string name="transfer_cost_text">注 : 转账需要手续费0.01众享币</string>
+
+    <!--明细查询-->
+    <string name="detail_query">明细</string>
+    <string name="transfer_type_transfer">转账</string>
+    <string name="transfer_type_transfer_from_admin">充值成功</string>
+    <string name="transfer_type_create_lottery">活动创建</string>
+    <string name="transfer_type_modify_lottery">活动修改</string>
+    <string name="transfer_type_prize">恭喜中奖</string>
+    <string name="transfer_type_percentage">活动分成</string>
+    <string name="transfer_type_bet">投注</string>
+    <string name="transfer_type_refund">退款</string>
+    <string name="transfer_type_withdraw">提现</string>
+
+    <string name="transfer_type_content_transfer">%s已收钱</string>
+    <string name="transfer_type_content_transfer_from_other">来自%s,已存入钱包</string>
+    <string name="transfer_type_content_transfer_from_admin">已存入钱包</string>
+    <string name="transfer_type_content_refund">%s失败,已退款</string>
+    <string name="transfer_type_content_prize">%s中奖,已存入钱包</string>
+    <string name="transfer_type_content_percentage">%s开奖,已存入钱包</string>
+
+    <!-- wifi备份恢复 -->
+    <string name="setting_back_restore_wifi">备份/恢复(WiFi)</string>
+    <string name="setting_wifi_mode_open">Wi-Fi模式已开启</string>
+    <string name="setting_pc_phone_same_wifi_tip">手机与电脑务必在同一Wi-Fi内</string>
+    <string name="setting_wifi_backrestore_enter_address">请在电脑浏览器中输入以下地址</string>
+    <string name="setting_wifi_backrestore_not_leave">(导入导出时请勿离开此页面)</string>
+    <string name="setting_wifi_mode_close">WiFi模式已关闭</string>
+    <string name="setting_wifi_please_reconnect">(请重新连接WiFi网络)</string>
+    <string name="setting_wifi_connect_name" formatted="false">已连接Wi-Fi名称为 "%s"</string>
+    <string name="contact_copy_invite_code_success">复制成功</string>
+    <string name="setting_backrestore_html_emptypass_orfile">请选择文件并输入密码</string>
+    <string name="setting_backrestore_html_emptypass">密码不能为空</string>
+    <string name="setting_backrestore_html_shortpass">密码太短</string>
+    <string name="setting_backrestore_html_resotreOk">恢复成功</string>
+    <string name="setting_backrestore_html_resotreFailed">恢复失败</string>
+    <string name="setting_backrestore_html_backupFailed">备份失败</string>
+    <string name="setting_backrestore_html_backup">备份</string>
+    <string name="setting_about_us">关于我们</string>
+    <string name="setting_bet_query_fail">已失败</string>
+
+    <!-- 充值中 -->
+    <string name="setting_rechange_center">充值</string>
+
+
+    <!-- 计算详情页面 -->
+    <string name="calculation_attend_time">参与时间</string>
+    <string name="calculation_user_account">用户账号</string>
+    <string name="calculation_formula_b">数值B</string>
+    <string name="calculation_formula_text">=截止该活动开奖时间点前，该活动的最后100个参与时间数值之和</string>
+    <string name="calculation_down">查看</string>
+    <string name="calculation_result">计算结果</string>
+    <string name="calculation_up">收起</string>
+    <string name="calculation_waiting_open">正在等待揭晓</string>
+    <string name="calculation_open_fail">揭晓失败</string>
+
+    <string-array name="permissions">
+        <item>@string/permission_recode_audio_hint</item>
+        <item>@string/permission_get_accounts_hint</item>
+        <item>@string/permission_read_phone_hint</item>
+        <item>@string/permission_call_phone_hint</item>
+        <item>@string/permission_camera_hint</item>
+        <item>@string/permission_access_fine_location_hint</item>
+        <item>@string/permission_access_coarse_location_hint</item>
+        <item>@string/permission_read_external_hint</item>
+        <item>@string/permission_white_external_hint</item>
+    </string-array>
+
+    <string name="permission_get_accounts_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_GET_ACCOUNTS</string>
+    <string name="permission_read_phone_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_READ_PHONE_STATE</string>
+    <string name="permission_call_phone_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_CALL_PHONE</string>
+    <string name="permission_camera_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_CAMERA</string>
+    <string name="permission_access_fine_location_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_ACCESS_FINE_LOCATION</string>
+    <string name="permission_access_coarse_location_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_ACCESS_COARSE_LOCATION</string>
+    <string name="permission_read_external_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_READ_EXTERNAL_STORAGE</string>
+    <string name="permission_white_external_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_WRITE_EXTERNAL_STORAGE</string>
+    <string name="permission_recode_audio_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_RECORD_AUDIO</string>
+
+    <!--引导页-->
+    <string name="guide_title1">区块链智能合约抽奖</string>
+    <string name="guide_title2">去中心化HASH计算</string>
+    <string name="guide_title3">区块链公私钥保障</string>
+    <string name="guide_content1">更公平</string>
+    <string name="guide_content2">更公正</string>
+    <string name="guide_content3">更安全</string>
+
+    <!-- 分享提示语 -->
+    <string name="share_contecnt_text">香菇，为了不缺斤少两，连程序猿自己都无法暗箱操作了。。。</string>
+    <string name="share_content_title">众想钱---钱有价，唯有公平无价</string>
+    <string name="share_content_titile_and_link">众想钱---钱有价，唯有公平无价,下载地址:http://fir.im/webet</string>
+    <string name="setting_rechange_text">选择充值金额（众享币）</string>
+    <string name="setting_rechange_enter_count">输入金额</string>
+    <string name="setting_confirm_rechange">确认充值</string>
+    <string name="setting_rechange_no_install_weixin">您尚未安装微信或者安装的微信版本不支持</string>
+    <string name="setting_rechange_order_title" formatted="false">众想钱充值(成功兑换%d)</string>
+    <string name="setting_rechange_enter_money">请输入充值金额</string>
+    <string name="setting_rechange_pay_success">支付成功</string>
+    <string name="setting_rechange_pay_cancel">支付取消</string>
+    <string name="setting_rechange_pay_fail">支付失败</string>
+    <string name="setting_rechange_init_weixin_fail">微信初始化失败</string>
+    <string name="setting_rechange_order_unkown">订单状态未知</string>
+    <string name="setting_rechange_waiting">众享币充值中\n请稍后...</string>
+    <string name="second">%d 秒</string>
+    <string name="choice_share_platform">请选择分享平台</string>
+
+    <!-- 自动升级提示语 -->
+    <string name="fir_break_network">未联网</string>
+    <string name="fir_update_title">应用更新</string>
+    <string name="fir_new_version">版本号: </string>
+    <string name="fir_update_content">更新内容</string>
+    <string name="fir_update_size">仅需要下载:</string>
+    <string name="fir_target_size">新版本大小:</string>
+    <string name="fir_gprs_condition">（提示：非WIFI环境）</string>
+    <string name="fir_update_now">立即更新</string>
+    <string name="fir_app_update">应用更新</string>
+    <string name="fir_not_now">以后再说</string>
+    <string name="fir_ignore">忽略该版</string>
+    <string name="fir_toast_isupdating">正在更新中....</string>
+    <string name="fir_dialog_InstallAPK">最新版本已下载，是否安装？</string>
+    <string name="fir_update_cancel">取消</string>
+    <string name="fir_start_update">开始下载</string>
+    <string name="fir_isSDEmpty">SD卡不存在</string>
+    <string name="fir_no_update">已是最新版本</string>
+    <string name="ok">好的</string>
+    <string name="share_fail">分享失败</string>
+    <string name="app_not_install">没有安装应用</string>
+    <string name="unkown">未知原因</string>
+    <string name="setting_argment">用户许可</string>
+
+    <!-- 提现提示语 -->
+    <string name="withdraw_record">提现记录</string>
+    <string name="withdraw_balance">账户剩余众享币</string>
+    <string name="withdraw_balance_total">金额 （元）</string>
+    <string name="withdraw_bank_card">到账银行卡</string>
+    <string name="withdraw_to_bank_card">到账银行卡</string>
+    <string name="withdraw_user_new_bank_card">使用新卡提现</string>
+    <string name="withdraw_select_bank_card">选择银行卡</string>
+    <string name="withdraw_bind_bank_alert">请绑定持卡人的银行卡</string>
+    <string name="withdraw_bank_belong">开户行</string>
+    <string name="withdraw_card_number">卡号</string>
+    <string name="withdraw_bank_card_holder">持卡人</string>
+    <string name="withdraw_add_bank_card">添加银行卡</string>
+    <string name="withdraw_list_text">提现记录</string>
+    <string name="withdraw_bill_status">账单状态</string>
+    <string name="withdraw_time">时间</string>
+    <string name="withdraw_count">提现金额</string>
+    <string name="withdraw_bill_number">订单号</string>
+    <string name="withdraw_card_name">账号名</string>
+    <string name="withdraw_confirm">确认提现</string>
+    <string name="withdraw_appeal">申诉</string>
+    <string name="withdraw_reason">原因:&#160;&#160;</string>
+    <string name="withdraw_enter_card_number">请输入开户行卡号</string>
+    <string name="withdraw_enter_bank_name">请输入开户行名称</string>
+    <string name="withdraw_enter_card_holder">请输入持卡人姓名</string>
+    <string name="withdraw_fail">提交失败</string>
+    <string name="withdraw_success">提交成功</string>
+    <string name="withdraw_progress">提交中,请稍候</string>
+    <string name="withdraw_can">可提现%s元</string>
+    <string name="withdraw_status_applying">申请中</string>
+    <string name="withdraw_status_pay">已打款</string>
+    <string name="withdraw_status_confirm">已确认</string>
+    <string name="withdraw_status_cancel">已撤销</string>
+    <string name="withdraw_status_fail">提现失败</string>
+    <string name="withdraw_status_appealing">申诉中</string>
+    <string name="withdraw_appeal_reason">申诉原因</string>
+    <string name="withdraw_one_huandrd">100字以内</string>
+    <string name="withdraw_confirm_warning">注：请收到钱后再确认提现</string>
+    <string name="withdraw_motify_bank_card">修改银行卡</string>
+    <string name="withdraw_delete_warn">确定要删除当前银行卡吗</string>
+    <string name="withdraw_motify_bank_card_alert">请修改持卡人的银行卡</string>
+    
+    <!-- 钱包导入 -->
+    <string name="setting_file_save_local">本地存储</string>
+    <string name="setting_common_question">常见问题</string>
+    <string name="setting_import_wallent_fail">本地暂无钱包记录</string>
+    <string name="setting_file_emport_fail">导出失败</string>
+    <string name="setting_file_emport_fail_message">请检查本地内存,可稍后进"个人中心"重新操作</string>
+    <string name="setting_emport_fail">请重试或选择其他导出方式</string>
+    <string name="setting_import_account">选择导入账号</string>
+    <string name="setting_import_waller_fail">导入钱包失败</string>
+    <string name="setting_back_up_ing">备份中</string>
+    <string name="setting_emport_success">导出成功</string>
+</resources>

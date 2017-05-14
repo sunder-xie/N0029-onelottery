@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<title>活动管理</title>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<% include ../header.ejs %>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		$(function() {
+			$('#reportrange2 input').val(moment().subtract('days', 29).format('YYYY/MM/DD') + '-' + moment().format('YYYY/MM/DD'));
+			$('#reportrange2').daterangepicker({
+				timePicker: false,
+				timePickerIncrement: 30,
+				timePicker12Hour:false,
+				format: 'YYYY/MM/DD'
+			}, function(start, end, label) {
+				console.log(start.toISOString(), end.toISOString(), label);
+			});
+		    loadLineData();
+
+		});
+	})
+
+    function loadLineData(){
+		var seldate = $('#monthContainer').val();
+		var url = 'activity/createStatics?date='+seldate;
+    	$.get(url,function(data){
+		  var str = '';
+			for (var i = 0; i < data.ary3.length; i++) {
+				str += "<div id='id"+data.ary3[i].replace('%','').replace(/([^\u0000-\u00FF])/g,"")+"'  style='float: left;padding-right: 50px;'><strong>"+data.ary3[i]+"日均 :</strong><span>"+data.avgs[i]+"</span></div>"
+			}
+			$('#avgRecharge').html(str);
+			$('#seletime').html(seldate);
+			loadData(data.ary3,data.ary1,data.ary2);
+		})
+    }
+	function maxDay(month){
+		var d= new Date();
+		return new Date(d.getFullYear(), month,0).getDate();
+	}
+	function changeValue(){
+		loadLineData();
+		var seldate = $('#monthContainer').val();
+		$('#seletime').html(seldate);
+	}
+	function loadData(ary1,ary2,ary3){
+		var hideary={};
+		var showkey=[];
+		var hidekey=[];
+		for(var i=2;i<ary1.length;i++){
+			if(i<4){
+				showkey.push(ary1[i]);
+			}else{
+				hidekey.push(ary1[i]);
+				hideary[ary1[i]]=false;
+			}
+		}
+		console.log(showkey)
+
+		for(var i=0;i<hidekey.length;i++){
+			var id="#id"+hidekey[i].replace('%','').replace(/([^\u0000-\u00FF])/g,"");
+			console.log(id);
+			$(id).hide();
+		}
+		var myChart = echarts.init(document.getElementById('myChart'));
+		var option = {
+			title: {
+				text: ''
+			},
+			tooltip: {
+				trigger: 'axis'
+			},
+			legend: {
+				selected:hideary,
+				data:ary1
+			},
+			grid: {
+				left: '3%',
+				right: '4%',
+				bottom: '3%',
+				containLabel: true
+			},
+			toolbox: {
+				feature: {
+					saveAsImage: {}
+				}
+			},
+			xAxis: {
+				type: 'category',
+				boundaryGap: false,
+				data: ary2
+			},
+			yAxis: {
+				type: 'value',
+				show: false
+			},
+			series: ary3
+		};
+
+
+
+		myChart.setOption(option);
+		myChart.on('legendselectchanged', function (params) {
+			if(params.name!="失败的活动"&&params.name!="成功的活动"){
+				if($.inArray(params.name, showkey)>=0){
+					var del = hidekey.shift();
+					showkey.remove(params.name);
+					showkey.push(del);
+					hidekey.push(params.name);
+				}else{
+					var del = showkey.shift()
+					hidekey.remove(params.name);
+					hidekey.push(del);
+					showkey.push(params.name);
+				}
+				var hdar={};
+				for(var i=0;i<hidekey.length;i++){
+					hdar[hidekey[i]]=false
+				}
+				for(var i=0;i<showkey.length;i++){
+					hdar[showkey[i]]=true
+				}
+				$(".time_title div").show();
+				for(var i=0;i<hidekey.length;i++){
+					var id="#id"+hidekey[i].replace('%','').replace(/([^\u0000-\u00FF])/g,"");
+					console.log(id);
+					$(id).hide();
+				}
+				option.legend.selected= hdar;
+				myChart.setOption(option);
+			}
+		});
+
+
+	};
+	function rule(node){
+		var type = $(node).attr('type');
+		if(type=='button'){
+			$("#rule").attr("action","/addRule");
+			$('#myModal').modal('show');
+		}else{
+			$("#rule").attr("action","/modifyRule");
+			var id = $(node).children(":eq(0)").html()
+			var percentage = $(node).children(":eq(3)").html();
+			var status = $(node).children(":eq(6)").html()=='上架'?0:1;
+			$('#ruleId').val(id);
+			$('#percentage').val(parseInt(percentage));
+			$('#percentage').attr('readonly',true)
+			$('#nextPercentage').val(100-parseInt(percentage));
+			$('#ruleStatus').val(status)
+			$('#myModal').modal('show');
+            
+		}
+		
+	}
+	function getRule(){
+		$.get("/getRule",function(err,data){
+			console.log(err,data);
+		})
+	}
+	function next(node){
+		var p = $(node).val();
+		var nextP = 100 - parseInt(p);
+		$("#nextPercentage").val(nextP)
+	}
+	
+	function aa(node) {
+	    var frm = $(node).parent().parent().children().first();
+
+		$.ajax({
+			type: frm.attr('method'),
+			url: frm.attr('action'),
+			data: frm.serialize(),
+			success: function(data) {
+				// location.reload() 
+				alert(data)
+			}
+		});
+	}
+	Array.prototype.remove=function(value){
+		var len = this.length;
+		for(var i=0,n=0;i<len;i++){//把出了要删除的元素赋值给新数组
+			if(this[i]!=value){
+				this[n++]=this[i];
+			}else{
+				console.log(i);//测试所用
+			}
+		}
+		this.length = n;
+	};
+
+	function iFrameHeight() {
+		var ifm= document.getElementById("iframepage");
+		var subWeb = document.frames ? document.frames["iframepage"].document : ifm.contentDocument;
+		if(ifm != null && subWeb != null) {
+			ifm.height = subWeb.body.offsetHeight+100;
+		}
+	}
+
+</script>
+<div class="activity_stati">
+	<div class="act_show"></div>
+	<ul class="act_ul">
+		<li class="act_tit">活动统计</li>
+		<li class="act_time"></li>
+		<li class="act_word">更新时间：<%=date%></li>
+	</ul>
+</div>
+<div class="Activity">
+	<!--<div class="title">
+		<ul>
+			<li class="current">官方活动</li>
+			<li>个人活动</li>
+			<li>总计</li>
+		</ul>
+	</div>-->
+	<div class="del">
+		<table class="table table-hover">
+			<thead>
+			<tr>
+				<th></th>
+				<%for(var i = 0; i < list.length ; i++){%>
+				<th><%=list[i]%></th>
+				<%}%>
+
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>官方活动</td>
+				<%for(var i = 0; i < data[0].length ; i++){%>
+				<th><%=data[0][i]%></th>
+				<%}%>
+			</tr>
+			<tr>
+				<td>个人活动</td>
+				<%for(var i = 0; i < data[1].length ; i++){%>
+				<th><%=data[1][i]%></th>
+				<%}%>
+			</tr>
+			<tr>
+				<td>总计</td>
+				<%for(var i = 0; i < data[2].length ; i++){%>
+				<th><%=data[2][i]%></th>
+				<%}%>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="activity_stati">
+	<div class="act_show"></div>
+	<ul class="act_ul">
+		<li class="act_tit">趋势统计</li>
+	</ul>
+</div>
+<div class="time_select" style="height: 77px;">
+	<div class="sele_tim" style="margin-top: 0px;">
+		<span>时间查询</span>
+		<input type="text" id="monthContainer" class="ui-datepicker-time sec_seo" readonly value="" />
+		<div class="ui-datepicker-css">
+			<div class="ui-datepicker-quick">
+				<p>快捷日期<a class="ui-close-date">X</a></p>
+				<div>
+					<input class="ui-date-quick-button" type="button" value="30天内" alt="-29" name=""/>
+				</div>
+			</div>
+			<div class="ui-datepicker-choose">
+				<p>自选日期</p>
+				<div class="tool_date cf">
+					<div class="ta_date" id="div_month_picker">
+						<input class="ui-date-quick-button date_title" id="month_picker" type="button" value="自然月"  name=""/>
+					</div>
+				</div>
+				<br/>
+				<script type="text/javascript">
+					monthPicker.create('month_picker', {
+						trigger : 'month_trigger',
+						autoCommit : true,
+						callback : function(obj){
+							$("#monthContainer").val(obj.start_date + '-' + obj.end_date);
+							$(".ui-datepicker-css,.ui-datepicker-css1").css("display","none");
+							init();
+						}
+					});
+
+				</script>
+			</div>
+		</div>
+		<p class="select_tip" style="margin-left: 75px;">可对比显示指定时间段的每日数据</p>
+	</div>
+</div>
+<div class="time_select" style="height: 77px;padding-left: 50px">
+		<div id="seletime" style="padding-top: 10px; padding-bottom: 10px;"></div>
+		<div class="time_title" id='avgRecharge'></div>
+</div>
+<div class="line_chart" id="myChart">
+
+</div>
+<div class="activity_stati">
+	<div class="act_show"></div>
+	<ul class="act_ul">
+		<li class="act_tit">活动</li>
+	</ul>
+</div>
+
+<div class="act_regular">
+		<div class="title">
+			<ul>
+				<li ifmsrc="/activity/rule" class="current">规则创建</li>
+				<li ifmsrc="/activity/scan">活动查询</li>
+				<li ifmsrc="/activity/create">创建活动</li>
+				<li ifmsrc="/activity/banner">banner</li>
+			</ul>
+		</div>
+		<div class="detail">
+			<div class="fancy" id="creat-detail">
+				<iframe id="iframepage" src="/activity/rule" width="100%" style="min-height: 350px" scrolling="no" onload="this.height=$(this).contents().height()+50" frameborder="0" ></iframe>
+			</div>
+		</div>
+	</div>
+<div class="footer1">
+	Copyright © 2017.Company PeerSafe All rights reserved.
+</div>
+</body>
+</html>

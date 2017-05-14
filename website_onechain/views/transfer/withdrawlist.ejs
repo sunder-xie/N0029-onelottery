@@ -1,0 +1,114 @@
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/paging.css">
+<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/js/query.js"></script>
+<script type="text/javascript" src="/js/paging.js"></script>
+
+<div class="shaixuan_con">
+    <ul class="shaixuan_ul" >
+        <li class="shxu_tit">
+            <div class="shxu_tit_col6" style="width: 40%">用户HASH</div>
+            <div class="shxu_tit_col2" style="width: 15%">用户名</div>
+            <div class="shxu_tit_col2" style="width: 10%">提取金额</div>
+            <div class="shxu_tit_col3" style="width: 15%">状态</div>
+            <div class="shxu_tit_col6 no-margin" style="width: 15%">申请时间</div>
+        </li>
+        <li class="shan_content" style="height: auto;">
+            <%for(var i = 0; i < data.length ; i ++){%>
+            <a href="#"  id = "/transfer/list?withdrawID=<%=data[i].id%>" onclick="getWithdrawDetail(this,'<%=data[i].state%>')">
+                <div class="shxu_tit_col6" style="width: 40%"><%=data[i].userId%></div>
+                <div class="shxu_tit_col2" style="width: 15%"><%=data[i].name%></div>
+                <div class="shxu_tit_col2" style="width: 10%"><%=data[i].amounts/10000%></div>
+                <div class="shxu_tit_col3" style="width: 15%"><%=data[i].state%></div>
+                <div class="shxu_tit_col6 no-margin" style="width: 15%"><%=data[i].createTime.Format('yyyy-MM-dd hh:mm:ss')%></div>
+            </a>
+            <%}%>
+        </li>
+    </ul>
+
+</div>
+
+<%if(pageCount!=0){%>
+<div class="page page_spe"  style="margin-bottom: 0px;">
+    <div id="pageTool" style="padding-top: 50px;" ></div>
+</div>
+<%}%>
+
+<script>
+    var url = window.location.href;
+    $('#pageTool').Paging({pagesize:<%=eachPage%>,current:<%=currentPage%>,count:<%=pageCount%>,callback:function(page,size,count){
+        console.log(arguments)
+        console.log('当前第 ' +page +'页,每页 '+size+'条,总页数：'+count+'页');
+        loadData(page,true)
+    }});
+
+    function loadData(cur){
+
+        if(window.location.search ==''){
+            url += '?currentPage='+cur
+        }else{
+            if(window.location.search.indexOf('currentPage')!=-1){
+                var search = window.location.search.split('=');
+                var length = search[search.length-1].length;
+                url = url.substr(0,url.length - length) + cur;
+            }else{
+                url += '&currentPage=' + cur;
+            }
+        };
+        console.log('url',url);
+
+        window.location.href = url ;
+
+    };
+    
+    function getWithdrawDetail(node,status){
+        var url = $(node).attr('id');
+        console.log('url____',url)
+        $.ajax({
+            type: 'get',
+            url: url,
+            success: function(data) {
+                data = JSON.parse(data);
+                //var a = $('.Shzhong Spop',parent.document).attr('style',"display:block");
+                var $Spop = $(window.parent.document).find(data.state == 1 ? ".Shzhong" : ".keShensu");
+                for(var key in data){
+                    $Spop.find("#"+key).html(data[key]);
+                    if(key=="userId"){
+                        $Spop.find("#"+key).html(substr(data[key]));
+                    }
+                    if(key=="amounts"){
+                        $Spop.find("#"+key).html(data[key]/10000);
+                    }
+                }
+                if (data.state != 1) {
+                    $Spop.find("#wid").html(data.id);
+                };
+                $Spop.show();
+
+                // 状态 1申请中 2已打款 3已确认 4提现失败（申请被拒） 5客户申诉 6确认到账（申诉驳回）7提现失败（退回众享币） 8后台自动确认
+                $Spop.find("#appeal_tr").hide();
+                if (data.appeal && data.appeal.length > 0) {
+                    $Spop.find("#appeal_tr").show();
+                };
+
+                $Spop.find("#remark_tr").hide();
+                if (data.remark && data.remark.length > 0) {
+                    $Spop.find("#remark_tr").show();
+                }
+
+                $Spop.find("#btn").show();
+                if (data.state != 1 && data.state != 5) {
+                    $Spop.find("#btn").hide();
+                };
+
+            }
+        });
+    }
+
+    function substr(str){
+        var substr = str.substring(0,20)+"..."+str.substring(str.length-20,str.length);
+        return substr;
+    }
+
+</script>

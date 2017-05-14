@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <solid android:color="@color/lottery_bet_num_pressed"/>
+
+    <corners android:radius="@dimen/x6" />
+
+    <stroke
+        android:width="@dimen/y1"
+        android:color="@color/app_primary_color" />
+
+</shape>

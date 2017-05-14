@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/y128">
+
+        <include layout="@layout/toolbar_layout" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <!--标题-->
+                <RelativeLayout style="@style/create_lottery_mid_title">
+
+                    <EditText
+                        android:id="@+id/et_lottery_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/y111"
+                        android:layout_marginRight="@dimen/x55"
+                        android:background="@null"
+                        android:gravity="center_vertical|left"
+                        android:hint="@string/create_lottery_title_content"
+                        android:maxLength="20"
+                        android:textColor="@color/common_text_color"
+                        android:textColorHint="@color/create_lottery_title_text_hint_color"
+                        android:textSize="@dimen/y28" />
+
+                    <TextView
+                        android:id="@+id/tv_title_len"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/x25"
+                        android:gravity="center_vertical"
+                        android:text="20"
+                        android:textColor="@color/add_concern_btn_color" />
+
+                </RelativeLayout>
+
+                <include layout="@layout/create_lottery_divider_line" />
+
+                <!--规则-->
+                <RelativeLayout
+                    style="@style/create_lottery_mid_title"
+                    android:onClick="selectRule">
+
+                    <TextView
+                        android:id="@+id/tv_rule_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/create_lottery_rule"
+                        android:textColor="@color/create_lottery_title_text_hint_color"
+                        android:textSize="@dimen/y28" />
+
+                    <ImageView style="@style/create_lottery_spinner_down_arrow" />
+
+                </RelativeLayout>
+
+                <include layout="@layout/create_lottery_divider_line" />
+
+                <!--描述-->
+                <EditText
+                    android:id="@+id/et_lottery_describe"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y110"
+                    android:layout_marginLeft="@dimen/x34"
+                    android:layout_marginTop="@dimen/y42"
+                    android:background="@null"
+                    android:gravity="top|left"
+                    android:hint="@string/create_lottery_describe_content"
+                    android:maxLength="30"
+                    android:paddingRight="@dimen/y34"
+                    android:textColor="@color/common_text_color"
+                    android:textColorHint="@color/create_lottery_title_text_hint_color"
+                    android:textSize="@dimen/y28" />
+
+                <!--标签-->
+                <RelativeLayout
+                    android:id="@+id/rl_label"
+                    android:layout_width="@dimen/x125"
+                    android:layout_height="@dimen/x125"
+                    android:layout_marginLeft="@dimen/x34">
+
+                    <ImageButton
+                        android:id="@+id/ibt_lottery_icon"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/create_lottery_label"
+                        android:scaleType="centerCrop" />
+
+                    <TextView
+                        android:id="@+id/tv_sel_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/y50"
+                        android:layout_alignParentBottom="true"
+                        android:gravity="center"
+                        android:text="@string/create_lottery_select_label"
+                        android:textColor="@color/create_lottery_title_text_hint_color"
+                        android:textSize="@dimen/y22" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y20"
+                    android:layout_marginTop="@dimen/y70"
+                    android:background="@color/lottery_detaile_line_bg" />
+
+                <!--开始时间-->
+                <RelativeLayout
+                    android:id="@+id/rl_start_time"
+                    style="@style/create_lottery_mid_title">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/create_lottery_start_time_text"
+                        android:textColor="@color/common_text_color" />
+
+                    <TextView
+                        android:id="@+id/et_lottery_start_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/x166"
+                        android:gravity="center_vertical"
+                        android:text="2016-11-12 12:20"
+                        android:textColor="@color/app_primary_color"
+                        android:textSize="@dimen/y28" />
+
+                </RelativeLayout>
+
+                <include layout="@layout/create_lottery_divider_line" />
+
+                <!--活动时长-->
+                <RelativeLayout
+                    style="@style/create_lottery_mid_title"
+                    android:onClick="selectDuration">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:maxWidth="@dimen/x140"
+                        android:text="@string/create_lottery_duration_time_text"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="@dimen/y28" />
+
+                    <TextView
+                        android:id="@+id/tv_lottery_duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/x166"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="@dimen/y28" />
+
+                    <ImageView style="@style/create_lottery_spinner_down_arrow" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y20"
+                    android:background="@color/lottery_detaile_line_bg" />
+
+                <!--总注数-->
+                <RelativeLayout style="@style/create_lottery_mid_title">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/create_lottery_total_bet_text"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="@dimen/y28" />
+
+                    <TextView
+                        android:id="@+id/zhushu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/x25"
+                        android:gravity="center_vertical"
+                        android:text="@string/create_lottery_bet_word"
+                        android:textColor="@color/add_concern_btn_color" />
+
+                    <EditText
+                        android:id="@+id/et_total_bet"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/x166"
+                        android:layout_toLeftOf="@+id/zhushu"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:maxLines="1"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="@dimen/y28" />
+
+                </RelativeLayout>
+
+                <include layout="@layout/create_lottery_divider_line" />
+
+                <!--每注花费-->
+                <RelativeLayout
+                    style="@style/create_lottery_mid_title"
+                    android:onClick="selectOneBetCost">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/create_lottery_bet_cost_text"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="@dimen/y28" />
+
+                    <TextView
+                        android:id="@+id/tv_one_bet_cost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/x166"
+                        android:textColor="@color/create_lottery_title_text_hint_color"
+                        android:textSize="@dimen/y28" />
+
+                    <ImageView style="@style/create_lottery_spinner_down_arrow" />
+
+                </RelativeLayout>
+
+                <include layout="@layout/create_lottery_divider_line" />
+
+                <!--募集金额-->
+                <RelativeLayout
+                    style="@style/create_lottery_mid_title"
+                    android:layout_marginBottom="@dimen/y25">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:maxWidth="@dimen/x140"
+                        android:text="@string/create_lottery_raise_amount"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="@dimen/y28" />
+
+                    <TextView
+                        android:id="@+id/tv_raise_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/x166"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="@dimen/y28" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y128"
+        android:layout_gravity="bottom"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/x34"
+        android:paddingRight="@dimen/x34">
+
+        <Button
+            android:id="@+id/btn_delete_lottery"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y88"
+            android:layout_marginRight="@dimen/x25"
+            android:layout_weight="1"
+            android:background="@drawable/selector_register_btn"
+            android:text="@string/create_lottery_delete"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/y38"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_create_lottery"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y88"
+            android:layout_weight="1"
+            android:background="@drawable/selector_register_btn"
+            android:text="@string/create_lottery_create"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/y38" />
+
+    </LinearLayout>
+
+</FrameLayout>

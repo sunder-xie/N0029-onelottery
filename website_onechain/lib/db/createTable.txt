@@ -1,0 +1,166 @@
+// 创建数据库时，还需要mysql配置支持表情字符集
+//drop database peersafe;
+//CREATE DATABASE IF NOT EXISTS peersafe DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+
+
+//管理员账号表
+create Table Manager(
+   name varchar(42) PRIMARY KEY,
+   password text,
+   access varchar(42),
+   disable boolean,
+   phone varchar(42),
+   createTime datetime
+) character set = utf8;
+
+//区块信息表(记录存储区块信息)
+create Table Block(
+   id int PRIMARY KEY,
+   txNumber int 
+);
+//区块信息同步表(记录当前区块高度)
+create Table Block(
+   id int PRIMARY KEY,
+   time datetime,
+   blockNum int 
+);
+
+//用户信息表
+create Table UserInfo(
+   userId varchar(90) PRIMARY KEY,
+   name varchar(42),
+   balance bigint,
+   activationTime datetime,
+   reserved  bigint default 0
+)character set = utf8;
+
+//交易记录表
+
+/*1、充值
+2、投注
+3、退款
+4、中奖
+5．发布活动
+6.修改活动
+7.活动盈利
+8.转账
+9.提现
+11.提现：用户确认
+14.提现：申诉驳回
+16.提现：后台自动确认
+*/
+create Table TransactionDetail(
+   txId   varchar(42) PRIMARY KEY,
+   myHash varchar(90),
+   myName varchar(42),
+   relatedHash varchar(90),
+   amount bigint default 0,
+   type int,
+   fee int default 0,
+   time datetime,
+   operator varchar(42)
+)character set = utf8;
+
+
+
+//一元夺宝活动表
+// 状态 0未开始 1进行中 2可开奖 3已开奖 4已退款 5 未知状态（开奖中，退款中）
+create Table OneLottery(
+  lotteryID    varchar(42) PRIMARY KEY,  
+	name  varchar(42),
+	ruleType     varchar(10),
+	ruleId       varchar(42),
+	publisherHash   varchar(90),
+	publisherName   varchar(42),
+	createTime      datetime,
+	updateTime      datetime,
+	startTime       datetime,
+	closeTime       datetime,
+	minAttendeeCnt     int,
+	maxAttendeeCnt     int default 0,
+	cost               int,
+	description     text,
+	lastCloseTime   datetime,
+	curBetAmount    bigint default 0,
+	total           bigint,
+	curBetCount     int default 0,
+	rewardNumbers   varchar(42),
+	state           int default 0,
+  creater         varchar(42),
+  pictureIndex    int
+) character set = utf8;
+
+
+//一元夺宝投注表
+create Table OneLotteryBet(
+    ticketId  varchar(42) PRIMARY KEY,
+    lotteryId varchar(42),
+    attendeeHash  varchar(90),
+    attendeeName  varchar(42),
+    betNumbers  mediumtext,
+    betCost     bigint,
+    betCount    int,
+    prizeLevel  int,
+    bonus       int,
+    createTime  datetime
+);
+
+//规则表
+create Table Rule(
+    id   varchar(42)  PRIMARY KEY,
+    percentage int,
+    status int
+);
+//区块同步记录表
+create Table SyncState(
+    id       int PRIMARY KEY,
+    time     datetime,
+    blockNum int
+);
+//活动统计表
+create Table activityStatics(
+    date     date,
+    type      varchar(42),
+    count    int,
+    PRIMARY KEY(date,type)
+
+)character set = utf8;
+
+//web端充值记录表
+create Table webRecharge(
+    transcationId varchar(42) PRIMARY KEY,
+    channelType varchar(10),
+    transcationFee int,
+    messageDetail varchar(42),
+    userHash  varchar(90),
+    time int
+);
+//banner表
+CREATE TABLE `Banner` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `imgName` varchar(50) NOT NULL,
+  `imgAddress` varchar(50) NOT NULL,
+  `imgOrder` int(5) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+
+//Withdraw用户提现表
+// 状态 1申请中 2已打款 3已确认 4提现失败（申请被拒） 5客户申诉 6确认到账（申诉驳回）7提现失败（退回众享币） 8后台自动确认
+create Table Withdraw(
+  id            varchar(42) PRIMARY KEY,  
+  userId        varchar(56),
+  name          varchar(42),
+  amounts       bigint,
+  bank          varchar(100),
+  account       varchar(100),
+  accountName   varchar(100),
+  orderNum      varchar(100),
+  state         int,
+  createTime    datetime,
+  updateTime    datetime,
+  appeal        varchar(200),
+  remark        varchar(200),
+  payAdmin      varchar(42),
+  appealAdmin   varchar(42)
+) character set = utf8mb4;
+

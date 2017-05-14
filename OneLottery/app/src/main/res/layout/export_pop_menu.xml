@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/lottery_detail_check_list"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y400"
+        android:layout_alignParentBottom="true"
+        android:background="@color/setting_back_bg"
+        android:divider="@color/setting_division_line"
+        android:dividerHeight="@dimen/y1"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none"/>
+
+</LinearLayout>

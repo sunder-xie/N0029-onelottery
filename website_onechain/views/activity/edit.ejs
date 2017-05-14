@@ -1,0 +1,109 @@
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+<link rel="stylesheet" href="/css/style.css">
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="all" href="/css/daterangepicker-bs3.css" />
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/css/page.css">
+<style type="text/css">
+	.faceShow{
+		width:100%;
+		margin:0 auto;
+		position:relative;
+	}
+	.faceShow span{
+		line-height:10px;
+		padding:5px;
+		width:10%;
+		text-align:center;
+		border:1px #000000 solid;
+
+	}
+	#faceContent{
+		width:800px;
+		border:1px #CCCCCC solid;
+		display:none;
+		border-radius:5px;
+	}
+	#clipDIV ul{
+		width:600px;
+		margin:0 auto;
+	}
+</style>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/js.js"></script>
+<script src="/js/page.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/moment.js"></script>
+<script type="text/javascript" src="/js/daterangepicker.js"></script>
+<style>
+	.sec_num1{margin-right: 15px}
+	.all_select_delete{margin-right: 15px; width: 80px;}
+</style>
+<script >
+
+	$(document).ready(function(){
+		clipInit(20,10,true)
+	});
+	function loadData(){
+		console.log('i am data')
+	}
+</script>
+<div class="shaXuan">
+	<div class="sha_center sha_center_spe">
+		<input type="checkbox" name="vehicle" value="Car" class="all_select">全选&nbsp&nbsp&nbsp
+		<button class="all_select_delete">删除</button>
+		<span>类型筛选</span>
+		<select class="sec_seo sec_num1">
+					<option value="volvo">官方活动</option>
+					<option value="saab">上架</option>
+					<option value="opel">隐藏</option>			 					
+		</select>
+		<span>时间筛选</span>
+		<input type="text" id="reservation" class="sec_seo sec_num3" readonly name="startTime">
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#reservation').val(moment().subtract('days', 29).format('YYYY/MM/DD') + ' - ' + moment().format('YYYY/MM/DD'));
+				$('#reservation').daterangepicker({
+					timePicker: false,
+					timePickerIncrement: 30,
+					format: 'YYYY/MM/DD'
+				}, function(start, end, label) {
+					console.log(start.toISOString(), end.toISOString(), label);
+				});
+			});
+		</script>
+	</div>
+</div>
+<div class="shaixuan_con">
+	<ul class="shaixuan_ul">
+		<li class="shxu_tit">
+			<div class="shxu_tit_col1 shxu_tit_col_spe1">名称</div>
+			<div class="shxu_tit_col2 shxu_tit_col_spe4">创建者</div>
+			<div class="shxu_tit_col3 shxu_tit_col_spe3">规则</div>
+			<div class="shxu_tit_col4 shxu_tit_col_spe4">开始时间</div>
+			<div class="shxu_tit_col5 shxu_tit_col_spe5">操作</div>
+		</li>
+		<%for(i in activity){%>
+		<li class="shan_content">
+			<div class="shxu_tit_col1 shxu_tit_col_spe1">
+				<div class="shxu_mali"><input type="checkbox" name="vehicle" value=""></div>
+				<a href="/activity/edit?id=<%=activity[i].lotteryId%>" target="_blank"><div class="shxu_zi"><%=activity[i].name%></div></a>
+			</div>
+			<a href="/activity/edit?id=<%=activity[i].lotteryId%>"  target="_blank">
+				<div class="shxu_tit_col3 shxu_tit_col_spe4"><%=activity[i].creater%></div>
+				<div class="shxu_tit_col5 shxu_tit_col_spe3"><%=activity[i].rule%></div>
+				<div class="shxu_tit_col6 no-margin shxu_tit_col_spe4"><%=activity[i].startTime%></div>
+			</a>
+			<a href="/activity/delete?id=<%=activity[i].lotteryId%>">
+				<div class="shxu_tit_col3 shxu_tit_col_spe5">删除</div>
+			</a>
+		</li>
+		<%}%>
+	</ul>
+</div>
+<div class="page page_spe">
+	<div class="page_con" id="clipDIV">
+
+	</div>
+</div>
+

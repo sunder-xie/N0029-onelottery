@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+<title>无标题文档</title>
+<style type="text/css">
+#tou {
+	height: 220px;
+	width: 100%;
+	background-image: url(images/bj.jpg);
+	background-repeat: repeat-y;
+}
+body {
+	margin: 0px;
+	padding: 0px;
+}
+#tou #logo {
+	height: auto;
+	width: 200px;
+	margin-left: 33px;
+	padding-top: 20px;
+	float: left;
+}
+#tou #welc {
+	font-family: "华文细黑";
+	font-size: 24px;
+	color: #1e7891;
+	text-align: center;
+	width: 100%;
+	padding-top: 85px;
+}
+#tou #dlk {
+	background-color: #FFF;
+	height: 450px;
+	width: 550px;
+	border-radius: 4px 4px 4px 4px;
+	box-shadow: 0px 0px 3px lightgray;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 52px;
+}
+#tou #biaoti #form1 p {
+	float: left;
+	display: inline;
+}
+#tou #biaoti #form1 {
+}
+#tou #biaoti #form1 p label #RadioGroup1_0 {
+	height: 16px;
+	width: 16px;
+}
+#tou #biaoti #form1 p label #RadioGroup1_1 {
+	height: 16px;
+	width: 16px;
+}
+#tou #biaoti {
+	margin-top: -435px;
+	float: left;
+	margin-left: 37%;
+}
+.font1 {
+	font-family: "微软雅黑";
+	font-size: 13px;
+	color: #45516a;
+	line-height: 16px;
+}
+#tou #biaoti #form1 {
+	line-height: 16px;
+	vertical-align: middle;
+}
+#tou #bt_2 {
+	float: left;
+	margin-top: -445px;
+	margin-left: 59%;
+}
+#tou #bt_2:hover{background-color:#ddeef4;
+cursor:pointer;}
+.font2 {
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: #3CA1C5;
+}
+hr {
+	width: 480px;
+	margin-right: auto;
+	margin-left: auto;
+	color: #d4dee2;
+	border-top-style: solid;
+	border-top-width: 1px;
+}
+.bd {
+	height: 40px;
+	width: 400px;
+	border: 1px solid #c8e1e6;
+	border-radius: 4px 4px 4px 4px;
+}
+#tou #bdzh {
+}
+#tou #bdzh {
+	margin-right: auto;
+	margin-left: auto;
+	width: 440px;
+	margin-top: 70px;
+	height: 50px;
+	text-align: center;
+}
+
+#tou #bdzh2 {
+	height: 50px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 440px;
+	margin-top: 440px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #c8e1e6;
+}
+#tou #fh {
+	height: 16px;
+	width: 50px;
+	float: left;
+	margin-left: 40%;
+	margin-top: -70px;
+}
+#tou #fh :hover{
+	background-color: #ddeef4;
+	cursor: pointer;
+}
+.font3 {
+	font-family: "微软雅黑";
+	font-size: 14px;
+	line-height: 16px;
+	color: #666;
+	margin-top: -5px;
+}
+
+#tou #fh #fhwz {
+	float: right;
+	margin-top: -1px;
+}
+.an1 {
+	background-color: #3B97FC;
+	height: 43px;
+	width: 180px;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	border-radius: 5px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	color: #2d3d5b;
+}
+.an1:hover{
+	background-color: #2BBCFF;
+	cursor: pointer;
+}
+#tou #bdzh .wzbs:hover{color:#f98068;
+cursor:pointer;}
+#tou #an {
+	width: 180px;
+	margin-left: auto;
+	margin-top: 39px;
+	margin-right: auto;
+}
+#tou #bqxx {
+	margin-right: auto;
+	margin-left: auto;
+	width: 130px;
+	margin-top: 70px;
+	text-decoration: underline;
+}
+.div_bd {
+	width: 400px;
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+		margin-top: 20px;
+}
+</style>
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	function aa() {
+	    var frm = $("#form1");
+
+		$.ajax({
+			type: frm.attr('method'),
+			url: frm.attr('action'),
+			data: frm.serialize(),
+			success: function(data) {
+				if(data==0){
+					window.location.href = "/index"
+				}else{
+					alert("密码不正确");
+				}
+			}
+		});
+	}
+	$(function(){
+		$('input:first').focus();
+		$(document).keydown(function(e){
+			var e = e || event,
+					keycode = e.which || e.keyCode;
+			if (keycode==13) {
+				aa();
+			}
+		});
+	});
+</script>
+</head>
+
+<body>
+<div id="tou">
+  <div id="logo"><img src="images/logo.png" width="200" height="39" alt=""/></div>
+  <div id="welc">welcome to peersafe backstage management system</div>
+  <div id="dlk"></div>
+  <br />
+
+
+	<hr style="margin-top:-415px"/><br />
+
+	<form id="form1" name="form1" method="post" action="/login">
+	  <div class="div_bd" style="margin-top:30px">
+	  	<span class="font1">用户名</span><br />
+	  	<br style="line-height:12px" />
+	  	<label for="name"></label>
+	  	<input name="name" type="text" class="bd" value="" />
+	  </div>
+	  
+	  <div class="div_bd">
+	  	<span class="font1">登录密码</span><br />
+	  	<br style="line-height:12px" />
+	  	<label for="pwd"></label>
+	  	<input name="pwd" type="password" class="bd" value="" />
+	  	<div id="an"><input  id="inputbutton" type="button" class="an1" value="登录" onclick="aa()"/></div>
+	  </div>
+	</form>
+
+
+
+<br />
+<br />
+<br />
+</div>
+</body>
+</html>

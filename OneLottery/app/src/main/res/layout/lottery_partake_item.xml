@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y110">
+
+    <TextView
+        android:id="@+id/tv_item_partaker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginTop="@dimen/y16"
+        android:text="参与者"
+        android:textColor="@color/common_text_color"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/y16"
+        android:layout_marginLeft="@dimen/x40"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_item_bet_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10注"
+            android:textSize="@dimen/y25"
+            android:textColor="@color/lottery_detaile_text_color"/>
+
+        <TextView
+            android:id="@+id/tv_item_attend_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x70"
+            android:text="1024 23 34  23 "
+            android:textSize="@dimen/y25"
+            android:textColor="@color/lottery_detaile_text_color"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view"
+        style="@style/create_lottery_division_line"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/x28"
+        android:layout_marginRight="@dimen/x28" />
+
+    <Button
+        android:id="@+id/btn_item_add_attention"
+        android:layout_width="@dimen/x95"
+        android:layout_height="@dimen/y42"
+        android:layout_alignEnd="@+id/view"
+        android:layout_alignRight="@+id/view"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:background="@drawable/shape_lottery_common_bg_btn"
+        android:drawableLeft="@drawable/lottery_detail_add_concern"
+        android:drawablePadding="@dimen/x5"
+        android:gravity="center_vertical|left"
+        android:outlineProvider="none"
+        android:paddingLeft="@dimen/x15"
+        android:text="@string/lottery_detail_add_concern"
+        android:textColor="@color/app_primary_color"
+        android:textSize="@dimen/y22"/>
+</RelativeLayout>

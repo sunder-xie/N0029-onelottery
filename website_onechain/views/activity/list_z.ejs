@@ -1,0 +1,82 @@
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/paging.css">
+<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/js/query.js"></script>
+<script type="text/javascript" src="/js/paging.js"></script>
+
+<script >
+    function showcode(betNumbers){
+        var data = betNumbers.split(" ");
+        var htmltext="";
+        for(var i in data){
+            htmltext += "<li>"+data[i]+"</li>"
+        }
+        $(".aler-succ-bot ul").html(htmltext);
+        $('.alert-success').show();
+
+    }
+</script>
+<div class="pay-menu activity-find-menu">
+    <div class="pay-menu-tit">
+        <div class="pay-menu-col1 act-fin-col1">投注者</div>
+        <div class="pay-menu-col2 act-fin-col2">投注数</div>
+        <div class="pay-menu-col3 act-fin-col3">时间</div>
+        <div class="pay-menu-col5 act-fin-col4"></div>
+    </div>
+    <ul class="pay-menu-ul">
+        <%for(var i = 0; i < data.length ; i ++){%>
+        <li>
+            <div class="pay-menu-col1 act-fin-col1"><%=data[i].attendeeName%></div>
+            <div class="pay-menu-col2 act-fin-col2"><%=data[i].betCount%></div>
+            <div class="pay-menu-col3 act-fin-col3"><%=data[i].createTime%></div>
+            <div class="pay-menu-col5 act-fin-col4">
+                <span onclick="showcode('<%=data[i].betNumbers%>')">查看投注号</span>
+            </div>
+        </li>
+        <%}%>
+    </ul>
+</div>
+<div class="alert-success">
+    <div class="alert-success-con">
+        <div class="aler-succ-top">
+            <span id="wait" >投注号</span>
+            <span class="close" onclick="$('.alert-success').hide();"><img src="../img/icon_close_alt2.png"></span>
+        </div>
+        <div class="aler-succ-bot">
+            <ul>
+            </ul>
+        </div>
+    </div>
+</div>
+<%if(pageCount!=0){%>
+<div class="page page_spe"  style="margin-bottom: 0px;">
+    <div id="pageTool"style="padding-top: 50px;" ></div>
+</div>
+<%}%>
+<script>
+    var url = window.location.href;
+    $('#pageTool').Paging({pagesize:<%=eachPage%>,current:<%=currentPage%>,count:<%=pageCount%>,callback:function(page,size,count){
+        console.log(arguments)
+        console.log('当前第 ' +page +'页,每页 '+size+'条,总页数：'+count+'页');
+        loadData(page,true)
+    }});
+    function loadData(cur){
+
+        if(window.location.search ==''){
+            url += '?currentPage='+cur
+        }else{
+            if(window.location.search.indexOf('currentPage')!=-1){
+                var search = window.location.search.split('=');
+                var length = search[search.length-1].length;
+                url = url.substr(0,url.length - length) + cur;
+            }else{
+                url += '&currentPage=' + cur;
+            }
+        };
+        console.log('url',url);
+
+        window.location.href = url ;
+
+    }
+</script>

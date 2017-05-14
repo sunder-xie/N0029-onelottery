@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_withdraw"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y204"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y30"
+        android:background="@drawable/shape_white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/withdraw_balance"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/y32"/>
+
+        <TextView
+            android:id="@+id/tv_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="66666.00"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/y66"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y98"
+        android:layout_marginTop="@dimen/y30"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/y40"
+            android:text="@string/withdraw_bank_card"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/y28"/>
+
+        <TextView
+            android:id="@+id/tv_bank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/x10"
+            android:layout_marginRight="@dimen/x40"
+            android:layout_toRightOf="@id/text"
+            android:ellipsize="end"
+            android:inputType="text"
+            android:gravity="right"
+            android:maxLines="1"
+            android:text="招商银fsdfdffsdfsdfsdfsfsfs行卡(5555)"
+            android:textColor="@color/lottery_prize_text_color"
+            android:textSize="@dimen/y28"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y98"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/y40"
+            android:text="@string/withdraw_balance_total"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/y28"/>
+
+        <EditText
+            android:id="@+id/et_withdraw"
+            android:layout_width="@dimen/x500"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/x40"
+            android:background="@null"
+            android:gravity="center_vertical|right"
+            android:hint="可提现2000.00"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:textColor="@color/common_text_color"
+            android:textColorHint="@color/create_lottery_title_text_hint_color"
+            android:textSize="@dimen/y28"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_withdraw"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y30"
+        android:background="@drawable/selector_register_btn"
+        android:text="@string/btn_withdraw"
+        android:textColor="@color/white"
+        android:textSize="@dimen/y38"/>
+
+</LinearLayout>

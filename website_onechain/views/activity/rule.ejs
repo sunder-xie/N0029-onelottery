@@ -1,0 +1,125 @@
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/js.js"></script>
+<script>
+ 	function next(node){
+		$('.message').hide();
+		var p = $(node).val();
+		var actarr = [];
+		$('.acsum').each(function () {
+			actarr.push($(this).text().replace('%',''))
+		});
+		if(!$('#ruleId').val() && $.inArray(p ,actarr)>=0){
+			$(node).val("");
+			$(".inputbl").val("");
+			$('.message').show();
+		}
+		if(p.search(/^[0-9]+$/)||parseInt(p)>100||parseInt(p)<0){
+			$(node).addClass("inputerr");
+			$(node).val("");
+			$(".inputbl").val("");
+		}else{
+			$(node).removeClass("inputerr");
+			var nextP = 100 - parseInt(p);
+			$("#nextPercentage").val(nextP)
+		}
+
+	}
+	$(function () {
+		$('.message').hide();
+		$(".succ-btn").removeAttr("disabled");
+		$(".inputd").val("");
+		$(".inputbl").val("");
+		$(".creat-regualar button").click(function() {
+			$('#percentage').val("");
+			$(".inputbl").val("");
+			$('#percentage').attr('readonly',false)
+			$('.creat-reg-pop').show();
+		});
+	});
+
+	function aa() {
+		var frm = $("#rule");
+		var inputbl = $(".inputd").val();
+		console.log(frm.attr('action'))
+		if(inputbl){
+			$(".succ-btn").attr({"disabled":"disabled"}).css({"background-color":"#D2D2D2"});
+			$.ajax({
+				type: frm.attr('method'),
+				url: frm.attr('action'),
+				data: frm.serialize(),
+				success: function(data) {
+					alert(data)
+					location.reload();
+				}
+			});
+		}else {
+			alert("请填写活动获奖比例！");
+		}
+
+	}
+	function rule(node){
+		$("#rule").attr("action","/activity/rule?method=edit");
+		var id = $(node).children(":eq(0)").html()
+		var percentage = $(node).children(":eq(3)").html();
+		$('#ruleId').val(id);
+		$('#percentage').val(parseInt(percentage));
+		$('#percentage').attr('readonly',true)
+		$('#nextPercentage').val(100-parseInt(percentage));
+		$('.creat-reg-pop').show();
+	}
+
+</script>
+<ul class="creat-ul">
+
+	<%for(var i=0;i<rules.length;i++){%>
+	<li class="creat-li" onclick="rule(this)">
+	    <span name='id' style="display:none"><%=rules[i].id%></span>
+		<span class="detail_li_col1">规则<%=json[i]%></span>
+		<span class="detail_li_col2">获奖者得到</span>
+		<span class="acsum"><%=rules[i].percentage%>%</span>
+		<span class="detail_li_col2">创建者</span>
+		<span><%=100-rules[i].percentage%>%</span>
+		<div class="state"><%=rules[i].status==1?'显示':'隐藏'%></div>
+	</li>
+<%}%>
+	
+</ul>
+<div class="creat-regualar">
+<button>创建规则</button>
+</div>
+<div class="creat-reg-pop">
+
+
+	<div class="creat_content">
+		<form action="/activity/rule" method="post" id="rule">
+
+			<div class="creat-pop-con">
+				<span>获奖者得到</span>
+				
+				<input type="text" class="sec_seo sec_num inputd" name="percentage" placeholder="1~100的数字！" maxlength="3" onblur="next(this)" id="percentage">
+				<span class="message" style="color: red;padding-left: 100px; padding-top: 10px;">规则已存在！</span>
+			</div>
+			<div class="creat-pop-con">
+				<span>创建者</span>
+				<input type="text" class="sec_seo sec_num inputbl" readonly="true" id="nextPercentage">
+			</div>	
+			<input type="text" name="ruleId" style="display:none" id="ruleId">
+			<div class="state">
+				<input type="radio" name="ruleStatus" value="1" class="state1" checked>显示&nbsp&nbsp&nbsp&nbsp&nbsp
+				<input type="radio" name="ruleStatus" value="0">隐藏
+			</div>	
+			
+		</form>
+		<div class="creat-pop-pub-btn">
+				<button class="succ-btn" onclick="aa()">发布</button>
+				<button class="fase-btn">退出</button>
+		</div>
+	</div>																	
+
+
+
+
+
+</div>

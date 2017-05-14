@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_alert_dialog"
+    android:layout_width="@dimen/x550"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_alert_dialog_bg"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/alert_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y25"
+        android:padding="@dimen/x5"
+        android:text="@string/setting_delete_account_tip_title"
+        android:textColor="@color/common_text_color"
+        android:textSize="@dimen/y32"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/alert_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/y44"
+        android:layout_marginLeft="@dimen/x60"
+        android:layout_marginRight="@dimen/x60"
+        android:layout_marginTop="@dimen/y39"
+        android:gravity="center"
+        android:text="@string/setting_delete_account_tip_message"
+        android:textColor="@color/common_text_color"
+        android:textSize="@dimen/y28"
+        android:visibility="visible" />
+
+    <TextView
+        android:layout_width="@dimen/x510"
+        android:layout_height="@dimen/y2"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/dark_gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/alert_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:onClick="cancel"
+            android:text="@string/cancel"
+            android:textColor="@color/lottery_prize_text_color"
+            android:textSize="@dimen/y28"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/alert_skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:onClick="skip"
+            android:text="@string/skip"
+            android:textColor="@color/lottery_item_text_color"
+            android:textSize="@dimen/y28"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="@dimen/x2"
+            android:layout_height="@dimen/y64"
+            android:layout_gravity="center_vertical"
+            android:background="@color/dark_gray" />
+
+        <Button
+            android:id="@+id/alert_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:onClick="ok"
+            android:text="@string/confirm"
+            android:textColor="@color/app_primary_color"
+            android:textSize="@dimen/y28"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/alert_emport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:onClick="emport"
+            android:text="@string/emport"
+            android:textColor="@color/app_primary_color"
+            android:textSize="@dimen/y28"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

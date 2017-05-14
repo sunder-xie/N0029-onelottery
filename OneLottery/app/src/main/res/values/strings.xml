@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 公共 -->
+    <string name="common_copy">Copy</string>
+    <string name="common_copy_success">Copy successfully</string>
+    <string name="common_see_other">Look around</string>
+    <string name="common_input_pwd_title">Please enter password</string>
+    <string name="success">Success</string>
+    <string name="fail">Fail</string>
+    <string name="share_success">Share successfully</string>
+    <string name="exit_chain_bet_again">Press again to exit</string>
+    <string name="loading">Loading</string>
+    <string name="btn_withdraw">Withdraw</string>
+    <string name="btn_confirm">@android:string/ok</string>
+    <string name="btn_confirm_already">Confirmed</string>
+    <string name="modify">Modify</string>
+
+    <!-- tab bar -->
+    <string name="tab_bar_lottery">Activity</string>
+    <string name="tab_bar_recent">News</string>
+    <string name="tab_bar_friend">Friends</string>
+    <string name="tab_bar_me">Me</string>
+    <string name="tab_bar_create_lottery">Create\nActivity</string>
+
+
+    <string name="app_name">We Bet</string>
+    <string name="app_copyright">©2017.Company PeerSafe All rights reserved</string>
+    <string name="common_enter_user_name">Please enter username</string>
+    <string name="common_enter_password">Please enter password</string>
+    <string name="common_enter_correct_format_user_name">Digital number and alphabet character combination allowed</string>
+
+    <string name="app_agree_now">Experience</string>
+    <string name="app_agree"><![CDATA[Click <Experience>, means you agree]]></string>
+    <string name="app_agreement">《Webet Terms &#38;&#10; Conditions》</string>
+    <!-- 注册 -->
+    <string name="register">Register</string>
+    <string name="register_confirm_password">Confirmed password</string>
+    <string name="register_fail">Register failure</string>
+    <string name="register_success">Register successfully</string>
+    <string name="register_new_user">Register</string>
+    <string name="register_password_not_the_same">Password and confirmed password are different. Please enter again</string>
+    <string name="register_account_already_exists">Username enter has been registered. Please enter again</string>
+    <string name="register_password_length_not_correct">Password is too short</string>
+    <string name="register_enter_confirm_password">Please enter confirmed password</string>
+    <string name="register_enter_correct_format_user_name">Please enter 2 to 16 digits or letters</string>
+    <string name="register_enter_correct_format_password">Please 8 to 16 characters passwords</string>
+    <string name="register_waiting">Registering</string>
+    <string name="register_name_length_too_short">Username is too short</string>
+
+    <!-- 登录 -->
+    <string name="login">Login</string>
+    <string name="login_waiting">Logining</string>
+    <string name="login_see_first">Look around</string>
+    <string name="login_fail">Incorrect password. Try again</string>
+
+    <!-- 导入导出提示语 -->
+    <string name="export_wifi">WIFI</string>
+<string name="emport_file_alert_message">For safety, please backup your wallet,
+    In addition, you can also into ‘Personal Center-Export Wallet’later to backup. Please take care of your backup wallet, system could not get back lost wallet.</string>
+    <string name="improt">Import</string>
+    <string name="not_login">Your are not logged in</string>
+
+    <!-- AlertDialog提示语 -->
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="delete">Delete</string>
+    <string name="skip">Skip</string>
+    <string name="emport">Export</string>
+
+    <!-- 活动 -->
+    <string name="lottery_create">Create Activity</string>
+    <string name="lottery_index_newest">Newest</string>
+    <string name="lottery_index_fastest">Fastest</string>
+    <string name="lottery_index_friend">Friend</string>
+    <string name="lottery_index_me">My</string>
+    <string name="lottery_compete_treasure">Raid</string>
+    <string name="bet">Bet</string>
+    <string name="lottery_offical_flag">Offi-\ncial</string>
+    <string name="lottery_personal_flag">Pers-\nonal</string>
+    <string name="lottery_per_bet">Stake</string>
+    <string name="lottery_creater">Creator:</string>
+    <string name="date_fromat">MM/dd EE</string>
+
+    <!-- 设置 -->
+    <string name="setting_change_account">Switch ID</string>
+    <string name="setting_balance">Balance:</string>
+    <string name="setting_wallet_address">Wallet Card Number</string>
+    <string name="setting_bet_query">Bet History</string>
+    <string name="setting_detail_query">Transaction History</string>
+    <string name="setting_msg_center">Messages</string>
+    <string name="setting_with_draw">Withdraw</string>
+    <string name="setting_version_update">Version Update</string>
+    <string name="setting_wallet_export">Wallet Export</string>
+    <string name="setting_guide_page">Guide Page</string>
+    <string name="setting_personal_title">Personal Center</string>
+    <string name="setting_transfer">Transfer</string>
+    <string name="setting_recharge">Recharge</string>
+    <string name="setting_share">Share</string>
+    <string name="setting_feedback">Feedback</string>
+    <string name="setting_cur_version">Current VersionV%s</string>
+    <string name="setting_deault_user_account">Tourist</string>
+    <string name="setting_login_first">Please login!</string>
+    <string name="setting_cur_account">Current Account</string>
+    <string name="setting_account_change">Switch Account</string>
+    <string name="setting_add_new_account">Add New Account</string>
+    <string name="setting_delete_account_tip_title">Are you sure to delete?</string>
+    <string name="setting_delete_account_tip_message"> To avoid your capital lost, please enter the ‘personal->wallet export’page to backup you wallet before deletion.</string>
+    <string name="setting_exit">Log Out</string>
+    <string name="setting_bet_query_all">All</string>
+    <string name="setting_bet_query_dur">Ongoing</string>
+    <string name="setting_bet_query_lucky">Lucky</string>
+    <string name="setting_my_bet">My Bet</string>
+    <string name="setting_bet_add">Bet More</string>
+    <string name="setting_bet_query_bet">Bet: %d&#160;Bet</string>
+    <string name="setting_bet_query_status">Status: %s</string>
+    <string name="setting_bet_query_luckey_number">Lucky Number: %s</string>
+    <string name="setting_bet_query_reward_already">Drawed</string>
+    <string name="setting_exit_tip_message">Are you sure to exit current account?</string>
+
+    <!-- 活动详情页面 -->
+    <string name="lottery_detail_add_concern">Follow</string>
+    <string name="lottery_details">Activity Detail</string>
+    <string name="lottery_detail_attend_list">Participate List</string>
+    <string name="lottery_detail_calculation">Calculation Detail</string>
+    <string name="lottery_detail_check">View</string>
+    <string name="lottery_detail_start_countdown">Start Countdown</string>
+    <string name="lottery_detail_start_date">Start Date</string>
+    <string name="lottery_detail_lottery_describtion">Activity Description</string>
+    <string name="lottery_detail_lottery_start">Activity is about to begin</string>
+    <string name="lottery_detail_rule_type">Rule</string>
+    <string name="lottery_detail_prize_winner">Winner: </string>
+    <string name="lottery_detail_rule_percent" formatted="false">Winner can get %s bet amount. Lottery can be drawed if bet is full.</string>
+    <string name="lottery_detail_deadline">Deadline: %s</string>
+    <string name="lottery_detail_end_time">End Time: %s</string>
+    <string name="lottery_detail_fail_time">Fail Time: %s</string>
+    <string name="lottery_detail_reward_on_going">Lottery is drawing. Please wait</string>
+    <string name="lottery_detail_bet_total_count">Bet needed: &#160;&#160;</string>
+    <string name="lottery_detail_rest_bet_count">Remaining Bet: &#160;&#160;</string>
+    <string name="lottery_detail_lottery_fail">Fail activity: %s</string>
+    <string name="lottery_detail_lottery_can_refund">Fail activity: %s&#160;&#160;(Refunding)</string>
+    <string name="lottery_detail_lottery_refund_already">Fail activity: %s&#160;&#160;(Refunded)</string>
+    <string name="lottery_detail_bet_count">Total bet: %dBet</string>
+    <string name="lottery_detail_my_add_bet">My bet: %d&#160;Bet</string>
+    <string name="lottery_detail_not_add_lottery">You are not involved in.</string>
+    <string name="lottery_detail_revise">Modify</string>
+    <string name="lottery_detail_add_concern_already">Followed</string>
+    <string name="lottery_detail_luckey_number">Lucky number: </string>
+    <string name="lottery_detail_bet_total_cost">Total bet amount: %d ZX Coin</string>
+    <string name="lottery_detail_award">Winner: %s</string>
+    <string name="lottery_detail_per_bet"> %d Bet</string>
+
+
+    <!-- 投注页面 -->
+    <string name="lottery_bet_count">Bet Count</string>
+    <string name="lottery_bet_immediately">Bet Now</string>
+    <string name="lottery_bet_num_five">5 Bets</string>
+    <string name="lottery_bet_num_twenty">20 Bets</string>
+    <string name="lottery_bet_num_fifty">50 Bets</string>
+    <string name="lottery_bet_num_all">bet rest</string>
+    <string name="lottery_bet_total">Pay: %d ZX Coin</string>
+    <string name="lottery_bet_balance">Balance: %s ZX Coin</string>
+    <string name="lottery_bet_per_cost">%d ZX Coin/Bet</string>
+    <string name="lottery_bet_not_start">Activity has not begun!</string>
+    <string name="lottery_bet_num_empty">Please enter Bet Count!</string>
+    <string name="lottery_bet_num_exceed">enter bets should not excced remaining count!</string>
+    <string name="lottery_bet_balance_not_enough">No sufficient Balance. Please top up!</string>
+    <string name="lottery_bet_waiting">Betting now. Please wait...</string>
+    <string name="lottery_has_start_notify">Activity began. No modify permitted.</string>
+
+    <!-- 最新揭晓 -->
+    <string name="recent_announcement">News</string>
+    <string name="recent_reward">Draws</string>
+    <string name="recent_history">History</string>
+    <string name="recent_fail">Failure</string>
+    <string name="recent_time_to_reward">The time is comming. Click to draw the lottery.</string>
+    <string name="recent_reward_lottery_waiting">Thanks. please wait!</string>
+    <string name="recent_reward_waiting_text">The lottery is drawing. Navigate to ’Lottery History’ for more details</string>
+    <string name="recent_reward_ing">Drawing</string>
+    <string name="recent_lottery_creater_holder">Holder: %s</string>
+    <string name="recent_lottery_creater_holders">Holder:</string>
+
+
+    <!-- 创建活动 -->
+    <string name="create_lottery_rule">Rule</string>
+    <string name="create_lottery_setting">Activity Setting</string>
+    <string name="create_lottery_title">Activity Title</string>
+    <string name="create_lottery_describe">Activity description(Optional)</string>
+    <string name="create_lottery_label">Activity Tag</string>
+    <string name="create_lottery_select_label">Select Tag</string>
+    <string name="create_lottery_create">Create</string>
+    <string name="create_lottery_describe_content">Description within 30 words</string>
+    <string name="create_lottery_title_content">Title within 20 words</string>
+    <string name="create_lottery_bet_word">Bet</string>
+    <string name="create_lottery_peersafe_coin">%d ZX Coin</string>
+    <string name="create_lottery_start_time_text">Start Time</string>
+    <string name="create_lottery_duration_time_text">Duration</string>
+    <string name="create_lottery_total_bet_text">Total bets</string>
+    <string name="create_lottery_bet_cost_text">Per bet Cost</string>
+    <string name="create_lottery_raise_amount">Total</string>
+    <string name="create_lottery_success">Publish successfully</string>
+    <string name="create_lottery_success_notice">Please enter Home ’My Activity’ to see detail</string>
+    <string name="create_lottery_enter_lottery">Enter Activity</string>
+    <string name="create_lottery_change_lottery">Modify Activity</string>
+    <string name="create_lottery_bet">Bet directly</string>
+    <string name="create_lottery_waiting">Creating. Please wait...</string>
+    <string name="create_lottery_modify_waiting">Modifying. Please wait...</string>
+    <string name="create_lottery_delete_waiting">Deleting. Please wait...</string>
+    <string name="create_lottery_bet_count_empty">Total bet cannot be zero</string>
+    <string name="create_lottery_title_empty">Activity Title is necessary</string>
+    <string name="create_lottery_rule_empty">Please select Rules</string>
+    <string name="create_lottery_chose_lottery_label">Please select Activity Tag</string>
+    <string name="create_lottery_chose_onebetcost">Please select Per Bet Cost</string>
+    <string name="create_lottery_chose_duration">Please Select Activity Duration</string>
+    <string name="create_lottery_balance_insufficient">No sufficient Balance. Please top up!</string>
+    <string name="create_lottery_cost_text">Note: Create activity costs 1 ZX Coin.</string>
+    <string name="modify_lottery_cost_text">Note: Revise activity costs 0.01 ZX Coin.</string>
+    <string name="create_lottery_winner_percentage">Winner percentage of amount: %d%%</string>
+    <string name="create_lottery_creator_percentage">Creator percentage of amount: %d%%</string>
+    <string name="create_lottery_can_not_lottery">You have activity unstopped.</string>
+    <string name="create_lottery_lottery_creating">You have activity in creating.</string>
+    <string name="create_lottery_delete">Delete</string>
+
+    <!-- 关注好友 -->
+    <string name="friend_all_my_friend">Friends</string>
+    <string name="friend_duration_lottery">Ongoing Activity: %d</string>
+    <string name="friend_lottery_total_bet">Need: %d&#160;Bet</string>
+    <string name="friend_lottery_current_bet">Remaining: %d&#160;Bet</string>
+
+    <!--计算详情-->
+    <string name="calculation_detail">Detail</string>
+    <string name="calculation_formula">Calculation Formula</string>
+    <string name="calculation_formula_desc">MOD[(A+B) ÷ Total Bets Needed)]+10000000</string>
+    <string name="calculation_formula_a">Value A</string>
+    <string name="calculation_formula_close_time">=Consensus Closing time</string>
+    <string name="calculation_formula_close_time_desc" formatted="false">全网共识活动关闭时间每个验证节点都记录自己收到最后一笔交易的时间，然后抛到全网共识达成一个一致的close_time. 共识过程分三轮进行，每一轮的的超时时间为3秒。第一轮和第二轮集票时间到后，各节点从所有收到的close_time（排序去重后）里选择一个中间值，再抛出新的close_time；第三轮集票时间到后，选择得票最多的close_time，如果得票最多的close_time占全天投票的80%，则记录并使用此close_time，否则再抛出此close_time进行第四轮投票，直到某个close_time得到80%以上的投票为止。</string>
+
+    <!-- 消息类型消息-->
+    <string name="message_create_success">Create successfully</string>
+    <string name="message_create_fail">Create failure</string>
+    <string name="message_delete_fail">Delete failure</string>
+    <string name="message_delete_success">Delete successfully</string>
+    <string name="message_modify_success">Modify successfully</string>
+    <string name="message_modify_fail">Modify failure</string>
+    <string name="message_can_refund_success">Refund successfully</string>
+    <string name="message_lottery_refund_ale">Activity refunded</string>
+    <string name="message_lottery_prize">You win the lottery</string>
+    <string name="message_lottery_percentage">Your own lottery is drawing</string>
+    <string name="message_see_content">Click to view details</string>
+    <string name="message_my_create_lottery_prize">You win the lottery. Click to view details</string>
+
+    <!--消息中心-->
+    <string name="message_select_all">Select All</string>
+    <string name="message_select_none">Unselect All</string>
+    <string name="message_create_lottery_fail">Create activity failure</string>
+    <string name="message_delete_lottery_success">Delete activity successfully</string>
+    <string name="message_delete_lottery_fail">Delete activity failure</string>
+    <string name="message_modify_lottery_success">Modify activity successfully</string>
+    <string name="message_modify_lottery_fail">Modify activity failure</string>
+    <string name="message_create_lottery_success">Create activity successfully</string>
+    <string name="message_bet_success">Bet successfully</string>
+    <string name="message_lottery_bet_success">Bet successfully</string>
+    <string name="message_bet_fail">Bet failure</string>
+    <string name="message_lottery_bet_fail">Bet failure</string>
+    <string name="message_delete_msg">Delete Message</string>
+    <string name="message_transfer_in_message">%1$s transfer %2$s ZX Coin to you</string>
+    <string name="message_transfer_message">Transfer %2$s ZX Coin to %1$s</string>
+    <string name="message_transfer_fail">%s did not get the money. The money has been refunded.</string>
+    <string name="message_save_wallet">%d ZX Coin is deposited into Wallet</string>
+    <string name="message_transfer_admin">%d ZX Coin is topped up successfully</string>
+    <string name="message_withdraw_send_sucess_title">Withdrawals  sent</string>
+    <string name="message_withdraw_send_sucess_content">ZX Coin withdrawal request has been sent. The request is applying.</string>
+    <string name="message_withdraw_send_sucess_horn">ZX Coin withdrawal request has been sent. </string>
+    <string name="message_withdraw_send_fail_title"> Withdrawals  not send</string>
+    <string name="message_withdraw_send_fail_content">ZX Coin withdrawal request not sent. Please try again.</string>
+    <string name="message_appeal_send_success_title">Complaint request has been sent</string>
+    <string name="message_appeal_send_success_content">ZX Coin complaint request has been sent. Please wait.</string>
+    <string name="message_appeal_send_success_horn">ZX Coin complaint request has been sent.</string>
+    <string name="message_appeal_send_fail_title">Complaint request not sent</string>
+    <string name="message_appeal_send_fail_content">ZX Coin complaint request not sent. Please try again.</string>
+    <string name="message_appeal_send_fail_horn">ZX Coin complaint request not sent. </string>
+    <string name="message_withdraw_success_title">Withdraw successfully</string>
+    <string name="message_withdraw_success_content">Withdraw Peersafe Coin successfully. System payment operation finished.</string>
+    <string name="message_withdraw_fail_title">Withdraw failure</string>
+    <string name="message_withdraw_fail_content">Reason:</string>
+    <string name="message_withdraw_fail_horn">Withdraw Peersafe Coin failure</string>
+
+    <!--空页面-->
+    <string name="no_network"> The farthest distance in the world is:\nno network. Please try again.</string>
+    <string name="check_network">Please check your network.</string>
+    <string name="no_lottery">No activity</string>
+    <string name="no_bet">No bet record</string>
+    <string name="no_friend">No friends</string>
+    <string name="no_data">No record</string>
+    <string name="no_record">No record</string>
+    <string name="no_search_lottery">No available activity</string>
+    <string name="no_service">Server error \nTry again later</string>
+    <string name="check_service">Server is out of earth. Try again later.</string>
+
+    <!--搜索中心-->
+    <string name="search_ing">Searching</string>
+    <string name="search_hint">Enter keyword or friend ID</string>
+
+    <!--转账-->
+    <string name="transfer_zxc">ZX Coin</string>
+    <string name="transfer_account_invalid">Invalid account</string>
+    <string name="transfer_account_me_invalid">Transfer accounts to yourself is prohibited</string>
+    <string name="transfer_searching_account">Searching</string>
+    <string name="transfer_opposite_account">Reciprocal Account</string>
+    <string name="transfer_opposite_account_addr">Card No.:</string>
+    <string name="transfer_opposite_nick_or_account">User Account/Reciprocal Card No.</string>
+    <string name="transfer_next_step">Next</string>
+    <string name="transfer_my_balance">Balance: %sZX Coin</string>
+    <string name="transfer_num_enter">Please enter transfer amount</string>
+    <string name="transfer_num_enter_invalid">Transfer amount should be at most 2 decimal places </string>
+    <string name="transfer_num_enter_too_max">Transfer amount exceeds Balance. Please top up.</string>
+    <string name="transfer_num_enter_is_zero">Transfer amount should not be 0</string>
+    <string name="transfer_num">Transfer amount</string>
+    <string name="transfer_account_inactivated">Inactive user. Please enter wallet card number to transfer accounts</string>
+    <string name="transfer_account_inactivated2">Inactive user. Please verify card number before confirm.</string>
+    <string name="transfer_network_error">Network communication error. Try again later.</string>
+    <string name="transfer_transfering">Transfering. Plrase wait...</string>
+    <string name="transfer_success">Transfer successfully</string>
+    <string name="transfer_fail">Transfer failure</string>
+    <string name="transfer_confirm">Confirm Transfer</string>
+    <string name="transfer_cost_text">Note: Transfer needs poundage 0.01 ZX Coin</string>
+
+    <!--明细查询-->
+    <string name="detail_query">Transactions</string>
+    <string name="transfer_type_transfer">Transfer</string>
+    <string name="transfer_type_transfer_from_admin">Top Up successfully</string>
+    <string name="transfer_type_create_lottery">Activity Creation</string>
+    <string name="transfer_type_modify_lottery">Activity Revise</string>
+    <string name="transfer_type_prize">Congratulations! You win.</string>
+    <string name="transfer_type_percentage">Activity Profit</string>
+    <string name="transfer_type_bet">Bet</string>
+    <string name="transfer_type_refund">Refund</string>
+    <string name="transfer_type_withdraw">Withdraw</string>
+
+    <string name="transfer_type_content_transfer">%s has got transfer money</string>
+    <string name="transfer_type_content_transfer_from_other">Transfer from %s. Money has been deposited into Wallet</string>
+    <string name="transfer_type_content_transfer_from_admin">Money has been deposited into Wallet</string>
+    <string name="transfer_type_content_refund">%s failed. Have refunded.</string>
+    <string name="transfer_type_content_prize">%s won. Money has been deposited into Wallet</string>
+    <string name="transfer_type_content_percentage">%s drawed. Money has been deposited into Wallet</string>
+
+    <!-- wifi备份恢复 -->
+    <string name="setting_back_restore_wifi">Backup/Recovery(WiFi)</string>
+    <string name="setting_wifi_mode_open">Wi-Fi mode is open</string>
+    <string name="setting_pc_phone_same_wifi_tip">Telephone and Computer should be in same Wi-Fi network.</string>
+    <string name="setting_wifi_backrestore_enter_address">Please enter below address in computer browser</string>
+    <string name="setting_wifi_backrestore_not_leave">(On import or export, please do not leave this page)</string>
+    <string name="setting_wifi_mode_close">Wi-Fi mode is closed</string>
+    <string name="setting_wifi_please_reconnect">(Please re-connect to Wi-Fi)</string>
+    <string name="setting_wifi_connect_name">Connected to Wi-Fi named %s</string>
+    <string name="contact_copy_invite_code_success">Copy successfully</string>
+    <string name="setting_backrestore_html_emptypass_orfile">Please select file and enter password</string>
+    <string name="setting_backrestore_html_emptypass">Password is required</string>
+    <string name="setting_backrestore_html_shortpass">Password is too short</string>
+    <string name="setting_backrestore_html_resotreOk">Recovery successfully</string>
+    <string name="setting_backrestore_html_resotreFailed">Recovery failure</string>
+    <string name="setting_backrestore_html_backupFailed">Backup failure</string>
+    <string name="setting_backrestore_html_backup">Backup</string>
+    <string name="setting_about_us">About</string>
+    <string name="setting_bet_query_fail">Failed</string>
+
+    <!-- 充值中 -->
+    <string name="setting_rechange_center">Top Up</string>
+
+
+    <!-- 计算详情页面 -->
+    <string name="calculation_attend_time">Participate Time</string>
+    <string name="calculation_user_account">ID</string>
+    <string name="calculation_formula_b">Value B</string>
+    <string name="calculation_formula_text">Before the end of activity, choose the last 100 participants\' time and add all the time up. </string>
+    <string name="calculation_down">View</string>
+    <string name="calculation_result">Calculation Result</string>
+    <string name="calculation_up">Hide</string>
+    <string name="calculation_waiting_open">Waiting for announcement</string>
+    <string name="calculation_open_fail">Announcement failure</string>
+
+    <string name="permission_get_accounts_hint">>No permission. Please open permission of PERMISSION_GET_ACCOUNTS.</string>
+    <string name="permission_read_phone_hint">>No permission. Please open permission of PERMISSION_READ_PHONE_STATE.</string>
+    <string name="permission_call_phone_hint">>No permission. Please open permission of PERMISSION_CALL_PHONE.</string>
+    <string name="permission_camera_hint">>No permission. Please open permission of PERMISSION_CAMERA.</string>
+    <string name="permission_access_fine_location_hint">>No permission. Please open permission of PERMISSION_ACCESS_FINE_LOCATION.</string>
+    <string name="permission_access_coarse_location_hint">>No permission. Please open permission of PERMISSION_ACCESS_COARSE_LOCATION.</string>
+    <string name="permission_read_external_hint">>No permission. Please open permission of PERMISSION_READ_EXTERNAL_STORAGE.</string>
+    <string name="permission_white_external_hint">>No permission. Please open permission of PERMISSION_WRITE_EXTERNAL_STORAGE.</string>
+    <string name="permission_recode_audio_hint">>No permission. Please open permission of PERMISSION_RECORD_AUDIO.</string>
+
+    <!--引导页-->
+    <string name="guide_title1">Block Chain Smart Contract Bet</string>
+    <string name="guide_title2">Decentralized HASH Calculation</string>
+    <string name="guide_title3">Block Chain Public and Private Key Protection</string>
+    <string name="guide_content1">More Fair</string>
+    <string name="guide_content2">More Just</string>
+    <string name="guide_content3">More Safe</string>
+
+    <!-- 分享提示语 -->
+    <string name="share_contecnt_text">Even programmer cannot change data.</string>
+    <string name="share_content_title">We Bet -- Money is priced, but fair is priceless</string>
+    <string name="share_content_titile_and_link">We Bet -- Money is priced, but fair is priceless. Download link: http://fir.im/webet</string>
+    <string name="setting_rechange_text">Please enter top-up amount(ZX Coin)</string>
+    <string name="setting_rechange_enter_count">enter amount</string>
+    <string name="setting_confirm_rechange">Confirm Top-up</string>
+    <string name="setting_rechange_no_install_weixin">You does not install WeChat or current WeChat version is not supported</string>
+    <string name="setting_rechange_order_title" formatted="false">WeBet top up (Exchange%d)</string>
+    <string name="setting_rechange_enter_money">Please enter a correct amount</string>
+    <string name="setting_rechange_pay_success">Pay successfully</string>
+    <string name="setting_rechange_pay_cancel">Pay cancel</string>
+    <string name="setting_rechange_pay_fail">Pay failure</string>
+    <string name="setting_rechange_init_weixin_fail">WeChat initialization failed</string>
+    <string name="setting_rechange_order_unkown">Unknown order status</string>
+    <string name="setting_rechange_waiting">ZX Coin is topping up\nPlease wait...</string>
+    <string name="second">%d s</string>
+    <string name="choice_share_platform">Please choose share platform</string>
+
+    <!-- 自动升级提示语 -->
+    <string name="fir_break_network">Network unavailable.</string>
+    <string name="fir_update_title">Application Update</string>
+    <string name="fir_new_version">Version:</string>
+    <string name="fir_update_content">Update content</string>
+    <string name="fir_update_size">Need download:</string>
+    <string name="fir_target_size">New version size:</string>
+    <string name="fir_gprs_condition">(Notice: No WIFI enviroment)</string>
+    <string name="fir_update_now">Update Now</string>
+    <string name="fir_app_update">Application Update</string>
+    <string name="fir_not_now">Later</string>
+    <string name="fir_ignore">Ignore current version</string>
+    <string name="fir_toast_isupdating">Updating</string>
+    <string name="fir_dialog_InstallAPK">Newest version downloaded. Install Now?</string>
+    <string name="fir_update_cancel">Cancel</string>
+    <string name="fir_start_update">Start Download</string>
+    <string name="fir_isSDEmpty">SD card is not exist</string>
+    <string name="fir_no_update">It\'s already the newest version</string>
+    <string name="ok">Ok</string>
+    <string name="share_fail">Share Fail</string>
+    <string name="app_not_install">No installation application</string>
+    <string name="unkown">Unknown cause</string>
+    <string name="setting_argment">User Permissions</string>
+
+    <!-- 提现提示语 -->
+    <string name="withdraw_record">Withdrawal records</string>
+    <string name="withdraw_balance">Balance ZX Coin in account</string>
+    <string name="withdraw_balance_total">Amount(￥)</string>
+    <string name="withdraw_bank_card">transferred to bank card</string>
+    <string name="withdraw_to_bank_card">transferred to bank card</string>
+    <string name="withdraw_user_new_bank_card">Withdraw with new card</string>
+    <string name="withdraw_select_bank_card">Select Cards</string>
+    <string name="withdraw_bind_bank_alert">Please bind your bank card</string>
+    <string name="withdraw_bank_belong">Bank of Deposit </string>
+    <string name="withdraw_card_number">Card No.</string>
+    <string name="withdraw_bank_card_holder">Cardholder</string>
+    <string name="withdraw_add_bank_card">Add a Card</string>
+    <string name="withdraw_list_text">Withdrawal Records</string>
+    <string name="withdraw_bill_status">Bill Status</string>
+    <string name="withdraw_time">Time</string>
+    <string name="withdraw_count">Withdrawal Amount</string>
+    <string name="withdraw_bill_number">Order Number</string>
+    <string name="withdraw_card_name">Account Number</string>
+    <string name="withdraw_confirm">Confirm Withdraw</string>
+    <string name="withdraw_appeal">Complaint</string>
+    <string name="withdraw_reason">Reason: &#160;&#160;</string>
+    <string name="withdraw_enter_card_number">Enter Bank Card Number</string>
+    <string name="withdraw_enter_bank_name">Enter Bank Name</string>
+    <string name="withdraw_enter_card_holder">Enter Cardholder Name</string>
+    <string name="withdraw_fail">Submit failure</string>
+    <string name="withdraw_success">Submit successfully</string>
+    <string name="withdraw_progress">Submitting. Please wait</string>
+    <string name="withdraw_can">Allowed withdrawal %s￥</string>
+    <string name="withdraw_status_applying">Applying</string>
+    <string name="withdraw_status_pay">Paid</string>
+    <string name="withdraw_status_confirm">Confirmed</string>
+    <string name="withdraw_status_cancel">Canceled</string>
+    <string name="withdraw_status_fail">Withdraw failure</string>
+    <string name="withdraw_status_appealing">In Complaint</string>
+    <string name="withdraw_appeal_reason">Complaint Reason</string>
+    <string name="withdraw_one_huandrd">within 100 words </string>
+    <string name="withdraw_confirm_warning">Note: Please make sure you have got money before withdrawal.</string>
+    <string name="withdraw_motify_bank_card">Change bank card</string>
+    <string name="withdraw_delete_warn">Are you sure to delete current bank card?</string>
+    <string name="withdraw_motify_bank_card_alert">Please change bank card of cardholder</string>
+
+    <!-- 钱包导入 -->
+    <string name="setting_file_save_local">local-storage</string>
+    <string name="setting_common_question">FAQ</string>
+    <string name="setting_import_wallent_fail">No local wallet record</string>
+    <string name="setting_file_emport_fail">Export failure</string>
+    <string name="setting_file_emport_fail_message">Check local memory, enter "personal center" and repeat operation</string>
+    <string name="setting_emport_fail">Retry or choose other export way</string>
+    <string name="setting_import_account">Select import ID</string>
+    <string name="setting_import_waller_fail">Import the wallet failure</string>
+    <string name="setting_back_up_ing">Backuping</string>
+    <string name="setting_emport_success">Export successfully</string>
+</resources>

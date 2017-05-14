@@ -1,0 +1,42 @@
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_primary_color">
+
+
+    <RelativeLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/id_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/x90">
+        </FrameLayout>
+
+        <include layout="@layout/bottom_bar"/>
+
+        <Button
+            android:id="@+id/btn_create_lottery"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="@dimen/y112"
+            android:layout_height="@dimen/y112"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/y14"
+            android:background="@drawable/selector_create_lottery_btn_bg"/>
+    </RelativeLayout>
+
+    <fragment
+        android:id="@+id/id_right_menu"
+        android:name="com.peersafe.chainbet.ui.setting.MenuRightFragment"
+        android:layout_width="@dimen/x600"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"/>
+
+</android.support.v4.widget.DrawerLayout>

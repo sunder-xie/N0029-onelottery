@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/login_bg"
+              android:orientation="vertical"
+              android:paddingLeft="@dimen/x68"
+              android:paddingRight="@dimen/x68">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y100"
+        android:text="@string/setting_cur_account"
+        android:textColor="@color/white"
+        android:textSize="@dimen/y31"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y1"
+        android:layout_marginTop="@dimen/y20"
+        android:background="@color/white"/>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/y18"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y87"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/y87"
+            android:layout_height="@dimen/y87"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/x32"
+            android:background="@drawable/default_avatar"
+            android:paddingLeft="@dimen/x32"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/x20">
+
+            <TextView
+                android:id="@+id/setting_right_cur_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/y30"/>
+
+            <TextView
+                android:id="@+id/setting_right_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/y30"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y60"
+        android:text="@string/setting_account_change"
+        android:textColor="@color/white"
+        android:textSize="@dimen/y31"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y1"
+        android:layout_marginTop="@dimen/y20"
+        android:background="@color/white"/>
+
+    <com.github.jdsjlzx.recyclerview.LRecyclerView
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/y600"
+        android:layout_marginLeft="@dimen/x29"
+        android:background="@android:color/transparent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    <ImageButton
+        android:id="@+id/btn_add_new_concern"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/setting_add_new_account"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/y20"
+        android:text="@string/setting_add_new_account"
+        android:textColor="@color/white"
+        android:textSize="@dimen/y32"/>
+</LinearLayout>

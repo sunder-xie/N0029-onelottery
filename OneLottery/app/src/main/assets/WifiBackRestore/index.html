@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>%title%</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/css.css">
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/js.js"></script>
+
+		<script language="javascript"  type="text/javascript">
+
+			$(document).ready(function(){
+				$(function() {
+
+					var actionFlag = %actionFlag%;
+					if (actionFlag === 1) {
+						$(".daoru").css("display","block");
+                        $(".daochu").css("display","none");
+					} else {
+						$(".daoru").css("display","none");
+                        $(".daochu").css("display","block");
+					}
+
+				});
+			})
+        </script>
+
+        <script language="javascript" type="text/javascript">
+            
+            function exportWallet(id) {
+                var pwd = $("#pas").val();
+                
+                if (pwd == "") {
+                    alert("%html.emptypass%");
+                    return false;
+                }
+
+                if (pwd.length < 8) {
+                    alert("%html.shortpass%");
+                    return false;
+                }
+
+                var form=document.getElementById('exportForm');
+                form.submit();
+            }
+        
+        </script>
+
+        <script language="javascript" type="text/javascript">
+
+            function importWallet(id) {
+                var psw = $("#importPwd").val();
+                if (psw =="")
+                {
+                    alert("%html.emptypass%");
+                    return false;
+                }
+                if (psw.length < 8) {
+                    alert("%html.shortpass%");
+                    return false;
+                }
+                var imPortForm = document.getElementById('imPortForm');
+                imPortForm.submit();
+                return true;
+            }
+
+        </script>
+        
+        <script>
+            var importAlertFlag = %importAlertFlag%;
+            var exportFailFlag = %exportFailFlag%;
+            if (importAlertFlag) {
+                alert("%html.importOk%");
+            }
+            if (exportFailFlag) {
+               alert("%html.exportFailed%");
+            }
+        </script>
+        
+    </head>
+	<body class="Mbody">
+	    
+	    <div class="container" id="content">
+			<div class="row clearfix">
+				<div class="col-md-12 column content">
+					<div class="top_bj"></div>
+					<div class="bot_bj daoru">
+
+						<div class="restoreWrap">
+							<img src="images/img4.png" height="67" width="237" alt="" class="restore">
+							<img src="images/img4-hover.png" height="67" width="237" alt="" class="restorehover">
+						</div>
+
+						<div class="tck1">
+							<h4 class="ac-h4">导入钱包</h4>
+							<form id="imPortForm" name="form1" method="post" enctype="multipart/form-data" action="importWallet">
+								<input type="file" name="file" class="select" >
+								<h5 class="ac-h5">登录密码</h5><span id="sprypassword2">
+    							    <label for="mima"></label>
+    							    <input class="mimk" type="password" name="importPwd" id="importPwd" />
+    							    <span class="passwordRequiredMsg"></span></span>
+							</form>
+
+							<input  class="ann" name="qvx" type="button" value="取消"  />
+							<input  class="ann2" name="qvx" type="button" value="导入" onclick="importWallet('')" />
+						</div>
+						<p class="footer">Copyright © 2017.Company PeerSafe All rights reserved</p>
+					</div>
+					<div class="bot_bj daochu">
+						<div class="backupWrap">
+							<img src="images/img3.png" height="71" width="242" alt="" class="backup">
+							<img src="images/img3-hover.png" height="71" width="242" alt="" class="backuphover">
+						</div>
+
+						<div class="tck">
+							<h4 class="ac-h4">导出钱包</h4>
+							<form id="exportForm" name="form1" method="post" action="exportWallet">
+								<h5 class="ac-h5">登录密码</h5><span id="sprypassword1">
+    							    <label for="mima"></label>
+    							    <input class="mimk" type="password" name="pas" id="pas" />
+    							    <span class="passwordRequiredMsg"></span></span>
+							</form><br /><br />
+
+							<input  class="ann" name="qvx" type="button" value="取消"  />
+							<input  class="ann2" name="qvx" type="button" value="导出" onclick="exportWallet('')" />
+						</div>
+
+						<p class="footer">Copyright © 2017.Company PeerSafe All rights reserved</p>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

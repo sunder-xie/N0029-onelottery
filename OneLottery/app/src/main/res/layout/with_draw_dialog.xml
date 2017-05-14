@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/y550"
+    android:layout_height="@dimen/y295"
+    android:background="@drawable/with_draw_dialog_backgroud"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y36"
+        android:text="提交成功"
+        android:textColor="@color/common_text_color"
+        android:textSize="@dimen/y32"/>
+
+    <ProgressBar
+        android:id="@+id/pb_waiting"
+        android:layout_width="@dimen/y36"
+        android:layout_height="@dimen/y36"
+        android:layout_below="@id/tv_waitting_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/y48"
+        android:layout_marginTop="@dimen/y48"/>
+
+    <ImageView
+        android:id="@+id/img_success_or_fail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/y48"
+        android:layout_marginTop="@dimen/y48"
+        android:src="@drawable/with_draw_success"
+        android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y1"
+        android:layout_marginLeft="@dimen/x30"
+        android:layout_marginRight="@dimen/x30"
+        android:background="@color/divide_line"/>
+
+    <Button
+        android:onClick="confirm"
+        android:id="@+id/btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:text="@string/confirm"
+        android:textColor="@color/app_primary_color"
+        android:textSize="@dimen/y32"/>
+</LinearLayout>

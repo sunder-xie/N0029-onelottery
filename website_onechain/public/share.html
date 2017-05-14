@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>webet</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/share.css">
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('.btn1').click(function() {
+					$('.it').hide();
+					$('.ih').show();
+				});
+				$('.btn2').click(function() {
+					$('.at').hide();
+					$('.ah').show();
+				});
+			})
+			 function getUrlParam(name) {
+	            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+	            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+	            if (r != null) return decodeURI(r[2]); return null; //返回参数值
+	        }
+	        $(function(){
+				var downLoadType = getUrlParam('downLoadType');
+				if(downLoadType=="googleplay"){
+					$('.android').attr("href","http://www.baidu.com");
+					$('.ios').attr("href","#");
+				}
+	        	if(window.location.search.substr(1)==""||getUrlParam('startTime')==null){
+					$('.active').hide();
+	        	}else{
+
+		        	$("#startTime").html(getUrlParam('startTime'));
+					$("#pictureIndex").attr("src","images/activity/"+getUrlParam('pictureIndex')+".jpg");
+					$("#percentage").html(getUrlParam('percentage'));
+					$("#description").html(getUrlParam('description'));
+					$("#publisherHash").html(getUrlParam('publisherHash'));
+					$("#total").html(getUrlParam('total'));
+	        	}
+	        });
+			
+
+
+		   function GetRTime(){
+		       var EndTime= new Date(getUrlParam('closeTime'));
+		       var NowTime = new Date();
+		       var t =EndTime.getTime() - NowTime.getTime();
+		       var d=Math.floor(t/1000/60/60/24);
+		       var h=Math.floor(t/1000/60/60%24);
+		       var m=Math.floor(t/1000/60%60);
+		       var s=Math.floor(t/1000%60);
+
+		       document.getElementById("t_d").innerHTML = d + "天";
+		       document.getElementById("t_h").innerHTML = h + "时";
+		       document.getElementById("t_m").innerHTML = m + "分";
+		       document.getElementById("t_s").innerHTML = s + "秒";
+		   }
+		   setInterval(GetRTime,0);
+		</script>
+	</head>
+	<body>
+	    <div class="container" id="section1">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<img src="images/BG.jpg" alt="" width="750" height="1334" usemap="#Map" class="img-responsive f-bg">
+                 
+                   <div class="button">
+                   		
+                   		<div class="btn1">
+                   			<a class="ios" href="#">
+                   				<img src="images/ios.png" height="72" width="304" alt="" class="img-responsive it">
+                   				<img src="images/ios-h.png" height="72" width="304" alt="" class="img-responsive ih">
+                   			</a>
+                   		</div>
+                   		<div  class="btn2">
+                   			<a class="android" href="https://fir.im/webet">
+                   				<img src="images/android.png" height="72" width="304" alt="" class="img-responsive at">
+                   				<img src="images/android-h.png" height="72" width="304" alt="" class="img-responsive ah">
+                   			</a>
+                   		</div>
+                   </div>
+
+					
+			  </div>
+			</div>
+		</div>
+		<div class="active">
+			<div class="container">
+				<div class="row clearfix">
+					<div class="col-md-12 column">
+						<div class="title">
+							限时夺宝1元起投马上投满即时开奖
+						</div>					
+				  </div>
+				</div>
+			</div>
+			<div class="container section1">
+				<div class="row clearfix">
+					<div class="col-md-12 column">
+						<div class="sec-left">
+							<img src="images/time.png" height="61" width="76" alt="">
+							<p>开始时间</p>
+						</div>
+						<div id="startTime" class="sec-right">2017-03-03 10:00:00</div>
+				    </div>
+				</div>
+			</div>
+				<div class="container section2">
+				<div class="row clearfix">
+					<div class="col-md-12 column">
+						<img id="pictureIndex" src="images/bd.png" height="347" width="682" alt="" class="img-responsive">
+						<div class="p1 time">截止时间：
+						        <span id="t_d">00天</span>
+						        <span id="t_h">00时</span>
+						        <span id="t_m">00分</span>
+						        <span id="t_s">00秒</span>
+					    </div>
+						<div class="p2">规则：中奖者获得<span id="percentage">90</span>%投注金额，投满即可开奖</div>
+						<div class="p2">活动描述：<span id="description">无</span></div>
+						<div class="p4">创建者：<span id="publisherHash">xiaomiamia</span></div>
+						<div class="p5">总需注数：<span id="total">100</span></div>
+						<p class="footer">Copyright © 2017.Company PeerSafe All rights reserved</p>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

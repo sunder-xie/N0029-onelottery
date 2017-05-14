@@ -1,0 +1,81 @@
+<head>
+	<meta charset="utf-8">
+	<title>资产统计</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+	<link href="" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/jquery-ui-1.9.2.custom.css" type="text/css">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="all" href="css/daterangepicker-bs3.css" />
+	<link rel="stylesheet" href="css/monthPicker.css" type="text/css">
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/js.js"></script>
+	<script src="js/echarts.min.js"></script>
+	<script type="text/javascript" src="js/monthPicker.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.js"></script>
+	<script type="text/javascript" src="js/share.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/moment.js"></script>
+	<script type="text/javascript" src="js/daterangepicker.js"></script>
+	<script type="text/javascript">
+		$(function(){
+
+				var pathname = window.location.pathname.replace("/","");
+				$('.hardnav .nav_ul li').removeClass('current');
+				$("#"+pathname).addClass('current');
+				if(pathname==""||pathname=="index"){
+					$("#asset").addClass('current');
+				}
+
+				$.ajax({
+				type: 'get',
+				url: '/account/userinfo',
+				success: function (data) {
+					$('#username').html(data.name);
+					if (data.access.indexOf('activity') == -1) {
+						$('#activity').hide();
+					};
+					if (data.access.indexOf('transfer') == -1) {
+						$('#transfer').hide();
+					};
+				}
+			});
+		});
+
+
+	</script>
+</head>
+<body>
+<div class="siteWrap">
+	<div class="site">
+		<div class="site_left">
+			<img src="images/logo.png" height="30" width="147" alt="">
+		</div>
+		<div class="site_right">
+			<ul class="site_ul">
+				<li class="site_people"></li>
+				<li class="site_li1" id='username'></li>
+				<li class="site_peo"></li>
+				<li class="site_word"><a href="javascript:void(0);">设置</a>
+					<ul class="site_dropUp">
+						<li class="site_Bord"><a href="/account">个人账户</a></li>
+						<li><a href="/logout">退出</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="navWrap">
+	<div class="nav hardnav">
+		<ul class="nav_ul">
+			<li class="current" id="asset"><a href="asset">资产统计</a></li>
+			<li id="activity"><a href="activity">活动管理</a></li>
+			<li id="user"><a href="user">用户管理</a></li>
+			<li id="transfer"><a href="transfer">充值提现</a></li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y400"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y86">
+
+        <Button
+            android:id="@+id/btn_close"
+            android:layout_width="@dimen/y35"
+            android:layout_height="@dimen/y35"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x30"
+            android:background="@drawable/input_pwd_close"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/common_input_pwd_title"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/y35"/>
+
+    </RelativeLayout>
+
+    <com.peersafe.chainbet.widget.KeyBackCancelEditText
+        android:id="@+id/et_input_pwd"
+        android:layout_width="@dimen/x663"
+        android:layout_height="@dimen/y73"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/y57"
+        android:background="@drawable/shape_bet_edit_bg"
+        android:inputType="textPassword"
+        android:maxLength="16"
+        android:paddingLeft="@dimen/x20"
+        android:textSize="@dimen/y22"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_create_lottery_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x50"
+            android:layout_marginTop="@dimen/y13"
+            android:text="sdfsfasdfadfa"
+            android:textColor="@color/app_primary_color"
+            android:textSize="@dimen/y22"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="@dimen/x663"
+            android:layout_height="@dimen/y77"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/y75"
+            android:background="@drawable/selector_input_pwd_btn"
+            android:text="@string/confirm"
+            android:textColor="@color/white"
+            android:textSize="@dimen/y35"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

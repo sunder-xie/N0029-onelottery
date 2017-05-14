@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/refresh_header1" android:duration="150"></item>
+    <item android:drawable="@drawable/refresh_header2" android:duration="150"></item>
+    <item android:drawable="@drawable/refresh_header3" android:duration="150"></item>
+    <item android:drawable="@drawable/refresh_header4" android:duration="150"></item>
+    <item android:drawable="@drawable/refresh_header5" android:duration="150"></item>
+    <item android:drawable="@drawable/refresh_header6" android:duration="150"></item>
+    <item android:drawable="@drawable/refresh_header7" android:duration="150"></item>
+    <item android:drawable="@drawable/refresh_header8" android:duration="150"></item>
+    <item android:drawable="@drawable/refresh_header9" android:duration="150"></item>
+    <item android:drawable="@drawable/refresh_header10" android:duration="150"></item>
+</animation-list>

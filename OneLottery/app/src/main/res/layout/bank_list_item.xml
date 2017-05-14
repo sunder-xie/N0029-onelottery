@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.peersafe.chainbet.widget.SwipeMenuView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y100"
+    android:background="@drawable/selector_settingitem_bg"
+    android:clickable="true">
+
+    <RelativeLayout
+        android:id="@+id/swipe_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x70">
+
+            <TextView
+                android:id="@+id/tv_bank_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/y40"
+                android:maxLines="1"
+                android:text="ssfdsfsdfsdfdfssdfsdfsdfsdfsdf"
+                android:textColor="@color/common_text_color"
+                android:textSize="@dimen/y32"/>
+
+            <TextView
+                android:id="@+id/tv_bank_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv_bank_name"
+                android:ellipsize="middle"
+                android:maxLines="1"
+                android:text="(8989sdfsfsfsdfsfsfssdf)"
+                android:textColor="@color/common_text_color"
+                android:textSize="@dimen/y32"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x40"
+            android:src="@drawable/bank_card_noseclect"/>
+
+        <include layout="@layout/withdraw_diviver_line"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/x220"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_bank_card_modify"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/with_draw_sile_background"
+            android:text="@string/modify"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/btn_bank_card_delete"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/app_primary_color"
+            android:text="@string/delete"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+</com.peersafe.chainbet.widget.SwipeMenuView>

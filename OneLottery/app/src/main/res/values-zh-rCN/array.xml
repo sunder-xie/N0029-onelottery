@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="lottery_duration">
+        <item>1&#160;天</item>
+        <item>3&#160;天</item>
+        <item>5&#160;天</item>
+        <item>7&#160;天</item>
+        <item>10&#160;天</item>
+        <item>15&#160;天</item>
+        <item>20&#160;天</item>
+        <item>30&#160;天</item>
+    </string-array>
+    <string-array name="one_bet_cost">
+        <item>1&#160;众享币</item>
+        <item>5&#160;众享币</item>
+        <item>10&#160;众享币</item>
+        <item>15&#160;众享币</item>
+        <item>20&#160;众享币</item>
+        <item>50&#160;众享币</item>
+        <item>100&#160;众享币</item>
+    </string-array>
+    <integer-array name="lottery_duration_i">
+        <item>1</item>
+        <item>3</item>
+        <item>5</item>
+        <item>7</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+    </integer-array>
+    <integer-array name="one_bet_cost_i">
+        <item>1</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>50</item>
+        <item>100</item>
+    </integer-array>
+</resources>

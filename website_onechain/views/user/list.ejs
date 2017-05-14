@@ -1,0 +1,61 @@
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/paging.css">
+<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/js/query.js"></script>
+<script type="text/javascript" src="/js/paging.js"></script>
+
+
+<div class="pay-menu">
+    <div class="pay-menu-tit">
+        <div class="pay-menu-col1 pay-menu-special1" style="margin-right: 20px">用户HASH</div>
+        <div class="pay-menu-col2 pay-menu-special2" style="margin-right: 20px">用户名</div>
+        <div class="pay-menu-col2 pay-menu-special2" style="margin-right: 20px">余额</div>
+        <div class="pay-menu-col3 pay-menu-special3" style="margin-right: 20px">激活时间</div>
+
+    </div>
+    <ul class="pay-menu-ul">
+        <%for(var i = 0; i< data.length; i++){%>
+        <li>
+            <a href="/user/userDetail?userHash=<%=data[i].userId%>&userName=<%=data[i].name%>" target="_blank">
+                <div class="pay-menu-col1 pay-menu-special1" style="margin-right: 20px"> <%=data[i].userId%> </div>
+                <div class="pay-menu-col2 pay-menu-special2" style="margin-right: 20px"><%=data[i].name%></div>
+                <div class="pay-menu-col2 pay-menu-special2" style="margin-right: 20px"><%=data[i].balance/10000%></div>
+                <div class="pay-menu-col3 pay-menu-special3" style="margin-right: 20px"><%=data[i].activationTime.Format('yyyy/MM/dd hh:mm:ss')%></div>
+            </a>
+        </li>
+        <%}%>
+    </ul>
+    <%if(pageCount!=0){%>
+    <div class="page page_spe"  style="margin-bottom: 0px;">
+        <div id="pageTool"style="padding-top: 50px;" ></div>
+    </div>
+    <%}%>
+</div>
+
+<script>
+    var url = window.location.href;
+    $('#pageTool').Paging({pagesize:<%=eachPage%>,current:<%=currentPage%>,count:<%=pageCount%>,callback:function(page,size,count){
+        console.log(arguments)
+        console.log('当前第 ' +page +'页,每页 '+size+'条,总页数：'+count+'页');
+        loadData(page,true)
+    }});
+    function loadData(cur){
+
+        if(window.location.search ==''){
+            url += '?currentPage='+cur
+        }else{
+            if(window.location.search.indexOf('currentPage')!=-1){
+                var search = window.location.search.split('=');
+                var length = search[search.length-1].length;
+                url = url.substr(0,url.length - length) + cur;
+            }else{
+                url += '&currentPage=' + cur;
+            }
+        };
+        console.log('url',url);
+
+        window.location.href = url ;
+
+    }
+</script>

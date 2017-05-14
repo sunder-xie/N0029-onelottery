@@ -1,0 +1,6 @@
+<resources>
+
+    <!-- 页面tab的高度，适配华为P8等手机 -->
+    <dimen name="bottom_tab_bar_height">@dimen/y98</dimen>
+
+</resources>

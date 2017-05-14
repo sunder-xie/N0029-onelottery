@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>活动管理-活动修改</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+		<link href="" rel="stylesheet">
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/style.css">
+		<link href="../css/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" media="all" href="../css/daterangepicker-bs3.css" />
+		<script src="../js/jquery-1.11.1.min.js"></script>
+		<script src="../js/js.js"></script>
+		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/moment.js"></script>
+		<script type="text/javascript" src="../js/daterangepicker.js"></script>
+
+
+
+		<style>
+			.table-condensed{font-size: 14px;}
+			.table-condensed thead > tr > th, .table-condensed tbody > tr > th, .table-condensed tfoot > tr > th, .table-condensed thead > tr > td, .table-condensed tbody > tr > td, .table-condensed tfoot > tr > td {
+				padding: 3px;
+			}
+		</style>
+		<script type="text/javascript">
+			$(function () {
+				$(".succ-btn").removeAttr("disabled");
+			});
+			function computerCost(){
+				if($("#number").val().search(/^[0-9]+$/)||parseInt($("#number").val())<1||parseInt($("#number").val())>10000){
+					$('#number').addClass("inputerr");
+					$("#number").val("");
+					return false;
+				}
+				$('#number').removeClass("inputerr");
+				var cost = parseInt($("#price").val());
+				var num = parseInt($("#number").val());
+				var total = cost * num;
+				if(isNaN(total)){
+					total = '';
+				}
+				$("#total").val(total);
+
+			}
+			function aa() {
+				var frm = $("#editActivity");
+				var required =[];
+				$(".required").each(function(i) {
+					if($(this).val()==""){
+						required.push($(this));
+						$(this).css({'border':'1px solid red'})
+					}
+				});
+				if(required.length==0){
+					$(".succ-btn").attr({"disabled":"disabled"}).css({"background-color":"#D2D2D2"});
+					$.ajax({
+						type: frm.attr('method'),
+						url: frm.attr('action'),
+						data: frm.serialize(),
+						success: function(data) {
+							alert(data);
+							location.reload();
+						}
+					});
+				}else{
+					required[0].focus();
+				}
+			}
+			$.ajax({
+				type: 'get',
+				url: '/account/userinfo',
+				success: function (data) {
+					$('#username').html(data.name);
+				}
+			});
+		</script>
+	</head>
+	<body>
+	<div class="siteWrap">
+		<div class="site">
+			<div class="site_left">
+				<img src="../images/logo.png" height="30" width="147" alt="">
+			</div>
+			<div class="site_right">
+				<ul class="site_ul">
+					<li class="site_people"></li>
+					<li class="site_li1" id='username'></li>
+					<li class="site_peo"></li>
+					<li class="site_word"><a href="javascript:void(0);">设置</a>
+						<ul class="site_dropUp">
+							<li class="site_Bord"><a href="/account">个人账户</a></li>
+							<li><a href="/logout">退出</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="navWrap">
+		<div class="nav hardnav">
+			<ul class="nav_ul">
+				<li id="asset"><a href="../asset">资产统计</a></li>
+				<li class="current" id="activity"><a href="../activity">活动管理</a></li>
+				<li id="user"><a href="../user">用户管理</a></li>
+				<li id="transfer"><a href="../transfer">充值</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="act-modify">
+			<form id="editActivity" action="/activity?id=<%=lottery.lotteryID%>" method="post" >
+				<div class="publi_act">
+					<div class="inpu">
+						<span>活动规则</span>	
+						<select class="sec_seo" name="ruleId">
+			  				<% for(var i in rules){%>
+						    <%if(rules[i].status == 1){%>
+							<option value="<%=rules[i].id%>">获奖者得<%=rules[i].percentage%>%</option>
+							<% }} %>
+						</select>  
+					</div>
+					<div class="inpu">
+						<span>活动标题</span>	
+						 <input type="text" class="huo_tit required" value="<%=lottery.name%>" name="name">
+						
+					</div>
+					<div class="inpu">
+						<span class="descript">活动描述</span>	
+						<textarea name="description" ><%=lottery.description%></textarea>
+					</div>
+					<div class="inpu">
+						<span>总注数</span>
+						 <input type="text" name="maxAttendeeCnt" class="huo_tit required" value="<%=lottery.maxAttendeeCnt%>" maxlength="5"  placeholder="1~10000以内的有效数字！" onblur="computerCost()" id="number" >
+					</div>
+					<div class="inpu">
+						<span>每注花费</span>
+						<select class="sec_seo" name="cost" value="10" onblur="computerCost()" id="price">
+							<option value="1">1</option>
+							<option value="5">5</option>
+							<option value="10">10</option>
+							<option value="20">20</option>
+							<option value="50">50</option>
+							<option value="100">100</option>
+						</select>
+						<script type="text/javascript">
+							$('#price').val(<%=lottery.cost/10000%>);
+						</script>
+						<!--<input type="text" class="huo_tit" value="" name="cost"
+						 onblur="computerCost()" id="price">-->
+					</div>
+					<div class="inpu">
+						<span>募集金额</span>
+						<input type="text" class="huo_tit " value="<%=lottery.total/10000%>" readonly name="total" id="total">
+					</div>
+					<div class="inpu" id="inpu_pic">
+						<span>活动图片</span>
+						<div style="width: 520px;">
+							<%for(var i=1;i<10;i++){%>
+							<span><input type="radio" name="pictureIndex" value="<%=i%>" id="img<%=i%>" <%=(i==lottery.pictureIndex?"checked":"")%>><label for="img<%=i%>"><img src="/images/activity/<%=i%>.jpg" name="pictureIndex"></label></span>
+							<%}%>
+						</div>
+
+					</div>
+					<div class="inpu">
+						<span>开始时间</span>
+						<input  id="reservation" class="huo_tit " style="width:200px" name="startTime">
+						<script type="text/javascript">
+							$(document).ready(function() {
+								$('#reservation').val("<%=lottery.startTime%>");
+								$('#reservation').daterangepicker({ minDate: moment().format('YYYY-MM-D'), maxDate: moment().add('days', 29),timePicker12Hour:false, singleDatePicker: true ,timePicker: true, timePickerIncrement:30, format: 'YYYY-MM-D HH:mm'});
+							});
+						</script>
+					</div>
+					<div class="inpu">
+						<span>活动时长</span>	
+						<select class="sec_seo" name="last" id="last">
+							<option value="1">一天</option>
+							<option value="3">三天</option>
+							<option value="5">五天</option>
+							<option value="7">七天</option>
+							<option value="10">十天</option>
+							<option value="15">十五天</option>
+							<option value="25">二十天</option>
+							<option value="30">三十天</option>
+
+						</select>
+						<script type="text/javascript">
+							$('#last').val(<%=lottery.last%>)
+						</script>
+					</div>
+				</div>
+				<div class="pulish_btn" style="margin-top: 80px; margin-bottom: 80px;"><input class="succ-btn" type="button" onclick="aa()" value="修改"></div>
+			    </form>
+			</div>
+
+	</body>
+	<div class="footer1">
+		Copyright © 2017.Company PeerSafe All rights reserved.
+	</div>
+</html>

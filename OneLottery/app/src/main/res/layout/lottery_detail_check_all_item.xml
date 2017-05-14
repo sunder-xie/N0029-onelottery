@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+          android:id="@+id/expire_time_item"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/x76"
+          android:layout_marginLeft="@dimen/x50"
+          android:gravity="center"
+          android:padding="@dimen/x10"
+          android:textColor="@android:color/darker_gray"
+          android:textSize="15sp"/>
+

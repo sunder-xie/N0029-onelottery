@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/personal_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary"
+    android:minHeight="?attr/actionBarSize">
+
+    <TextView
+        android:id="@+id/tv_toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/y38"
+        android:text="@string/setting_personal_title"/>
+
+    <TextView
+        android:id="@+id/tv_change_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/x28"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_gravity="right"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/y33"
+        android:text="@string/setting_change_account"/>
+
+</android.support.v7.widget.Toolbar>

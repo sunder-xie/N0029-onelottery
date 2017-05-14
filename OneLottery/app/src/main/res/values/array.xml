@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="lottery_duration">
+        <item>1&#160;day</item>
+        <item>3&#160;days</item>
+        <item>5&#160;days</item>
+        <item>7&#160;days</item>
+        <item>10&#160;days</item>
+        <item>15&#160;days</item>
+        <item>20&#160;days</item>
+        <item>30&#160;days</item>
+    </string-array>
+    <string-array name="one_bet_cost">
+        <item>1&#160;PeerSafe Coin</item>
+        <item>5&#160;PeerSafe Coin</item>
+        <item>10&#160;PeerSafe Coin</item>
+        <item>15&#160;PeerSafe Coin</item>
+        <item>20&#160;PeerSafe Coin</item>
+        <item>50&#160;PeerSafe Coin</item>
+        <item>100&#160;PeerSafe Coin</item>
+    </string-array>
+</resources>

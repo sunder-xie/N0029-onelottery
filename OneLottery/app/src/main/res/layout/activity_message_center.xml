@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lottery_detaile_line_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.github.jdsjlzx.recyclerview.LRecyclerView
+            android:id="@+id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:background="@color/lottery_detaile_line_bg"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <include
+            layout="@layout/empty"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ly_delete_msg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y98"
+        android:background="@color/lottery_detaile_line_bg"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:background="@color/color_tab_divider_line" />
+
+        <ImageView
+            android:layout_width="@dimen/y47"
+            android:layout_height="@dimen/y47"
+            android:layout_centerInParent="true"
+            android:src="@drawable/msg_del" />
+    </RelativeLayout>
+
+</LinearLayout>

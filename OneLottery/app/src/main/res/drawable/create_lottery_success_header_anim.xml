@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/create_lottery_success"
+        android:duration="150"></item>
+    <item
+        android:drawable="@drawable/create_lottery_success1"
+        android:duration="150"></item>
+    <item
+        android:drawable="@drawable/create_lottery_success2"
+        android:duration="150"></item>
+    <item
+        android:drawable="@drawable/create_lottery_success3"
+        android:duration="150"></item>
+    <item
+        android:drawable="@drawable/create_lottery_success4"
+        android:duration="150"></item>
+    <item
+        android:drawable="@drawable/create_lottery_success5"
+        android:duration="150"></item>
+    <item
+        android:drawable="@drawable/create_lottery_success6"
+        android:duration="150"></item>
+</animation-list>

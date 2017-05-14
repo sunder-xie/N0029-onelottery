@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/activity_lottery_detail"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <include
+        layout="@layout/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/lottery_detaile_line_bg"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y116"
+                android:layout_marginBottom="@dimen/y20"
+                android:layout_marginLeft="@dimen/x30"
+                android:layout_marginRight="@dimen/x30"
+                android:layout_marginTop="@dimen/y20"
+                android:background="@drawable/calculation_detail_formula_bg"
+                android:orientation="vertical"
+                android:padding="@dimen/y20">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calculation_formula"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/y32"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calculation_formula_desc"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/y26"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:padding="@dimen/x30">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calculation_formula_a"
+                    android:textColor="@color/common_text_color"
+                    android:textSize="@dimen/y32"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/y20"
+                    android:text="@string/calculation_formula_text"
+                    android:textColor="@color/lottery_detaile_text_color"
+                    android:textSize="@dimen/y26"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x10">
+
+                    <TextView
+                        android:id="@+id/text2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="="
+                        android:textColor="@color/common_text_color"
+                        android:textSize="@dimen/y26"/>
+
+                    <TextView
+                        android:id="@+id/tv_number_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/text2"
+                        android:text="XXXX"
+                        android:textColor="@color/app_primary_color"
+                        android:textSize="@dimen/y26"/>
+
+                    <Button
+                        android:id="@+id/btn_a"
+                        style="?android:borderlessButtonStyle"
+                        android:layout_width="@dimen/x150"
+                        android:layout_height="@dimen/y30"
+                        android:layout_alignParentRight="true"
+                        android:background="@android:color/transparent"
+                        android:drawablePadding="@dimen/x10"
+                        android:drawableRight="@drawable/arrow_down"
+                        android:gravity="center_vertical|right"
+                        android:text="@string/calculation_down"
+                        android:textColor="@color/lottery_prize_text_color"
+                        android:textSize="@dimen/y26"/>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_attend_time_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/y20"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="fill_vertical"
+                            android:text="@string/calculation_attend_time"
+                            android:textColor="@color/common_text_color"
+                            android:textSize="@dimen/y26"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:gravity="fill_vertical"
+                            android:text="@string/calculation_user_account"
+                            android:textColor="@color/common_text_color"
+                            android:textSize="@dimen/y26"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:descendantFocusability="blocksDescendants">
+
+                        <com.github.jdsjlzx.recyclerview.LRecyclerView
+                            android:id="@+id/list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/y20"
+                            android:background="@color/white"
+                            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y20"
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:padding="@dimen/x30">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calculation_formula_b"
+                    android:textColor="@color/common_text_color"
+                    android:textSize="@dimen/y32"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/y20"
+                    android:text="@string/calculation_formula_close_time"
+                    android:textColor="@color/lottery_detaile_text_color"
+                    android:textSize="@dimen/y26"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x10">
+
+                    <TextView
+                        android:id="@+id/text3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="="
+                        android:textColor="@color/common_text_color"
+                        android:textSize="@dimen/y26"/>
+
+                    <TextView
+                        android:id="@+id/tv_close_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/text3"
+                        android:text="XXXX"
+                        android:textColor="@color/app_primary_color"
+                        android:textSize="@dimen/y26"/>
+
+                    <Button
+                        android:id="@+id/btn_b"
+                        android:layout_width="@dimen/x150"
+                        android:layout_height="@dimen/y30"
+                        android:layout_alignParentRight="true"
+                        android:background="@android:color/transparent"
+                        android:drawablePadding="@dimen/x10"
+                        android:drawableRight="@drawable/arrow_down"
+                        android:gravity="center_vertical|right"
+                        android:text="@string/calculation_down"
+                        android:textColor="@color/lottery_prize_text_color"
+                        android:textSize="@dimen/y26"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_close_time_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/y20"
+                    android:text="@string/calculation_formula_close_time_desc"
+                    android:textColor="@color/lottery_detaile_text_color"
+                    android:textSize="@dimen/y26"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y20"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="@dimen/x30">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calculation_result"
+                    android:textColor="@color/common_text_color"
+                    android:textSize="@dimen/y32"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/y20"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lottery_detail_luckey_number"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="@dimen/y26"
+                        android:visibility="visible"/>
+
+                    <TextView
+                        android:id="@+id/tv_prize_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/app_primary_color"
+                        android:textSize="@dimen/y26"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

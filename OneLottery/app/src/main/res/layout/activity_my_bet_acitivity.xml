@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/ly_main_weixin"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <include
+        layout="@layout/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/lottery_index_lyout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y98"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_bet_all"
+            android:layout_width="@dimen/x240"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/setting_bet_query_all"
+            android:textColor="@color/lottery_index_text_color"
+            android:textSize="@dimen/y27"/>
+
+        <Button
+            android:id="@+id/btn_bet_dur"
+            android:layout_width="@dimen/x240"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/setting_bet_query_dur"
+            android:textColor="@color/lottery_index_text_color"
+            android:textSize="@dimen/y27"/>
+
+        <Button
+            android:id="@+id/btn_bet_prize"
+            android:layout_width="@dimen/x240"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/setting_bet_query_lucky"
+            android:textColor="@color/lottery_index_text_color"
+            android:textSize="@dimen/y27"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/layout_indicator"
+        android:layout_width="@dimen/x176"
+        android:layout_height="@dimen/y5"
+        android:background="@color/app_primary_color"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y1"
+        android:background="@color/lottery_index_divider_line"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.github.jdsjlzx.recyclerview.LRecyclerView
+            android:id="@+id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/white"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        <include
+            layout="@layout/empty"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+</LinearLayout>

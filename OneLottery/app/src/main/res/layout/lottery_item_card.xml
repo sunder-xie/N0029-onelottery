@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="@dimen/x355"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/x5"
+        android:layout_marginRight="@dimen/x5"
+        android:foreground="?android:attr/selectableItemBackground"
+        card_view:cardBackgroundColor="@android:color/white"
+        card_view:cardCornerRadius="@dimen/x6"
+        card_view:cardElevation="@dimen/x1"
+        card_view:cardUseCompatPadding="true">
+
+        <ImageView
+            android:id="@+id/lottery_item_top_imagview"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y242"
+            android:scaleType="centerCrop"
+            android:layout_gravity="top"
+            android:src="@drawable/lottery_icon_1"/>
+
+        <TextView
+            android:id="@+id/lottery_item_flag"
+            android:layout_width="@dimen/x70"
+            android:layout_height="@dimen/y70"
+            android:background="@drawable/lottery_official"
+            android:paddingLeft="@dimen/x6"
+            android:textColor="@color/white"
+            android:textSize="@dimen/y24"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x230"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_describtion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x19"
+                android:layout_marginRight="@dimen/x19"
+                android:layout_marginTop="@dimen/y28"
+                android:gravity="center_vertical"
+                android:lines="2"
+                android:text="我梦到色哥哥是的发生放松放松是的发生防守打法士大夫撒打算"
+                android:textColor="@color/common_text_color"
+                android:textSize="@dimen/y27"/>
+
+            <TextView
+                android:id="@+id/tv_creater"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x20"
+                android:layout_marginRight="@dimen/x20"
+                android:layout_marginTop="@dimen/x26"
+                android:textColor="@color/lottery_item_text_color"
+                android:textSize="@dimen/y26"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:id="@+id/ll_my_lottery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/y34"
+                android:layout_marginLeft="@dimen/x20"
+                android:layout_marginRight="@dimen/x20"
+                android:layout_marginTop="@dimen/y32"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_my_lottery_award"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/y15"
+                    android:textColor="@color/lottery_item_text_color"
+                    android:textSize="@dimen/y26"/>
+
+                <TextView
+                    android:id="@+id/tv_my_end_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/y15"
+                    android:textColor="@color/lottery_item_text_color"
+                    android:textSize="@dimen/y26"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_other_lottery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x20"
+                android:layout_marginRight="@dimen/x20"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <ProgressBar
+                    android:id="@+id/pb_progress"
+                    style="@style/StyleProgressBarMini"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y10"
+                    android:layout_marginTop="@dimen/x18"
+                    android:visibility="visible"/>
+
+                <TextView
+                    android:id="@+id/tv_percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x12"
+                    android:text="60%"
+                    android:textColor="@color/lottery_item_text_color"
+                    android:textSize="@dimen/y26"
+                    android:visibility="visible"/>
+
+                <TextView
+                    android:id="@+id/tv_end_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y54"
+                    android:layout_marginBottom="@dimen/x25"
+                    android:layout_marginTop="@dimen/x17"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/y26"
+                    android:visibility="gone"/>
+
+                <Button
+                    android:id="@+id/btn_my_counter"
+                    android:layout_width="@dimen/x302"
+                    android:layout_height="@dimen/y55"
+                    android:layout_marginBottom="@dimen/y21"
+                    android:layout_marginTop="@dimen/y16"
+                    android:background="@drawable/selector_register_btn"
+                    android:drawableLeft="@drawable/prize_count"
+                    android:drawablePadding="@dimen/x10"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="@dimen/x105"
+                    android:text="55234234342342343423"
+                    android:singleLine="true"
+                    android:ellipsize="middle"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/y28"
+                    android:visibility="gone"/>
+
+                <Button
+                    android:id="@+id/btn_my_reward"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y55"
+                    android:layout_marginBottom="@dimen/y21"
+                    android:layout_marginTop="@dimen/y16"
+                    android:background="@drawable/selector_register_btn"
+                    android:text="@string/recent_time_to_reward"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/y28"
+                    android:visibility="gone"/>
+
+                <RelativeLayout
+                    android:id="@+id/rl_bet_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y54"
+                    android:layout_marginBottom="@dimen/x28"
+                    android:layout_marginTop="@dimen/x10"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginBottom="@dimen/y9"
+                            android:text="@string/lottery_per_bet"
+                            android:textSize="@dimen/y24"/>
+
+                        <TextView
+                            android:id="@+id/tv_per_bet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/x5"
+                            android:text="10"
+                            android:textColor="@color/lottery_cost_text"
+                            android:textSize="@dimen/y40"
+                            android:textStyle="bold"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/x8"
+                            android:baselineAlignBottom="true"
+                            android:src="@drawable/lottery_coin"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/lottery_item_bet"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="@dimen/x135"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/selector_register_btn"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/y25"/>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>
+

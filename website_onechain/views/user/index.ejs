@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+	<title>用户管理</title>
+   <% include ../header.ejs %>
+   <style type="text/css">
+	   .faceShow{
+		   width:100%;
+		   margin:0 auto;
+		   position:relative;
+	   }
+	   .faceShow span{
+		   line-height:10px;
+		   padding:5px;
+		   width:10%;
+		   text-align:center;
+		   border:1px #000000 solid;
+
+	   }
+	   #faceContent{
+		   width:800px;
+		   border:1px #CCCCCC solid;
+		   display:none;
+		   border-radius:5px;
+	   }
+	   #clipDIV ul{
+		   width:600px;
+		   margin:0 auto;
+	   }
+   </style>
+   <script >
+
+       $(document).ready(function(){
+			    lodaLineData();
+				lodalistData()
+
+
+		})
+
+        function lodaLineData(){
+			var seldate = $('#monthContainer').val();
+			var url = 'user/userStatics?date='+seldate;
+        	$.get(url,function(data){
+			  loadData(data.ary1,data.ary2);
+			  $('#avgRecharge').html(data.avg);
+			  console.log(seldate)
+			  $('#seletime').html(seldate);
+        	})
+        }
+	   function changeValue(){
+		   //lodaLineData();
+		   var seldate = $('#monthContainer').val();
+		   $('#seletime').html(seldate);
+		   lodaLineData();
+	   }
+	   function changedata(){//input id=dateContainer
+		   var seldate = $('#dateContainer').val();
+		   lodalistData();
+	   }
+	   function lodalistData(){
+		   var seldate = $('#dateContainer').val();
+		   var url = 'user/list?date='+seldate;
+		   $("#iframe").attr("src",url);
+
+	   }
+	   function loadData(ary1,ary2){
+		   var myChart = echarts.init(document.getElementById('myChartLine'));
+		   var option = {
+			   title: {
+				   text: ''
+			   },
+			   tooltip: {
+				   trigger: 'axis'
+			   },
+			   grid: {
+				   left: '3%',
+				   right: '4%',
+				   bottom: '3%',
+				   containLabel: true
+			   },
+			   toolbox: {
+				   feature: {
+					   saveAsImage: {}
+				   }
+			   },
+			   xAxis: {
+				   type: 'category',
+				   boundaryGap: false,
+				   data: ary1
+			   },
+			   yAxis: {
+				   type: 'value',
+				   show: false
+			   },
+			   series: [
+				   {
+					   name:'激活总量',
+					   type:'line',
+					   stack: '总量',
+					   data: ary2 
+				   }
+			   ]
+		   };
+
+		   myChart.setOption(option);
+	   };
+
+	   function searchdata() {
+		   var userHash = $('#searchID').val();
+		   var url = 'user/searchList?userHash='+userHash;
+		   $("#iframe").attr("src",url);
+	   }
+	   $(function(){
+		   $("#searchID").keydown(function(e){
+			   var e = e || event,
+					   keycode = e.which || e.keyCode;
+			   if (keycode==13) {
+				   searchdata();
+			   }
+		   });
+	   });
+   </script>
+	    <div class="activity_stati">
+	    	<div class="act_show"></div>
+	    	<ul class="act_ul">
+	    		<li class="act_tit">用户统计</li>
+	    		<li class="act_time"></li>
+	    		<li class="act_word">更新时间：<%=date%></li>
+	    	</ul>
+	    </div>
+	   <div class="time_select">
+		   <div class="sele_tim_lef" style="width:300px; margin: 40px auto;float: none">
+			   <span></span>
+			   <p>激活用户总数 &nbsp&nbsp<b><%=userCount%></b></p>
+		   </div>
+	   </div>
+		<div class="time_select">
+			<div class="seletime" style="margin-top: 25px;">
+				<div id="seletime"></div>
+				<div class="time_title"><strong>用户增长日均 :</strong><span id="avgRecharge">500</span></div>
+			</div>
+			<div class="sele_tim">
+				<span>时间查询</span>
+				<input type="text" id="monthContainer" class="ui-datepicker-time sec_seo" readonly value="" />
+				<div class="ui-datepicker-css">
+					<div class="ui-datepicker-quick">
+						<p>快捷日期<a class="ui-close-date">X</a></p>
+						<div>
+							<input class="ui-date-quick-button" type="button" value="30天内" alt="-29" name=""/>
+						</div>
+					</div>
+					<div class="ui-datepicker-choose">
+						<p>自选日期</p>
+						<div class="tool_date cf">
+							<div class="ta_date" id="div_month_picker">
+								<input class="ui-date-quick-button date_title" id="month_picker" type="button" value="自然月"  name=""/>
+							</div>
+						</div>
+						<br/>
+						<script type="text/javascript">
+							monthPicker.create('month_picker', {
+								trigger : 'month_trigger',
+								autoCommit : true,
+								callback : function(obj){
+									$("#monthContainer").val(obj.start_date + '-' + obj.end_date);
+									$(".ui-datepicker-css,.ui-datepicker-css1").css("display","none");
+									init();
+								}
+							});
+						</script>
+					</div>
+				</div>
+				<p class="select_tip">可对比显示指定时间段的每日数据</p>
+			</div>
+		</div>
+		<div class="user-chart" id="myChartLine">
+			<!--<img src="images/user-chart.png" height="317" width="1138" alt="">-->
+		</div>
+		<div class="activity_stati">
+	    	<div class="act_show"></div>
+	    	<ul class="act_ul">
+	    		<li class="act_tit">用户查询</li>
+	    	</ul>
+	    </div>
+	   <div class="search">
+		   <div class="search_con">
+			   <input type="text" name="" id="searchID" placeholder="输入用户ID/钱包地址">
+			   <a href="javascript:void(0);" class="search_btn" onclick="searchdata()">
+				   <i></i>
+			   </a>
+		   </div>
+		   <div class="sele_tim">
+			   <span>时间查询</span>
+			   <input type="text" id="dateContainer" class="ui-datepicker-time1 sec_seo" readonly value="" />
+			   <div class="ui-datepicker-css1">
+				   <div class="ui-datepicker-quick">
+					   <p>快捷日期<a class="ui-close-date">X</a></p>
+					   <div>
+						   <input class="ui-date-quick-button" type="button" value="今天" alt="0"  name=""/>
+						   <!--  <input class="ui-date-quick-button" type="button" value="昨天" alt="-1" name=""/> -->
+						   <input class="ui-date-quick-button" type="button" value="7天内" alt="-6" name=""/>
+						   <input class="ui-date-quick-button" type="button" value="14天内" alt="-13" name=""/>
+						   <input class="ui-date-quick-button" type="button" value="30天内" alt="-29" name=""/>
+						   <!--  <input class="ui-date-quick-button" type="button" value="60天内" alt="-59" name=""/> -->
+					   </div>
+				   </div>
+				   <div class="ui-datepicker-choose">
+					   <p>自选日期</p>
+					   <div class="ui-datepicker-date">
+						   <input name="startDate" id="startDate" class="startDate" readonly value="" type="text">
+						   -
+						   <input name="endDate" id="endDate" class="endDate" readonly  value="" type="text" disabled onChange="datePickers()">
+
+					   </div>
+				   </div>
+			   </div>
+			   <p class="select_tip">可对比显示指定时间段的每日数据</p>
+		   </div>
+	   </div>
+    <iframe id="iframe" src="" width="100%" height="400" onload="this.height=$(this).contents().height()" scrolling="no" frameborder="0" ></iframe>
+	<div class="footer1">
+		Copyright © 2015.Company PeerSafe All rights reserved.
+	</div>
+	</body>
+</html>

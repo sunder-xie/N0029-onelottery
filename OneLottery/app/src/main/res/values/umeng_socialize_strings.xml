@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="alphabet_size">12dip</dimen>
+    <dimen name="umeng_socialize_pad_window_height">350dip</dimen>
+    <dimen name="umeng_socialize_pad_window_width">580dip</dimen>
+    <!-- 平台名称 -->
+    <string name="umeng_socialize_text_qq_key">QQ</string>
+    <string name="umeng_socialize_text_qq_zone_key">QQ空间</string>
+    <string name="umeng_socialize_text_weixin_key">Weixin</string>
+    <string name="umeng_socialize_text_weixin_circle_key">Moments</string>
+
+
+    <string name="umeng_socialize_share">SHARE</string>
+
+    <string name="umeng_socialize_mail">Email</string>
+    <string name="umeng_socialize_sms">Sms</string>
+
+    <string name="umeng_socialize_text_whatsapp_key">WhatsApp</string>
+    <string name="umeng_socialize_text_line_key">LINE</string>
+</resources>

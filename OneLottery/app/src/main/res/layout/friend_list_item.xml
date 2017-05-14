@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.peersafe.chainbet.widget.SwipeMenuView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y120"
+    android:clickable="true">
+
+    <RelativeLayout
+        android:id="@+id/swipe_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_friend_item_icon"
+            android:layout_width="@dimen/x18"
+            android:layout_height="@dimen/y18"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x30"
+            android:scaleType="centerInside"
+            android:src="@drawable/c"/>
+
+        <TextView
+            android:id="@+id/tv_friend_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x20"
+            android:layout_toRightOf="@+id/img_friend_item_icon"
+            android:text="wojiushniddfs"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/y32"/>
+
+        <TextView
+            android:id="@+id/tv_friend_item_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x30"
+            android:text=""
+            android:textColor="@color/lottery_detaile_text_color"
+            android:textSize="@dimen/y24"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_alignParentBottom="true"
+            android:background="@color/setting_division_line"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="@dimen/x123"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_friend_item_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/app_primary_color"
+            android:text="@string/delete"
+            android:textColor="@android:color/white"/>
+    </RelativeLayout>
+
+</com.peersafe.chainbet.widget.SwipeMenuView>

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<% include ../header.ejs %>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".succ-btn").removeAttr("disabled");
+		$(".okbtn").removeAttr("disabled");
+		$(".checkmsg").hide();
+		$('#reg-form .per-acc-bot-col1 input').blur(function(){
+			$(this).css({'border':'1px solid #c1c1c1'}).next().hide();
+			var inputname = $(this).attr("id");
+			var value =$(this).val();
+			if(inputname=="name"){
+				if(!/^([\w]|[\u4e00-\u9fa5]|[ 。，、？￥“‘！：【】《》（）——+-])+$/.test(value)){
+					$(this).css({'border':'1px solid red'}).next().show();
+				}
+			}
+			if(inputname=="psw1"){
+				if(!/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,8}$/.test(value)){
+					$(this).css({'border':'1px solid red'}).next().show();
+				}
+
+			}
+			if(inputname=="psw2"){
+				if(value!=$("#psw1").val()){
+					$(this).css({'border':'1px solid red'}).next().show();
+				}
+			}
+			if(inputname=="phone"){
+				if(!/^(0[0-9]{2,3}\-)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?$|(^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$)/.test(value)){
+					$(this).css({'border':'1px solid red'}).next().show();
+				}
+			}
+
+		})
+
+		$('#reg-form1 .per-acc-bot-col1 input').blur(function(){
+			$(this).css({'border':'1px solid #c1c1c1'}).next().hide();
+			var inputname = $(this).attr("id");
+			var value =$(this).val();
+			if(inputname=="phone"){
+				if(!/^(0[0-9]{2,3}\-)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?$|(^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$)/.test(value)){
+					$(this).css({'border':'1px solid red'}).next().show();
+				}
+			}
+			if(inputname=="psw8"){
+				if(!/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,8}$/.test(value)){
+					$(this).css({'border':'1px solid red'}).next().show();
+				}
+			}
+
+		})
+		$('#reg-form2 .per-acc-bot-col1 input').blur(function(){
+			$(this).css({'border':'1px solid #c1c1c1'}).next().hide();
+			var inputname = $(this).attr("id");
+			var value =$(this).val();
+			if(inputname=="psw3"){
+				if(!/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,8}$/.test(value)){
+					$(this).css({'border':'1px solid red'}).next().show();
+				}
+
+			}
+			if(inputname=="psw4"){
+				if(!/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,8}$/.test(value)){
+					$(this).css({'border':'1px solid red'}).next().show();
+				}
+
+			}
+			if(inputname=="psw5"){
+				if(value!=$("#psw4").val()){
+					$(this).css({'border':'1px solid red'}).next().show();
+				}
+			}
+			if(inputname=="phone"){
+				if(!/^(0[0-9]{2,3}\-)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?$|(^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$)/.test(value)){
+					$(this).css({'border':'1px solid red'}).next().show();
+				}
+			}
+
+		})
+
+		// $.ajax({
+		// 		type: 'get',
+		// 		url: '/account/userinfo',
+		// 		success: function (data) {
+		// 		}
+	});
+	function addUser(node) {
+		var frm = $('#reg-form');
+		var is_submit=true;
+		$("#reg-form .per-acc-bot-col1 input").each(function(){
+			if($(this).val()==""){
+				is_submit = false;
+				$(this).css({'border':'1px solid red'}).next().show();
+				return;
+			}
+		});
+		$(".checkmsg").each(function () {
+			if(!$(this).is(':hidden')){
+				is_submit = false;
+				return;
+			}
+		});
+		if (is_submit && frm.serialize().indexOf('access') == -1) {
+			alert('请选择权限');
+			is_submit = false;
+			return;
+		};
+		if(is_submit){
+			$(".succ-btn").attr({"disabled":"disabled"}).css({"background-color":"#D2D2D2"});
+			$.ajax({
+				type: frm.attr('method'),
+				url: frm.attr('action'),
+				data: frm.serialize(),
+				success: function(data) {
+					alert(data);
+					location.reload()
+
+				}
+			});
+		}
+	}
+	function check(num,obj) {
+		var text = $(obj).val();
+		$(obj).removeClass("inputerr")
+		switch(num){
+			case 1:
+				if(text==""){
+					$(obj).addClass("inputerr")
+					$(obj).val("");
+				}
+				break;
+			case 2:
+				var reg = /^(0[0-9]{2,3}\-)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?$|(^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$)/;
+				if(!reg.test(text)){
+					$(obj).addClass("inputerr")
+					$(obj).val("");
+				}
+				break;
+			
+			case 3:
+				if(text==""){
+					$(obj).addClass("inputerr")
+					$(obj).val("");
+				}
+	 			break;
+			case 4:
+				if(text==""){
+					$(obj).addClass("inputerr")
+					$(obj).val("");
+				}
+	 			break;
+	 		case 5:
+				if(text==""){
+					$(obj).addClass("inputerr")
+					$(obj).val("");
+				}
+	 			break;
+			case 8:
+				if (!/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,8}$/.test(text)) {
+					$(obj).addClass("inputerr")
+					$(obj).val("");
+				}
+	 			break;
+		}
+
+	}
+//修改用户密码
+	function editok(){
+
+		var is_submit=true;
+		$('#reg-form1 input').each(function(){
+			if($(this).hasClass("inputerr")){
+				is_submit = false;
+				return;
+			}
+		});
+		
+		if (is_submit && $('#reg-form1').serialize().indexOf('access') == -1) {
+			alert('请选择权限');
+			is_submit = false;
+			return;
+		};
+
+		if(is_submit){
+			$(".okbtn").attr({"disabled":"disabled"}).css({"background-color":"#D2D2D2"});
+			$.ajax({
+				type: "post",
+				url: "/account/edit",
+				data: $('#reg-form1').serialize(),
+				success: function(data) {
+					alert(data);
+					location.reload()
+
+				}
+			});
+		}
+	}
+	function edit(name,phone,access,pwd){
+		$(".pop-up").show();
+		$('#realName').val(name);
+		$('#phonea').val(phone);
+		$('#pwd8').val(pwd);
+		$('.editcheckbox').attr('checked',false);
+		if(access.indexOf('user')>-1){
+			$('#ck5').attr('checked',true);
+		}
+		if(access.indexOf('transfer')>-1){
+			$('#ck4').attr('checked',true);
+		}
+		if(access.indexOf('activity')>-1){
+			$('#ck6').attr('checked',true);
+		}
+	}
+
+//检查登录用户自己的pwd
+	function chgpwd(access){
+		$(".pop-up-pwd").show();
+		$('.editcheckbox').attr('checked',false);
+		if(access.indexOf('user')>-1){
+			$('#ck8').attr('checked',true);
+		}
+		if(access.indexOf('transfer')>-1){
+			$('#ck7').attr('checked',true);
+		}
+		if(access.indexOf('activity')>-1){
+			$('#ck9').attr('checked',true);
+		}
+	}
+// 修改登录用户自己的密码
+	function editpwdok(oldpwd){
+
+		var is_submit=true;
+		$('#reg-form2 input').each(function(){
+			if($(this).hasClass("inputerr")){
+				is_submit = false;
+				return;
+			}
+		});
+		var p3 = $('#psw3').val();
+		if (oldpwd != p3) {
+			$(this).css({
+				'border': '1px solid red'
+			}).next().show();
+			alert("原密码错误");
+			is_submit = false;
+			return;
+		}
+
+		var p4 = $('#psw4').val();
+		if (!/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,8}$/.test(p4)) {
+			$(this).css({
+				'border': '1px solid red'
+			}).next().show();
+			alert("新密码格式错误");
+			is_submit = false;
+			return;
+		}
+		var p5 = $('#psw5').val();
+		if (p5 != p4) {
+			$(this).css({
+				'border': '1px solid red'
+			}).next().show();
+			is_submit = false;
+			alert("两次密码输入要一致");
+			return;
+		}
+		var phone = $('#phoneb').val();
+		if (!/^(0[0-9]{2,3}\-)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?$|(^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$)/.test(phone)) {
+			$(this).css({
+				'border': '1px solid red'
+			}).next().show();
+			is_submit = false;
+			alert("手机号码格式不对");
+			
+			return;
+		}
+
+		if(is_submit){
+			$(".okbtn").attr({"disabled":"disabled"}).css({"background-color":"#D2D2D2"});
+			$.ajax({
+				type: "post",
+				url: "/account/edit",
+				data: $('#reg-form2').serialize(),
+				success: function(data) {
+					alert(data);
+					location.reload();
+				}
+			});
+		}
+	}
+
+	function access_user(num){
+		if (num == 1 && !$('#ck1').attr('checked')) {
+			$('#ck2').attr('checked',false);
+		} else 
+		if (num == 2 && $('#ck2').attr('checked')){
+			$('#ck1').attr('checked',true);
+			$('#ck3').attr('checked',true);
+		} else 
+		if (num == 3 && !$('#ck3').attr('checked')){
+			$('#ck2').attr('checked',false);
+		} else 
+		if (num == 4 && !$('#ck4').attr('checked')){
+			$('#ck5').attr('checked',false);
+		} else 
+		if (num == 5 && $('#ck5').attr('checked')){
+			$('#ck4').attr('checked',true);
+			$('#ck6').attr('checked',true);
+		} else 
+		if (num == 6 && !$('#ck6').attr('checked')){
+			$('#ck5').attr('checked',false);
+		} else 
+		if (num == 7 && !$('#ck7').attr('checked')){
+			$('#ck8').attr('checked',false);
+		} else 
+		if (num == 8 && $('#ck8').attr('checked')){
+			$('#ck7').attr('checked',true);
+			$('#ck9').attr('checked',true);
+		} else 
+		if (num == 9 && !$('#ck9').attr('checked')){
+			$('#ck8').attr('checked',false);
+		}
+	}
+</script>
+
+<div class="per-center" style="min-height: 700px">
+	<div class="per-center-right">
+		<% if(userAccess){%>
+		<div class="per-acctit">
+			<div class="per-acctit-btn-first">
+				<div class="per-acctit-btn1">
+					<i></i>
+					<span>新建员工</span>
+				</div>
+				<div class="per-acctit-btn1 per-acctit-btn1-gray">
+					<i></i>
+					<span>新建员工</span>
+				</div>
+			</div>
+			<div class="per-acctit-btn-second">
+				<div class="per-acctit-btn2">
+					<i></i>
+					<span>员工管理</span>
+				</div>
+				<div class="per-acctit-btn2 per-acctit-btn2-gray">
+					<i></i>
+					<span>员工管理</span>
+				</div>
+			</div>
+		</div>
+		<div class="per-acc-bot">
+<!-- 新建用户 reg-form -->
+		    <form id="reg-form" action="/account" method="post">
+		    	<div class="per-acc-bot-col1">
+					<span>账号名</span>
+					<!--<input type="text" name="name" >-->
+					<input name="name" type="text" id="name" maxlength="6" placeholder="请输入2-6位字符用户名"/><span class="checkmsg " >请输入2-6位字符用户名</span>
+				</div>
+				<div class="per-acc-bot-col1">
+					<span>密码</span>
+					<!--<input type="text" name="pwd" >-->
+					<input name="pwdadd" type="password" id="psw1"  placeholder="密码必须为8位字母数字组合" /><span class="checkmsg ">密码必须为8位字母数字组合</span>
+				</div>
+				<div class="per-acc-bot-col1">
+					<span>确认密码</span>
+					<!--<input id="pwd"type="text" >-->
+					<input type="password" id="psw2"  placeholder="两次密码输入要一致" /><span class="checkmsg">两次密码输入要一致</span>
+				</div>
+				<div class="per-acc-bot-col1">
+					<span>手机</span>
+					<!--<input type="text" name="phone">-->
+					<input name="phone" type="text" id="phone"  placeholder="手机格式要正确" /><span class="checkmsg">手机格式要正确</span>
+				</div>
+				<div class="per-acc-bot-box">
+					<% if(userinfo.name == 'admin') {%>
+					<div class="state" id="state">
+						<input type="checkbox" name="access" id="ck2" onclick="access_user(2)" value="user" class="state1" ><label for="ck2">员工管理权限</label>
+					</div>
+					<%}%>
+
+					<div class="state" id="state">
+						<input type="checkbox" name="access" id="ck1" onclick="access_user(1)" value="transfer" class="state1" ><label for="ck1">充值权限</label>
+					</div>
+
+					<div class="state" id="state">
+						<input type="checkbox" name="access" id="ck3" onclick="access_user(3)" value="activity" class="state1" ><label for="ck3">活动权限</label>
+					</div>
+
+
+				</div>
+				<div class="acc-de-btn" id="per-acc-bot-btn">
+					<button class="succ-btn" type="button" onclick="addUser(this)">确认新建</button>
+				</div>
+		    </form>
+		</div>
+
+		<%} else {%>
+<!-- 无用户权限的登录用户查看自己的权限 -->
+		<div class="pay-message" id="pay-message">
+			<div class="pay-mes-tit" id="pay-mes-tit">
+				<span class="pay-mes-tit-lef">账户信息</span>
+			</div>
+			<ul>
+				<li>
+					<div class="li-lef">真实姓名：<%=userinfo.name%></div>
+				</li>
+				<li class="no-border">
+					<div class="li-lef">
+						<span>拥有的权限:</span>
+							<%var access = userinfo.access.split(',')%>
+							<% for(var i in access){%>
+							<span><%=json[access[i]]%></span>
+							<%}%>
+					</div>
+					
+				</li>
+			</ul>
+			<div class="acc-de-btn" id="per-acc-bot-btn">
+				<button class="succ-btn" type="button" onclick="chgpwd('<%=userinfo.access%>')">修改个人信息</button>
+			</div>
+		</div>
+		<% }%>
+
+<!-- 循环显示所有用户 start -->
+		<div class="per-acc-form">
+			<div class="pay-message" id="pay-message">
+			    <% for(var i in accounts){%>
+			<div class="pay-mes-tit" id="pay-mes-tit">
+				<span class="pay-mes-tit-lef">账户信息</span>
+				<span class="pay-mes-tit-rig"><!--<a href="/account/delete?name=<%=accounts[i].name%>">删除</a>&nbsp&nbsp&nbsp&nbsp --><a href="javascript:void(0);" onclick="edit('<%=accounts[i].name%>','<%=accounts[i].phone%>','<%=accounts[i].access%>','<%=accounts[i].password%>')">修改</a></span>
+			</div>
+			<ul>
+				<li>
+					<div class="li-lef">真实姓名：<%=accounts[i].name%></div>
+				</li>			
+				<li>
+					<div class="li-lef">手机号：<%=accounts[i].phone%></div>
+					
+				</li>
+				<li class="no-border">
+					<div class="li-lef">
+						<span>拥有的权限:</span>
+						<div class="state" id="state1">
+							<%var access = accounts[i].access.split(',')%>
+							<% for(var i in access){%>
+							<span><%=json[access[i]]%></span>
+							<% }%>
+						</div>
+					</div>
+					
+				</li>
+			</ul>
+			<%}%>
+			    
+		</div>
+<!-- 循环显示所有用户 end -->
+		
+		</div>
+	</div>
+</div>
+
+<div class="pop-up">
+	<div  id="myModal" class="check-in-pop">
+		<div class="query-rig-det-tit">员工信息修改</div>
+		<div >
+			<form id="reg-form1" action="/account/edit" method="post" >
+				<div>
+					<div class="per-acc-bot-col1">
+						<span>账号名</span>
+						<input name="name" type="text" id="realName" readOnly onblur="check(1,this)" placeholder="请输入2-6位字符用户名">
+					</div>
+					<div class="per-acc-bot-col1">
+						<span>手机</span>
+						<!--<input type="text" name="phone">-->
+						<input name="phone" type="text" id="phonea" onblur="check(2,this)" placeholder="手机格式要正确"  >
+					</div>
+					<div class="per-acc-bot-col1">
+						<span>密码</span>
+						<!--<input type="text" name="pwd" >-->
+						<input name="pwd8" type="password" id="pwd8" onblur="check(8,this)" placeholder="密码必须为8位字母数字组合">
+					</div>
+					<div class="per-acc-bot-box">
+
+						<% if(userinfo.name == 'admin') {%>
+						<div class="state" id="state">
+							<input type="checkbox" name="access" id="ck5" onclick="access_user(5)" checked value="user" onclick="access_user(2)" class="state1 editcheckbox" ><label for="ck5">员工管理权限</label>
+						</div>
+						<%}%>
+						<div class="state" id="state">
+							<input type="checkbox" name="access" id="ck4" onclick="access_user(4)" checked value="transfer" class="state1 editcheckbox" ><label for="ck4">充值权限</label>
+						</div>
+						<div class="state" id="state">
+							<input type="checkbox" name="access" id="ck6" onclick="access_user(6)" value="activity" class="state1 editcheckbox" ><label for="ck6">活动权限</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="check-in-btn">
+					<button id="button" type="button" class="btn btn-primary okbtn btn-true" data-dismiss="modal" onclick="editok()">
+						确定
+					</button>
+					<button id="button" type="button" class="btn btn-primary btn-furs" data-dismiss="modal"
+							onclick="$('.pop-up').hide()">
+						取消
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!-- 登录用户修改自己的个人信息 start -->
+<div class="pop-up-pwd" style="display: none">
+	<div  id="myModal" class="check-in-pop" style="top: 183px;border: 1px solid #c1c1c1;" >
+		<div class="query-rig-det-tit">员工信息修改</div>
+		<div >
+			<form id="reg-form2" action="/account/edit" method="post" >
+				<div>
+					<div class="per-acc-bot-col1">
+						<span>账号名</span>
+						<input name="name" type="text" id="realName" value="<%= userinfo.name%>" readOnly onblur="check(1,this)" placeholder="请输入2-6位字符用户名">
+					</div>
+					<div class="per-acc-bot-col1">
+						<span>手机</span>
+						<!--<input type="text" name="phone">-->
+						<input name="phone" type="text" id="phoneb"  value="<%= userinfo.phone%>" onblur="check(2,this)" placeholder="手机格式要正确"  >
+					</div>
+					
+					<div class="per-acc-bot-box" style="display: none" >
+						<% if(userinfo.name == 'admin') {%>
+						<div class="state" id="state">
+							<input type="checkbox" name="access" id="ck8" onclick="access_user(8)" checked value="user" onclick="access_user(2)" class="state1 editcheckbox" ><label for="ck8">员工管理权限</label>
+						</div>
+						<%}%>
+						<div class="state" id="state">
+							<input type="checkbox" name="access" id="ck7" onclick="access_user(7)" checked value="transfer" class="state1 editcheckbox" ><label for="ck7">充值权限</label>
+						</div>
+						<div class="state" id="state">
+							<input type="checkbox" name="access" id="ck9" onclick="access_user(9)" value="activity" class="state1 editcheckbox" ><label for="ck9">活动权限</label>
+						</div>
+
+					</div>
+
+					<div class="per-acc-bot-col1">
+						<span>旧密码</span>
+						<!--<input type="text" name="pwd" >-->
+						<input name="pwd" type="password" id="psw3" onblur="check(3,this)"  placeholder="密码必须为8位字母数字组合" />
+					</div>
+
+					<div class="per-acc-bot-col1">
+						<span>新密码</span>
+						<!--<input type="text" name="pwd" >-->
+						<input name="newpwd" type="password" id="psw4" onblur="check(4,this)"  placeholder="密码必须为8位字母数字组合" />
+					</div>
+					<div class="per-acc-bot-col1">
+						<span>确认密码</span>
+						<!--<input id="pwd"type="text" >-->
+						<input type="password" id="psw5"  onblur="check(5,this)" placeholder="两次密码输入要一致" />
+					</div>
+				</div>
+				<div class="check-in-btn">
+					<button id="button" type="button" class="btn btn-primary okbtn btn-true" data-dismiss="modal" onclick="editpwdok('<%= userinfo.password%>')">
+						确定
+					</button>
+					<button id="button" type="button" class="btn btn-primary btn-furs" data-dismiss="modal"
+							onclick="$('.pop-up-pwd').hide()">
+						取消
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- 登录用户修改自己的个人信息 end -->
+<div class="footer1" id="footer1">
+	Copyright © 2015.Company PeerSafe All rights reserved.
+</div>
+</body>
+</html>

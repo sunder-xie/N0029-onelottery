@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<title>资产统计</title>
+<% include ../header.ejs %>
+<script src="/js/js.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$.get('asset/treasure',function(data){
+			    loadDataPie(data.ary,data.data,data.arr);
+			    $('#treasure').html(data.time)
+			})
+			lodaLineData();
+		});
+		$(document).ready(function(){
+			$(function() {
+				$('#reportrange2 input').val(moment().subtract('days', 29).format('YYYY/MM/DD') + '-' + moment().format('YYYY/MM/DD'));
+				$('#reportrange2').daterangepicker({
+					timePicker: false,
+					timePickerIncrement: 30,
+					timePicker12Hour:false,
+					format: 'YYYY/MM/DD'
+				}, function(start, end, label) {
+					console.log(start.toISOString(), end.toISOString(), label);
+				});
+			    loadData();
+
+			});
+		})
+
+        function lodaLineData(){
+			var seldate = $('#monthContainer').val();
+			var url = 'asset/recharge?date='+seldate;
+        	$.get(url,function(data){
+			  loadDataLine(data.ary1,data.ary2);
+			  $('#avgRecharge').html(data.avg);
+			  console.log(seldate)
+			  $('#seletime').html(seldate);
+        	})
+        }
+		function maxDay(month){
+			var d= new Date();
+			return new Date(d.getFullYear(), month,0).getDate();
+		}
+		function changeValue(){
+			lodaLineData();
+		}
+		function loadData(){
+			var date = $('#reportrange2 input').val();
+			var type = $('#type').val();
+			console.log(date,type);
+			var src="/asset/transcations?date="+date+"&type="+type;
+			console.log(src)
+			$('#iframe').attr('src',src);
+		}
+		function loadDataLine(ary1,ary2){
+			var myChart = echarts.init(document.getElementById('myChartLine'));
+			var option = {
+				title: {
+					text: '充值统计'
+				},
+				tooltip: {
+					trigger: 'axis'
+				},
+				grid: {
+					left: '3%',
+					right: '4%',
+					bottom: '3%',
+					containLabel: true
+				},
+				toolbox: {
+					feature: {
+						saveAsImage: {}
+					}
+				},
+				xAxis: {
+					type: 'category',
+					boundaryGap: false,
+					data: ary1
+
+				},
+				yAxis: {
+					type: 'value',
+					show:false
+				},
+				series: [
+					{
+						name:'充值总量',
+						type:'line',
+						smooth:true,
+						stack: '总量',
+						data:ary2
+					}
+				]
+			};
+			myChart.setOption(option);
+		};
+		function loadDataPie(ary,data,arr){
+			var myChart = echarts.init(document.getElementById('myChartPie'));
+
+			var option = {
+				title : {
+					text: '财富榜TOP10',
+					x:'center',
+					left:'28%'
+				},
+				tooltip : {
+					trigger: 'item',
+					formatter: "{a} <br/>{b} : {c} ({d}%)",
+				},
+				toolbox: {
+					feature: {
+						saveAsImage: {}
+					}
+				},
+				legend: {
+					orient: 'vertical',
+					top:'20%',
+					right: '20%',
+					itemGap:20,
+					data: ary,
+					formatter: function (name) {
+						return  arr[name]+"  "+name
+					}
+				},
+				series : [
+					{
+						name: '财富值',
+						type: 'pie',
+						radius : '55%',
+						center: ['30%', '60%'],
+						data:data,
+						itemStyle: {
+							emphasis: {
+								shadowBlur: 10,
+								shadowOffsetX: 0,
+								shadowColor: 'rgba(0, 0, 0, 0.5)'
+							}
+						}
+					}
+				]
+			};
+
+			myChart.on('click',function(a,b){
+				window.location.href="/asset/rankinglist";
+			})
+			myChart.setOption(option);
+		};
+
+	</script>
+<div class="activity_stati">
+	<div class="act_show"></div>
+	<ul class="act_ul">
+		<li class="act_tit">数据统计</li>
+		<li class="act_time"></li>
+		<li class="act_word">更新时间：<%=date%></li>
+	</ul>
+</div>
+<div class="account">
+	<h2 class="acc_h2">账户余额：<span><%=data[0][0].balance/10000%></span></h2>
+	<div class="account_bot">
+		<div class="act_bot_col1">
+	    			<span>
+	    				<img src="images/account_img1.png" height="29" width="29" alt="">
+	    				<div class="acc_bord">
+	    					<p class="acc_small_tit">用户充值累计</p>
+	    					<p class="acc_small_num"><%=data[1][0].total?data[1][0].total/10000:0%></p>
+	    				</div>
+	    			</span>
+		</div>
+		<div class="act_bot_col1">
+	    			<span>
+	    				<img src="images/account_img2.png" height="29" width="29" alt="">
+	    				<div class="acc_bord">
+	    					<p class="acc_small_tit">充值手续费累计</p>
+	    					<p class="acc_small_num"><%=data[1][0].fee?data[1][0].fee/10000:0%></p>
+	    				</div>
+	    			</span>
+		</div>
+		<div class="act_bot_col1">
+	    			<span>
+	    				<img src="images/account_img3.png" height="29" width="29" alt="">
+	    				<div class="acc_bord">
+	    					<p class="acc_small_tit">官方活动创建费用累计</p>
+	    					<p class="acc_small_num"><%=data[2][0].fee?data[2][0].fee/10000:0%></p>
+	    				</div>
+	    			</span>
+		</div>
+		<div class="act_bot_col1">
+	    			<span>
+	    				<img src="images/account_img4.png" height="29" width="29" alt="">
+	    				<div class="acc_bord">
+	    					<p class="acc_small_tit">官方活动修改费用累计</p>
+	    					<p class="acc_small_num"><%=data[3][0].fee?data[3][0].fee/10000:0%></p>
+	    				</div>
+	    			</span>
+		</div>
+		<div class="act_bot_col1">
+	    			<span>
+	    				<img src="images/account_img5.png" height="29" width="29" alt="">
+	    				<div class="acc_bord">
+	    					<p class="acc_small_tit">用户提现累计</p>
+	    					<p class="acc_small_num"><%=data[4][0].fee?data[4][0].fee/10000:0%></p>
+	    				</div>
+	    			</span>
+		</div>
+		<div class="act_bot_col1">
+	    			<span>
+	    				<img src="images/account_img6.png" height="29" width="29" alt="">
+	    				<div>
+	    					<p class="acc_small_tit">全网消耗费用累计</p>
+	    					<p class="acc_small_num"><%=data[5][0].fee?data[5][0].fee/10000:0%></p>
+	    				</div>
+	    			</span>
+		</div>
+
+	</div>
+</div>
+<div class="activity_stati">
+	<div class="act_show"></div>
+	<ul class="act_ul">
+		<li class="act_tit">充值统计</li>
+	</ul>
+</div>
+<div class="time_select" id="time_select1">
+	<div class="seletime">
+		<div id="seletime"></div>
+		<div class="time_title"><strong>用户充值日均 :</strong><span id="avgRecharge"></span></div>
+	</div>
+	<div class="sele_tim">
+		<span>时间查询</span>
+		<input type="text" id="monthContainer" class="ui-datepicker-time sec_seo" readonly value="" />
+		<div class="ui-datepicker-css">
+			<div class="ui-datepicker-quick">
+				<p>快捷日期<a class="ui-close-date">X</a></p>
+				<div>
+					<input class="ui-date-quick-button" type="button" value="30天内" alt="-29" name=""/>
+				</div>
+			</div>
+			<div class="ui-datepicker-choose">
+				<p>自选日期</p>
+				<div class="tool_date cf">
+					<div class="ta_date" id="div_month_picker">
+						<input class="ui-date-quick-button date_title" id="month_picker" type="button" value="自然月"  name=""/>
+					</div>
+				</div>
+				<br/>
+				<script type="text/javascript">
+					monthPicker.create('month_picker', {
+						trigger : 'month_trigger',
+						autoCommit : true,
+						callback : function(obj){
+							$("#monthContainer").val(obj.start_date + '-' + obj.end_date);
+							$(".ui-datepicker-css,.ui-datepicker-css1").css("display","none");
+							init();
+						}
+					});
+
+				</script>
+			</div>
+			<p class="select_tip">可对比显示指定时间段的每日数据</p>
+		</div>
+	</div>
+</div>
+
+<div class="line_chart" id="myChartLine">
+	<!--<img src="images/line_chart1.jpg" alt="">-->
+</div>
+<div class="activity_stati">
+	<div class="act_show"></div>
+	<ul class="act_ul">
+		<li class="act_tit">财富榜</li>
+		<li class="act_time"></li>
+		<li class="act_word">更新时间：<span id="treasure"></span></li>
+	</ul>
+</div>
+<div class="line_chart" id="myChartPie">
+</div>
+<div class="activity_stati">
+	<div class="act_show"></div>
+	<ul class="act_ul">
+		<li class="act_tit">查询</li>
+		<li class="act_time"></li>
+	</ul>
+</div>
+<div class="act_regular">
+
+	<div class="detail">
+			<div class="fancy fancy1">
+				<div class="Option-step">
+					<div class="col-1-1"><span class="tit">时间筛选</span></div>
+					<div class="col-2">
+						<div id="reportrange2" class="btn" style="display: inline-block; background: #fff; cursor: pointer;">
+							<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+							<input id="seldate"/> <b class="caret"></b>
+
+						</div>
+					</div>
+					<select class="col-1-4" id="type">
+						<option value = "0">总记录</option>
+						<option value = "1">充值</option>
+						<option value = "5">活动创建</option>
+						<option value = "6">活动修改</option>
+						<option value = "7">活动分成</option>
+						<option value = "9">提现</option>
+
+					</select>
+					<button class="op_se_btn" onclick="loadData()">筛选</button>
+					<div class="onload">
+						<i></i>
+						<a href="javascript:void:(0);">下载</a>
+					</div>
+				</div>
+				<iframe id="iframe" src="" width="1098" height="400" onload="this.height=$(this).contents().height()" scrolling="no" frameborder="0" ></iframe>
+				
+			</div>
+		</div>
+</div>
+
+
+
+
+<div class="footer1">
+	Copyright © 2015.Company PeerSafe All rights reserved.
+</div>
+</body>
+</html>

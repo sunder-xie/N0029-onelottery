@@ -1,0 +1,6 @@
+<resources>
+    <!--footer-->
+    <string name="list_footer_loading">Loading more data…</string>
+    <string name="list_footer_end">All loaded</string>
+
+</resources>

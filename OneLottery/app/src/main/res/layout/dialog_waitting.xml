@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/x560"
+    android:layout_height="@dimen/y590"
+    android:background="@drawable/shape_waitting_dialog_bg">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/iv_wait_head"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y254"
+        android:scaleType="fitXY"
+        app:riv_corner_radius_top_left="@dimen/x20"
+        app:riv_corner_radius_top_right="@dimen/x20"
+        app:riv_oval="false"/>
+
+    <TextView
+        android:id="@+id/tv_waitting_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/iv_wait_head"
+        android:layout_marginTop="@dimen/y50"
+        android:textSize="@dimen/y34"
+        android:gravity="center_horizontal"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20"
+        android:text="@string/setting_rechange_waiting"
+        android:textColor="@color/common_text_color"/>
+    
+    <ProgressBar
+        android:id="@+id/pb_waiting"
+        android:layout_width="@dimen/y36"
+        android:layout_height="@dimen/y36"
+        android:layout_below="@id/tv_waitting_content"
+        android:layout_marginTop="@dimen/y34"
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:id="@+id/tv_reward_text"
+        android:text="sdfsdfsd"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_waitting_content"
+        android:layout_marginTop="@dimen/y34"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/btn_see_other"
+        android:layout_width="@dimen/x373"
+        android:layout_height="@dimen/y77"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/y48"
+        android:background="@drawable/selector_bet_num_btn"
+        android:stateListAnimator="@null"
+        android:text="@string/common_see_other"
+        android:textColor="@color/app_primary_color"
+        android:textSize="@dimen/y30"/>
+
+</RelativeLayout>

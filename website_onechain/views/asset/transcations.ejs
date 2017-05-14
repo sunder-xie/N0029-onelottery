@@ -1,0 +1,64 @@
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/paging.css">
+<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/js/query.js"></script>
+<script type="text/javascript" src="/js/paging.js"></script>
+<ul class="money_ul">
+	<li class="money_li shxu_tit money_tit">
+			<div class="shxu_tit_col1 money_head_col1">名称</div>
+			<div class="shxu_tit_col2 money_head_col5">类型</div>
+			<div class="shxu_tit_col2 money_head_col5">金额</div>
+			<div class="shxu_tit_col2 money_head_col5">操作者</div>
+			<div class="shxu_tit_col6 no-margin money_head_col4">日期</div>
+	</li>
+	<%for(var i = 0;i < data.length ; i++){%>
+	<li class="money_li greay">
+		<%if(data[i].type==11 || data[i].type==14 || data[i].type==16){%>
+			<div class="money_col1 shxu_tit_col1 money_tit_col1"><%=data[i].myHash%></div>
+		<%} else {%>
+			<div class="money_col1 shxu_tit_col1 money_tit_col1"><%=data[i].name%></div>
+		<%}%>
+		<div class="shxu_tit_col3 money_tit_col5"><%=json[data[i].type.toString()]%></div>
+		<div class="shxu_tit_col2 money_tit_col5 money_tit_num">
+			<div class="money_tit_num1"><%=data[i].amount/10000%></div>
+			<div class="money_tit_num1"><%=data[i].fee/10000%></div>
+		</div>
+		<div class="shxu_tit_col3 money_tit_col5"><%=data[i].operator?data[i].operator:''%></div>
+		<div class="shxu_tit_col4 money_tit_col4"><%=data[i].time.Format('yyyy/MM/dd hh:mm:ss')%></div>
+	</li>
+	<%}%>
+
+</ul>
+
+<%if(pageCount!=0){%>
+<div class="page page_spe"  style="margin-bottom: 0px;">
+	<div id="pageTool"style="padding-top: 50px;" ></div>
+</div>
+<%}%>
+<script>
+	var url = window.location.href;
+	$('#pageTool').Paging({pagesize:<%=eachPage%>,current:<%=currentPage%>,count:<%=pageCount%>,callback:function(page,size,count){
+		console.log(arguments)
+		console.log('当前第 ' +page +'页,每页 '+size+'条,总页数：'+count+'页');
+		loadData(page,true)
+	}});
+	function loadData(cur){
+
+		if(window.location.search ==''){
+			url += '?currentPage='+cur
+		}else{
+			if(window.location.search.indexOf('currentPage')!=-1){
+				var search = window.location.search.split('=');
+				var length = search[search.length-1].length;
+				url = url.substr(0,url.length - length) + cur;
+			}else{
+				url += '&currentPage=' + cur;
+			}
+		};
+		console.log('url',url);
+
+		window.location.href = url ;
+
+	}
+</script>

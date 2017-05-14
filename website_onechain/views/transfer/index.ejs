@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<title>充值提现</title>
+<% include ../header.ejs %>
+
+<div class="chujinWrap">
+	<div class="chujin">
+		<ul>
+			<li class="current">充值</li>
+			<li ><a href="transfer/withdraw">提现</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="acc-detail">
+	<form id="reg-form" action="transfer" method="post">
+		<div class="acc-det-con">
+			<div class="acc-de-content">
+				<span>钱包地址</span>
+				<input type="text" name="userCertTo" placeholder="输入有效的钱包地址" onblur="findUserName(this)">
+			</div>
+			<div class="acc-de-content">
+				<span>账户名称</span>
+				<input type="text" readonly="true" name="nameTo" id="name">
+			</div>
+			<div class="acc-de-content">
+				<span>转账金额</span>
+				<input type="text" name="amount" placeholder="输入有效的金额" onblur="checknum(this)">
+			</div>
+			<div class="acc-de-btn" >
+				<button class="succ-btn" type="button" onclick="aa(this)">确定</button>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="footer1" id="footer1">
+	Copyright © 2015.Company PeerSafe All rights reserved.
+</div>
+</body>
+<script>
+	$(function () {
+		$(".succ-btn").removeAttr("disabled");
+	});
+	function aa(node) {
+		var frm = $('#reg-form');
+		var is_submit = true;
+		if($('input[name="userCertTo"]').val()==""){
+			$('input[name="userCertTo"]').addClass("inputerr")
+			is_submit = false;
+		};
+		if($('input[name="amount"]').val()==""){
+			$('input[name="amount"]').addClass("inputerr")
+			is_submit = false;
+		};
+		if(is_submit) {
+			$(".succ-btn").attr({"disabled":"disabled"}).css({"background-color":"#D2D2D2"});
+			$.ajax({
+				type: frm.attr('method'),
+				url: frm.attr('action'),
+				data: frm.serialize(),
+				success: function (data) {
+					alert(data)
+					location.reload();
+				}
+			});
+		}
+	}
+	function findUserName(node){
+		var owner = $(node).val();
+		$(node).removeClass("inputerr")
+		if(owner!=""){
+			$.get("getUsernameByAddress?owner="+owner,function(data){
+				$("#name").val(data);
+			})
+		}else {
+			$(node).addClass("inputerr")
+		}
+	}
+	function checknum(node){
+		var amount = $(node).val();
+		$(node).removeClass("inputerr")
+		var reg = /^([1-9][\d]{0,7}|0)(\.[\d]{1,2})?$/;
+		if(!reg.test(amount)){
+			$(node).addClass("inputerr")
+			$(node).val("");
+		}
+	}
+</script>
+</html>
+

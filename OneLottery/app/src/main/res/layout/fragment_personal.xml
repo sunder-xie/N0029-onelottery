@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/ly_main_weixin"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+    <include
+        layout="@layout/personal_toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/personal_toolbar"
+        android:background="@color/setting_back_bg"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_personal_top"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y280"
+                android:background="@drawable/register_top_bg">
+
+                <ImageView
+                    android:id="@+id/iv_avatar"
+                    android:layout_width="@dimen/y144"
+                    android:layout_height="@dimen/y144"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/y28"
+                    android:background="@drawable/default_avatar"/>
+
+                <TextView
+                    android:id="@+id/tv_user_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_avatar"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/y18"
+                    android:text="zhagyang"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/y27"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/y112"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tv_my_balance_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x41"
+                    android:layout_marginTop="@dimen/y44"
+                    android:background="@color/white"
+                    android:text="@string/setting_balance"
+                    android:textColor="@color/common_text_color"
+                    android:textSize="@dimen/y26"/>
+
+                <TextView
+                    android:id="@+id/tv_my_balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_my_balance_tip"
+                    android:gravity="bottom"
+                    android:text=""
+                    android:textColor="@color/common_text_color"
+                    android:textSize="@dimen/y40"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y1"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/x39"
+                    android:background="@color/setting_division_line"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/y183"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x41"
+                    android:layout_marginTop="@dimen/y29"
+                    android:gravity="center_vertical"
+                    android:text="@string/setting_wallet_address"
+                    android:textColor="@color/common_text_color"
+                    android:textSize="@dimen/y26"/>
+
+                <Button
+                    android:id="@+id/btn_copy_wallet_address"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="@dimen/x154"
+                    android:layout_height="@dimen/y58"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/x34"
+                    android:layout_marginTop="@dimen/y29"
+                    android:background="@drawable/selector_copy_btn"
+                    android:text="@string/common_copy"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/y30"/>
+
+                <TextView
+                    android:id="@+id/tv_wallet_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/y35"
+                    android:layout_marginLeft="@dimen/x41"
+                    android:layout_marginRight="@dimen/x34"
+                    android:ellipsize="middle"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text=""
+                    android:textColor="@color/common_text_color"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y20"
+                android:background="@color/lottery_detaile_line_bg" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y265"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/x140"
+                    android:layout_height="@dimen/x197"
+                    android:layout_marginLeft="@dimen/x32"
+                    android:layout_marginTop="@dimen/y37"
+                    android:gravity="center_horizontal">
+
+                    <Button
+                        android:id="@+id/btn_transfer_account"
+                        android:layout_width="@dimen/x140"
+                        android:layout_height="@dimen/x140"
+                        android:background="@drawable/selector_setting_transfer_btn"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/btn_transfer_account"
+                        android:layout_marginTop="@dimen/y24"
+                        android:gravity="center"
+                        android:text="@string/setting_transfer"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="@dimen/y27"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/x140"
+                    android:layout_height="@dimen/x197"
+                    android:layout_marginLeft="@dimen/x32"
+                    android:layout_marginTop="@dimen/y37">
+
+                    <Button
+                        android:id="@+id/btn_recharge"
+                        android:layout_width="@dimen/x140"
+                        android:layout_height="@dimen/x140"
+                        android:background="@drawable/selector_setting_recharge_btn"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/btn_recharge"
+                        android:layout_marginTop="@dimen/y24"
+                        android:gravity="center"
+                        android:text="@string/setting_recharge"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="@dimen/y27"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/x140"
+                    android:layout_height="@dimen/x197"
+                    android:layout_marginLeft="@dimen/x32"
+                    android:layout_marginTop="@dimen/y37">
+
+                    <Button
+                        android:id="@+id/btn_share"
+                        android:layout_width="@dimen/x140"
+                        android:layout_height="@dimen/x140"
+                        android:background="@drawable/selector_setting_share_btn"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/btn_share"
+                        android:layout_marginTop="@dimen/y24"
+                        android:gravity="center"
+                        android:text="@string/setting_share"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="@dimen/y27"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/x140"
+                    android:layout_height="@dimen/x197"
+                    android:layout_marginLeft="@dimen/x32"
+                    android:layout_marginTop="@dimen/y37">
+
+                    <Button
+                        android:id="@+id/btn_feedback"
+                        android:layout_width="@dimen/x140"
+                        android:layout_height="@dimen/x140"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/selector_setting_feedback_btn"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/btn_feedback"
+                        android:layout_marginTop="@dimen/y24"
+                        android:gravity="center"
+                        android:text="@string/setting_feedback"
+                        android:textColor="@color/common_text_color"
+                        android:textSize="@dimen/y27"/>
+
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y20"
+                android:background="@color/lottery_detaile_line_bg" />
+
+            <RelativeLayout
+                android:id="@+id/rl_bet_query"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/y88"
+                android:background="@drawable/selector_settingitem_bg"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="@dimen/y48"
+                    android:layout_height="@dimen/y48"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x41"
+                    android:src="@drawable/setting_bet_query"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x115"
+                    android:text="@string/setting_bet_query"
+                    android:textColor="@color/common_text_color"
+                    android:textSize="@dimen/y27"/>
+
+                <ImageView
+                    android:layout_width="@dimen/x17"
+                    android:layout_height="@dimen/y30"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/x36"
+                    android:src="@drawable/setting_goto"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y1"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/x39"
+                    android:background="@color/setting_division_line"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_detail_query"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/y88"
+                android:background="@drawable/selector_settingitem_bg"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="@dimen/y48"
+                    android:layout_height="@dimen/y48"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x41"
+                    android:src="@drawable/setting_detail_query"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x115"
+                    android:text="@string/setting_detail_query"
+                    android:textColor="@color/common_text_color"
+                    android:textSize="@dimen/y27"/>
+
+                <ImageView
+                    android:layout_width="@dimen/x17"
+                    android:layout_height="@dimen/y30"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/x36"
+                    android:src="@drawable/setting_goto"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y1"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/x39"
+                    android:background="@color/setting_division_line"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_msg_center"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/y88"
+                android:background="@drawable/selector_settingitem_bg"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="@dimen/y48"
+                    android:layout_height="@dimen/y48"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x41"
+                    android:src="@drawable/setting_msg_center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x115"
+                    android:text="@string/setting_msg_center"
+                    android:textColor="@color/common_text_color"
+                    android:textSize="@dimen/y27"/>
+
+                <ImageView
+                    android:layout_width="@dimen/x17"
+                    android:layout_height="@dimen/y30"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/x36"
+                    android:src="@drawable/setting_goto"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y20"
+                android:background="@color/lottery_detaile_line_bg" />
+
+            <RelativeLayout
+                android:id="@+id/rl_with_draw"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/y88"
+                android:background="@drawable/selector_settingitem_bg"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="@dimen/y48"
+                    android:layout_height="@dimen/y48"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x41"
+                    android:src="@drawable/setting_with_draw"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x115"
+                    android:text="@string/setting_with_draw"
+                    android:textColor="@color/common_text_color"
+                    android:textSize="@dimen/y27"/>
+
+                <ImageView
+                    android:layout_width="@dimen/x17"
+                    android:layout_height="@dimen/y30"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/x36"
+                    android:src="@drawable/setting_goto"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y1"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/x39"
+                    android:background="@color/setting_division_line"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_wallet_export"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/y88"
+                android:background="@drawable/selector_settingitem_bg"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="@dimen/y48"
+                    android:layout_height="@dimen/y48"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x41"
+                    android:src="@drawable/setting_wallet_export"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x115"
+                    android:text="@string/setting_wallet_export"
+                    android:textColor="@color/common_text_color"
+                    android:textSize="@dimen/y27"/>
+
+                <ImageView
+                    android:layout_width="@dimen/x17"
+                    android:layout_height="@dimen/y30"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/x36"
+                    android:src="@drawable/setting_goto"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y20"
+                android:background="@color/lottery_detaile_line_bg" />
+
+            <RelativeLayout
+                android:id="@+id/rl_version_update"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/y88"
+                android:background="@drawable/selector_settingitem_bg"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="@dimen/y48"
+                    android:layout_height="@dimen/y48"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x41"
+                    android:src="@drawable/setting_version_update"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x115"
+                    android:text="@string/setting_version_update"
+                    android:textColor="@color/common_text_color"
+                    android:textSize="@dimen/y27"/>
+
+                <TextView
+                    android:id="@+id/tv_cur_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/x40"
+                    android:text=""
+                    android:textSize="@dimen/y23"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y1"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/x39"
+                    android:background="@color/setting_division_line"/>
+            </RelativeLayout>
+
+            <!--<RelativeLayout-->
+                <!--android:id="@+id/rl_commont_question"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="@dimen/y88"-->
+                <!--android:background="@drawable/selector_settingitem_bg"-->
+                <!--android:clickable="true">-->
+
+                <!--<ImageView-->
+                    <!--android:layout_width="@dimen/y48"-->
+                    <!--android:layout_height="@dimen/y48"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:layout_marginLeft="@dimen/x41"-->
+                    <!--android:src="@drawable/common_question"/>-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:layout_marginLeft="@dimen/x115"-->
+                    <!--android:text="@string/setting_common_question"-->
+                    <!--android:textColor="@color/common_text_color"-->
+                    <!--android:textSize="@dimen/y27"/>-->
+
+                <!--<ImageView-->
+                    <!--android:layout_width="@dimen/x17"-->
+                    <!--android:layout_height="@dimen/y30"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:layout_marginRight="@dimen/x36"-->
+                    <!--android:src="@drawable/setting_goto"/>-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="@dimen/y1"-->
+                    <!--android:layout_alignParentBottom="true"-->
+                    <!--android:layout_marginLeft="@dimen/x39"-->
+                    <!--android:background="@color/setting_division_line"/>-->
+            <!--</RelativeLayout>-->
+
+            <RelativeLayout
+                android:id="@+id/rl_guide_page"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/y88"
+                android:background="@drawable/selector_settingitem_bg"
+                android:layout_marginBottom="@dimen/y38"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="@dimen/y48"
+                    android:layout_height="@dimen/y48"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x41"
+                    android:src="@drawable/setting_welcome"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x115"
+                    android:text="@string/setting_guide_page"
+                    android:textColor="@color/common_text_color"
+                    android:textSize="@dimen/y27"/>
+
+                <ImageView
+                    android:layout_width="@dimen/x17"
+                    android:layout_height="@dimen/y30"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/x36"
+                    android:src="@drawable/setting_goto"/>
+
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="@dimen/y1"-->
+                    <!--android:layout_alignParentBottom="true"-->
+                    <!--android:layout_marginLeft="@dimen/x39"-->
+                    <!--android:background="@color/setting_division_line"/>-->
+
+            </RelativeLayout>
+
+            <!--<RelativeLayout-->
+                <!--android:id="@+id/rl_about_us"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="@dimen/y88"-->
+                <!--android:layout_marginBottom="@dimen/y38"-->
+                <!--android:background="@drawable/selector_settingitem_bg"-->
+                <!--android:clickable="true">-->
+
+                <!--<ImageView-->
+                    <!--android:layout_width="@dimen/y48"-->
+                    <!--android:layout_height="@dimen/y48"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:layout_marginLeft="@dimen/x41"-->
+                    <!--android:src="@drawable/setting_about_us"/>-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:layout_marginLeft="@dimen/x115"-->
+                    <!--android:text="@string/setting_about_us"-->
+                    <!--android:textColor="@color/common_text_color"-->
+                    <!--android:textSize="@dimen/y27"/>-->
+
+                <!--<ImageView-->
+                    <!--android:layout_width="@dimen/x17"-->
+                    <!--android:layout_height="@dimen/y30"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:layout_marginRight="@dimen/x36"-->
+                    <!--android:src="@drawable/setting_goto"/>-->
+
+            <!--</RelativeLayout>-->
+
+            <Button
+                android:id="@+id/exit"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y85"
+                android:layout_marginBottom="@dimen/y58"
+                android:layout_marginLeft="@dimen/x38"
+                android:layout_marginRight="@dimen/x38"
+                android:background="@drawable/shape_setting_exit_app"
+                android:text="@string/setting_exit"
+                android:textColor="@color/white"
+                android:textSize="@dimen/y32"/>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

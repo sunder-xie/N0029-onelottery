@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>充值提现</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+		<link href="" rel="stylesheet">
+		<link rel="stylesheet" href="../css/style.css">
+		<script src="../js/jquery-1.11.1.min.js"></script>
+		<script src="../js/js.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				loadData();
+			});
+			function loadData() {
+				var statu = $('#statu').val();
+				var name = $('#name').val();
+				console.log(statu, name);
+				var src="/transfer/withdrawlist?statu="+statu+"&name="+name;
+				console.log(src)
+				$('#iframe').attr('src',src);
+			}
+
+			function remit() {
+				var withdrawId = $('#id').text();
+				var remitNum = $('#remitNum').val().replace(/^\s+/,'').split('').reverse().join('').replace(/^\s+/,'').split('').reverse().join('');
+				console.log(withdrawId, remitNum);
+				var url="/transfer/remit";
+				$.ajax({
+					type: 'post',
+					url: url,
+					data: {
+						TxId: withdrawId,
+						RemitOrderNumber: remitNum
+					},
+					success: function(data) {
+						$(".remit_div").hide();
+						if (data===0) {//'打款成功！'
+							$(".alertWrap").show();
+						} else {
+							alert(data);
+						};
+					}
+				});
+
+			}
+
+			function showRemark(result) {
+				$('.aler-yy').show();
+				$('#result').val(result);
+				$('.keShensu').hide();
+				$('.Shzhong').hide();
+			}
+
+
+			function remark() {
+				var withdrawId = $('#wid').text();
+				var reason = $('#reason').val().replace(/^\s+/,'').split('').reverse().join('').replace(/^\s+/,'').split('').reverse().join('');
+				var statu = $('#statu').val();
+				var result = $('#result').val();
+
+				if (result == 0) {
+					withdrawId = $('#id').text()
+				}
+
+				console.log(withdrawId, reason, statu, result);
+				if (result == 0) {
+					var url="/transfer/fail";
+					console.log('url=',url);
+					$.ajax({
+						type: 'post',
+						url: url,
+						data: {
+							TxId: withdrawId,
+							Remark: reason
+						},
+						success: function(data) {
+							$(".remark_div").hide();
+							if (data===0) {//'提现失败成功！'
+								$(".alertWrap").show();
+							} else {
+								alert(data);
+							};
+						}
+					});
+				} else {
+					var url="/transfer/appealDone";
+									console.log('withdrawId='+withdrawId, 'reason:'+reason, "statu="+statu, 'result='+result);
+									console.log('url=',url);
+					$.ajax({
+						type: 'post',
+						url: url,
+						data: {
+							TxId: withdrawId,
+							Result: result,
+							Remark: reason
+						},
+						success: function(data) {
+							$(".remark_div").hide();
+							if (data===0) {//'申诉处理成功！'
+								$(".alertWrap").show();
+							} else {
+								alert(data);
+							};
+						}
+					});
+				};
+				
+			}
+
+			$.ajax({
+				type: 'get',
+				url: '/account/userinfo',
+				success: function (data) {
+					$('#username').html(data.name);
+				}
+			});
+		</script>
+	</head>
+	<body>
+    <div class="siteWrap">
+    	<div class="site">
+    		<div class="site_left">
+    				<img src="../images/logo.png" height="30" width="147" alt="">
+    		</div>
+    		<div class="site_right">
+    			<ul class="site_ul">
+    				<li class="site_people"></li>
+    				<li class="site_li1" id='username'></li>
+    				<li class="site_peo"></li>
+    				<li class="site_word"><a href="javascript:void(0);">设置</a>
+						<ul class="site_dropUp">
+	    					<li class="site_Bord"><a href="/account">个人账户</a></li>
+							<li><a href="/logout">退出</a></li>
+    					</ul>
+    				</li>
+    			</ul>
+    		</div>
+    	</div>
+    </div>
+    <div class="navWrap">
+    	<div class="nav">
+    		<ul class="nav_ul">
+    			<li class=""><a href="../asset">资产统计</a></li>
+    			<li><a href="../activity">活动管理</a></li>
+    			<li><a href="../user">用户管理</a></li>
+    			<li class="current"><a href="#">充值提现</a></li>
+    		</ul>
+    	</div>
+    </div>
+
+	<div class="chujinWrap">
+		<div class="chujin">
+			<ul>
+				<li><a href="../transfer">充值</a></li>
+				<li class="current"><a href="#">提现</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="time_select">
+		<div class="sele_tim yonghuming" style="float:left;margin-left: 30px;">
+			<span>用户筛选</span>
+			<input type="text" id='name' placeholder="输入用户名">
+		</div>
+		<div class="sele_tim zhuangtai" style="float:left; margin-right: 30px;">
+			<span>状态筛选</span>
+			<select class="sec_seo"  id="statu">
+			  <option value="all">全部</option>
+			  <option value="审核中">审核中</option>
+			  <option value="已打款">已打款</option>
+			  <option value="已确认">已确认</option>
+			  <option value="提现失败">提现失败</option>
+			  <option value="客户申诉">客户申诉</option>
+			</select>
+		</div>
+		<div class="zhuangtai"style="float:left;">
+			<input class="op_se_btnxx" type="submit" value="筛选" onclick="loadData()">
+		</div>
+	</div>
+	<div class="pay-menu">
+		<iframe id="iframe" src="" width="1098" height="400"  onload="this.height=$(this).contents().height()" scrolling="no" frameborder="0" ></iframe>
+	</div>
+
+
+	<div class="Shzhong Spop">
+		<div class="shz-con">
+			<span><img src="../images/guanbi.png" height="34" width="38" alt=""></span>
+			<table>
+				<tr>
+					<td id="id" style="display:none"></td>
+				</tr>
+				<tr>
+					<td><b>用户哈希:</b></td>
+					<td id="userId">dasdaszcasdasdasczcasdasxasxasxasxasx</td>
+				</tr>
+				<tr>
+					<td>用户名: </td>
+					<td id="name">lisi2017</td>
+				</tr>
+				<tr class="jin-line">
+					<td>提现金额：</td>
+					<td><b id="amounts">1000.00</b></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>开户行：</td>
+					<td id="bank">建设银行</td>
+					<td><button>复制</button></td>
+				</tr>
+				<tr>
+					<td>卡号：</td>
+					<td id="account">2105689456254532</td>
+					<td><button>复制</button></td>
+				</tr>
+				<tr class="jin-line">
+					<td>账户名：</td>
+					<td id="accountName">18610027455</td>
+					<td><button>复制</button></td>
+				</tr>
+				<tr>
+					<td>状态：</td>
+					<td id="statu">审核中</td>
+				</tr>
+				<tr>
+					<td>时间：</td>
+					<td id="updateTime" >2017-03-16 11:45:28</td>
+				</tr>
+			</table>
+			<div id="btn">
+				<a href="javascript:void(0);">
+					<button class="dakuan-btn queren-tra-btt" id="confm">确认打款</button>
+				</a>
+				<a href="javascript:void(0);">
+					<button class="dakuan-btn quxiao-btt Dayu" id="cancefm" onclick='showRemark(0)'>取消打款</button>
+				</a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="keShensu Spop">
+		<div class="shz-con">
+			<span><img src="../images/guanbi.png" height="34" width="38" alt=""></span>
+			<table>
+				<tr>
+					<td id="wid" style="display:none"></td>
+				</tr>
+				<tr>
+					<td><b>用户哈希:</b></td>
+					<td id="userId">dasdaszcasdasdasczcasdasxasxasxasxasx</td>
+				</tr>
+				<tr>
+					<td>用户名: </td>
+					<td id="name">lisi2017</td>
+				</tr>
+				<tr class="jin-line">
+					<td>提现金额：</td>
+					<td><b id="amounts">1000.00</b></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>开户行：</td>
+					<td id="bank">建设银行</td>
+					<td><button>复制</button></td>
+				</tr>
+				<tr>
+					<td>卡号：</td>
+					<td id="account">2105689456254532</td>
+					<td><button>复制</button></td>
+				</tr>
+				<tr class="jin-line">
+					<td>账户名：</td>
+					<td id="accountName">18610027455</td>
+					<td><button>复制</button></td>
+				</tr>
+				<tr>
+					<td>订单号：</td>
+					<td id="orderNum">123435367</td>
+					<td><button>复制</button></td>
+				</tr>
+				<tr>
+					<td>状态：</td>
+					<td id="statu">审核中</td>
+				</tr>
+				<tr class="jin-line">
+					<td>时间：</td>
+					<td id="updateTime" >2017-03-16 11:45:28</td>
+				</tr>
+				<tr id="appeal_tr">
+					<td class="yuanyin" >申诉原因：</td>
+					<td id="appeal">客户申诉</td>
+				</tr>
+				<tr id="remark_tr" class="jin-line">
+					<td class="yuanyin" >反馈理由：</td>
+					<td id="remark"></td>
+				</tr>
+			</table>
+			<div id="btn">
+				<a href="javascript:void(0);">
+					<button class="dakuan-btn queren-btt" id="confm" onclick='showRemark(1)'>确认到账</button>
+				</a>
+				<a href="javascript:void(0);">
+					<button class="dakuan-btn quxiao-btt Dayu" id="cancefm" onclick='showRemark(2)'>提现失败</button>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="alertWrap">
+		<div class="alert-con">
+			<span><img src="../images/cheng.png" height="64" width="64" alt=""></span>
+			<h1>提交成功</h1>
+			<p>请稍后...</p>
+			<button onclick="loadData()">OK</button>
+		</div>
+	</div>
+
+
+	<div class="aler-yy remark_div">
+		<div class="aler-yycon">
+			<textarea name="" id="reason" cols="30" rows="10" placeholder="限制在20个字以内"></textarea>
+			<input id="result" style="display:none"/>
+			<button class="Tiji" type="button" onclick="remark()">提交</button>
+			<button class="quxiao-button Quxiao" onclick='$(".remark_div").hide()'>取消</button>
+		</div>
+	</div>
+
+	<div class="order-input remit_div">
+		<div class="aler-yycon">
+			<textarea name="" id="remitNum" cols="30" rows="10" placeholder="请输入银行转账流水号"></textarea>
+			<button class="Tiji" type="button" onclick="remit()">提交</button>
+			<button class="quxiao-button Quxiao" onclick='$(".remit_div").hide()'>取消</button>
+		</div>
+	</div>
+
+	<div class="footer1">
+		Copyright © 2015.Company PeerSafe All rights reserved.
+	</div>
+	</body>
+</html>

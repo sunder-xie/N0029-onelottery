@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script src="/js/fileinput.min.js" type="text/javascript"></script>
+
+</head>
+<style>
+    .file-input{
+        width: 350px;
+    }
+    .table{width: 100%}
+    .imghead{width: 90px;height: 90px;margin: 0}
+    .table tbody td{ text-align:center;padding-top: 20px;}
+    .imgaddress{width: 300px; height: 50px}
+    .pulish_btn input{width: 100px;}
+</style>
+<script type="text/javascript">
+    var count ="<%=data.length==0?1:(data[data.length-1].imgOrder+1)%>";
+    $(function(){
+        $('.imgtrmain').hide();
+        addclick()
+        <%if(data.length==0){%>
+            $('.imgtrmain input[name="order"]').val(count);
+            $('.imgtrmain').show();
+        <%}%>
+
+    });
+    function addclick() {
+
+        var $up = $(".up")
+        $up.each(function () {
+            var $tr = $(this).parents("tr");
+            if($tr.index() == 0){$(this).css({"color":"#ccc"})}
+        })
+        $up.click(function() {
+            var $tr = $(this).parents("tr");
+            if($tr.index() == 0){$(this).css({"color":"#ccc"})}
+            if ($tr.index() != 0) {
+                var pfilename = $(this).parents("tr").prev().find("input[name='hidefile']").val();
+                var filename = $(this).parents("tr").find("input[name='hidefile']").val();
+                var porder = $(this).parents("tr").prev().find("input[name='order']").val();
+                var order = $(this).parents("tr").find("input[name='order']").val();
+                if(filename){
+                    $.ajax({
+                        type: "post",
+                        url: "/activity/orderbanner",
+                        data: {
+                            filename:filename,
+                            cfilename:pfilename,
+                            order:order,
+                            corder:porder
+                        },
+                        success: function(data) {
+                            //alert(data);
+                            location.reload();
+                        }
+                    });
+                }
+                $tr.fadeOut().fadeIn();
+                $tr.prev().before($tr);
+
+            }
+        });
+        //下移
+        var $down = $(".down");
+        var len = $down.length;
+        $down.each(function () {
+            var $tr = $(this).parents("tr");
+            if($tr.index() == len - 1){$(this).css({"color":"#ccc"})}
+        })
+        $down.click(function() {
+            var $tr = $(this).parents("tr");
+            if($tr.index() == len - 1){$(this).css({"color":"#ccc"})}
+            if ($tr.index() != len - 1) {
+                var filename = $(this).parents("tr").find("input[name='hidefile']").val();
+                var nfilename = $(this).parents("tr").next().find("input[name='hidefile']").val();
+                var order = $(this).parents("tr").find("input[name='order']").val();
+                var norder = $(this).parents("tr").next().find("input[name='order']").val();
+                if(filename){
+                    $.ajax({
+                        type: "post",
+                        url: "/activity/orderbanner",
+                        data: {
+                            filename:filename,
+                            cfilename:nfilename,
+                            order:order,
+                            corder:norder
+                        },
+                        success: function(data) {
+                            //alert(data);
+                            location.reload();
+                        }
+                    });
+                }
+                $tr.fadeOut().fadeIn();
+                $tr.next().after($tr);
+            }
+        });
+    }
+
+    function add(){
+        var num =$('.trclone').length;
+        if(num<4) {
+            $('.imgtrmain input[name="order"]').val(count);
+            $('.imgtrmain').show();
+            window.parent.iFrameHeight();
+
+        }else{
+            alert("最多添加四组!");
+        }
+    }
+    //删除
+    function deleteimg(imgtr,obj){
+
+            $(".table tbody ."+imgtr).remove();
+            var filename = $(obj).parents("tr").find("input[name='hidefile']").val();
+            if(filename){
+                $.ajax({
+                    type: "post",
+                    url: "/activity/deletebanner",
+                    data: {filename:filename},
+                    success: function(data) {
+                        alert(data);
+                        location.reload();
+                    }
+                });
+            }
+            window.parent.iFrameHeight();
+    }
+
+    //上传
+   function upload(form,obj){
+       var frm = $("#"+form);
+       var formdata = new FormData(document.getElementById(form));
+       var fileName=$(obj).parents("tr").find("input[name='file']").val();
+       var imgaddress=$(obj).parents("tr").find("input[name='imgaddress']").val();
+       console.log(fileName,imgaddress);
+       if (!imgaddress) {
+            alert("请输入相对路径");
+            return;
+       }
+       if(fileName&&imgaddress){
+           $.ajax({
+               type: frm.attr('method'),
+               url: frm.attr('action'),
+               data: formdata,
+               processData: false,
+               contentType: false,
+               success: function(data) {
+                   alert(data);
+                   location.reload();
+               }
+           });
+       }
+    };
+</script>
+<body>
+<div class="publi_act" style="margin-left: 0px;margin-top: 50px;">
+        <table class="table">
+            <thead>
+            <tr>
+                <th style="width: 40%">图片</th>
+                <th style="width: 40%">地址</th>
+                <th style="width: 20%">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%for(var i = 0; i < data.length ; i ++){%>
+                <tr class="trclone imgtr0">
+                    <form id="form_img<%=data[i].imgOrder%>" action="/activity/banner" method="post" enctype="multipart/form-data">
+                        <td>
+                            <div class="col-sm-9 big-photo">
+                                <div class="preview">
+                                    <img class="imghead" border="0" src="/banner/<%=data[i].imgName%>" >
+                                </div>
+                                <input type="file"  name="file"onchange="previewImage(this)" style="display: none;" id="previewImg<%=data[i].imgOrder%>">
+                                <input  name="hidefile" style="display: none" value="<%=data[i].imgName%>">
+                            </div>
+                        </td>
+                        <td><input class="imgaddress" name="imgaddress" value="<%=data[i].imgAddress%>"><input  name="order" style="display: none" value="<%=data[i].imgOrder%>"></td>
+                        <td><a href="#" class="up">上移</a> <a href="#" class="down">下移</a>  <a href="#" class="delete" onclick="deleteimg('form_img<%=data[i].imgOrder%>',this)" >删除</a> </td>
+                    </form>
+                </tr>
+            <%}%>
+            <tr class="imgtrmain">
+                <form id="form_img" action="/activity/banner" method="post" enctype="multipart/form-data">
+                    <td>
+                        <div class="col-sm-9 big-photo">
+                            <div class="preview">
+                                <img class="imghead" border="0" src="/img/photo_icon.png"  onclick="$('#previewImg').click();">
+                            </div>
+                            <input type="file" name="file"onchange="previewImage(this)" style="display: none;" id="previewImg">
+                        </div>
+                    </td>
+                    <td><input class="imgaddress" name="imgaddress" value=""><input  name="order" style="display: none" value="1"></td>
+                    <td> <a  href="#" onclick="upload('form_img',this)"  >上传</a></td>
+                </form>
+            </tr>
+            </tbody>
+        </table>
+
+       <div class="pulish_btn" style="margin-top: 80px; width: 100px;">
+            <input class="succ-btn" type="button"  onclick="add()" value="添加" />
+        </div>
+</div>
+
+
+</body>
+</html>

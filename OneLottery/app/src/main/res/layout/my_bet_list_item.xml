@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y164"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/img_bet_icon"
+        android:layout_width="@dimen/x122"
+        android:layout_height="@dimen/x122"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/x30"
+        android:scaleType="centerCrop"
+        android:src="@drawable/default_avatar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x122"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/img_bet_icon"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="这里是我多么反对方答复是否"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/y26" />
+
+        <RelativeLayout
+            android:id="@+id/rl_all_tv_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_bet_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="投注:10注"
+                android:textColor="@color/lottery_detaile_text_color"
+                android:textSize="@dimen/y26" />
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="类型 : 官方"
+                android:textColor="@color/lottery_detaile_text_color"
+                android:textSize="@dimen/y26" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="状态 ：进行中"
+            android:textSize="@dimen/y26"
+            android:textColor="@color/lottery_detaile_text_color"
+            android:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/pb_bet_progress"
+            style="@style/StyleProgressBarMini"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y10"
+            android:layout_centerVertical="true"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/rl_dur_my_bet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_dur_my_bet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="我的投注"
+                android:textColor="@color/lottery_detaile_text_color"
+                android:textSize="@dimen/y26" />
+
+            <Button
+                android:id="@+id/btn_dur_add_bet"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="@dimen/x98"
+                android:layout_height="@dimen/y44"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/selector_register_btn"
+                android:text="@string/setting_bet_add"
+                android:textColor="@color/white"
+                android:textSize="@dimen/y23" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y1"
+        android:layout_alignParentBottom="true"
+        android:background="@color/setting_division_line" />
+</RelativeLayout>

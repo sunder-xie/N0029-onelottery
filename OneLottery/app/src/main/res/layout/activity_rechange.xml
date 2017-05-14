@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_rechange"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:id="@+id/rel_ali"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y106"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y116"
+        android:background="@drawable/shape_setting_wx_bg">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x43"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ali_icon"/>
+
+        <ImageView
+            android:id="@+id/btn_ali"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x43"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:src="@drawable/no_seclect_icon"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_wx"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y106"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y42"
+        android:background="@drawable/shape_setting_ali_bg">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x55"
+            android:scaleType="centerCrop"
+            android:src="@drawable/wx_icon"/>
+
+        <ImageView
+            android:id="@+id/btn_wx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x47"
+            android:background="@android:color/transparent"
+            android:src="@drawable/no_seclect_icon"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y164"
+        android:text="@string/setting_rechange_text"
+        android:textColor="@color/common_text_color"
+        android:textSize="@dimen/y28"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y70"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y32">
+
+        <Button
+            android:id="@+id/btn50"
+            style="@style/recharge_btn"
+            android:text="100"/>
+
+        <Button
+            android:id="@+id/btn100"
+            style="@style/recharge_btn"
+            android:text="200"/>
+
+        <Button
+            android:id="@+id/btn200"
+            style="@style/recharge_btn"
+            android:text="500"/>
+
+        <Button
+            android:id="@+id/btn500"
+            style="@style/recharge_btn"
+            android:text="1000"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y70"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y20"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn1000"
+            android:layout_width="@dimen/x145"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_rechange_block_bg"
+            android:text="10000"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/y32"/>
+
+        <EditText
+            android:id="@+id/et_rechange_enter"
+            android:layout_width="@dimen/x310"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/x20"
+            android:background="@drawable/shape_rechange_block_bg"
+            android:hint="@string/setting_rechange_enter_count"
+            android:inputType="number"
+            android:maxLength="7"
+            android:paddingLeft="@dimen/x24"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/y32"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_setting_rechange"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y88"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/x40"
+        android:layout_marginTop="@dimen/y164"
+        android:background="@drawable/selector_register_btn"
+        android:text="@string/setting_confirm_rechange"
+        android:textColor="@color/white"
+        android:textSize="@dimen/y32"/>
+
+</LinearLayout>
